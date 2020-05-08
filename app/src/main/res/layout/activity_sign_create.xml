@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <com.zuojianyou.zybdoctor.views.ImageCutView
+        android:id="@+id/icv_act_sign_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_act_sign_create_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_img_cut_btn_reset"
+            android:text="重置" />
+
+        <ImageButton
+            android:id="@+id/btn_act_sign_create_rotate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_img_cut_btn_rotate"
+            android:text="旋转" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageButton
+            android:id="@+id/ib_act_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_img_cut_btn_close" />
+
+        <ImageButton
+            android:id="@+id/btn_act_sign_create_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_img_cut_btn_ok" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

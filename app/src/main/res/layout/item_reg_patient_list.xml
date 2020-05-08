@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:paddingLeft="12dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tv_patient_name"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        tools:text="姓名"/>
+
+    <TextView
+        android:id="@+id/tv_patient_sex"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        tools:text="男"/>
+
+    <TextView
+        android:id="@+id/tv_patient_age"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        tools:text="30岁"/>
+
+    <TextView
+        android:id="@+id/tv_patient_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="18908789878"/>
+
+</LinearLayout>

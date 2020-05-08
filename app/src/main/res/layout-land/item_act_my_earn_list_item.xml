@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_divider"
+    android:orientation="vertical"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp">
+
+    <LinearLayout
+        android:id="@+id/ll_group_title"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginBottom="1dp"
+        android:background="#fff"
+        android:paddingLeft="@dimen/act_my_earn_list_item_title_padding"
+        android:paddingRight="@dimen/act_my_earn_list_item_title_padding"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="12月/2019" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/act_my_earn_list_item_text_size"
+            android:gravity="center"
+            android:text="结算金额(元)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/act_my_earn_list_item_date_width"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="09" />
+
+            <TextView
+                android:id="@+id/tv_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/act_my_earn_list_item_week_margin"
+                tools:text="周三" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_my_earn_list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_content1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_my_earn_list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_content6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+                <TextView
+                    android:id="@+id/tv_content10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:paddingLeft="@dimen/my_earn_item_padding_left"
+                    android:textSize="@dimen/act_my_earn_list_item_text_size"
+                    tools:text="医师：张三" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/act_my_earn_list_item_money_width"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:gravity="center"
+                android:textColor="@color/color_ask_title_red"
+                tools:text="10000.00" />
+
+            <ImageView
+                android:id="@+id/iv_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:visibility="invisible"
+                android:src="@mipmap/ic_recipe_user_create"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+    

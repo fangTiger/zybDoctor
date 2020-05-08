@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorTextWhite">#ffffff</color>
+    <color name="colorTextBlack">#333333</color>
+    <color name="colorTextGray">#999999</color>
+
+    <color name="color_dispensary_list_tile_border">#ebebeb</color>
+    <color name="color_dispensary_list_tile_bg">#fafafa</color>
+
+    <color name="color_common_act_bg">#f9f9f9</color>
+    <color name="color_common_act_theme">#eff0f7</color>
+    <color name="color_common_divider">#ebebeb</color>
+    <color name="color_common_divider_theme">#eff0f7</color>
+
+    <color name="color_ask_list_index_online">#f8b865</color>
+    <color name="color_ask_list_index_offline">#a0c3bf</color>
+
+    <color name="color_ask_title_red">#a0272a</color>
+    <color name="color_ask_title_black">#333333</color>
+    <color name="color_ask_text_tag">#5a5a5a</color>
+    <color name="color_ask_text_content">#999999</color>
+    <color name="color_ask_text_gray">#666666</color>
+
+    <color name="color_text_menu_checked">#A0272A</color>
+    <color name="color_text_menu_normal">#000000</color>
+    <color name="color_treat_ebm_menu_bg">#f6f6f6</color>
+
+    <color name="color_dic_sick_item_check">#7a514b</color>
+    <color name="color_dic_sick_item_normal">#f1f1f1</color>
+
+    <color name="color_download_progress_bg">#eeeeee</color>
+    <color name="color_download_progress_fg">#58153a</color>
+
+    <color name="color_tag_marked_yellow">#d9a850</color>
+
+    <color name="color_btn_white_normal">#FFFFFF</color>
+    <color name="color_btn_white_pressed">#EFEFEF</color>
+</resources>

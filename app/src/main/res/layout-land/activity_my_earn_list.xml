@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp">
+
+        <ImageButton
+            android:id="@+id/ib_act_base_list_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@mipmap/ic_common_act_btn_back" />
+
+        <TextView
+            android:id="@+id/tv_act_base_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="我的收入"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="16dp" />
+
+        <ImageButton
+            android:id="@+id/ib_act_base_list_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/act_my_earn_list_header_margin"
+        android:background="@android:color/white"
+        android:padding="@dimen/act_my_earn_list_header_padding">
+
+        <ImageView
+            android:id="@+id/iv_earn_header_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_common_money" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/iv_earn_header_icon"
+            android:text="收入合计（人民币元）"
+            android:textColor="@color/color_ask_text_tag" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_earn_header_tip"
+            android:layout_alignLeft="@+id/tv_earn_header_tip"
+            android:layout_marginTop="4dp"
+            android:text="0.00元"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/act_my_earn_list_time_margin"
+                android:text="选择时间" />
+
+            <TextView
+                android:id="@+id/btn_begin_time"
+                android:layout_width="96dp"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_border_bg"
+                android:gravity="center"
+                tools:text="2019-01-01" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/act_my_earn_list_time_margin"
+                android:layout_marginRight="@dimen/act_my_earn_list_time_margin"
+                android:text="至" />
+
+            <TextView
+                android:id="@+id/btn_end_time"
+                android:layout_width="96dp"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_border_bg"
+                android:gravity="center"
+                tools:text="2019-01-01" />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="@dimen/act_my_earn_list_time_margin"
+                android:background="@drawable/btn_red_bg"
+                android:text="查询"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/act_my_earn_list_header_margin">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_earn_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:padding="@dimen/act_my_earn_list_list_padding" />
+
+        <TextView
+            android:id="@+id/tv_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="没有结果" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

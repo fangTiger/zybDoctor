@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_common_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@mipmap/ic_common_act_btn_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="处方名称*"
+                    android:textColor="@color/color_ask_title_red"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_recipe_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="处方名称"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属病症*"
+                    android:textColor="@color/color_ask_title_red"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <TextView
+                    android:id="@+id/tv_recipe_detail_type_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中医诊断名称*"
+                    android:textColor="@color/color_ask_title_red"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_cn_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="中医诊断名称"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="西医诊断名称"
+                    android:textColor="@color/color_ask_text_tag"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_en_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="西医诊断名称"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属科室*"
+                    android:textColor="@color/color_ask_title_red"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <TextView
+                    android:id="@+id/tv_recipe_detail_office_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属病种"
+                    android:textColor="@color/color_ask_text_tag"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <TextView
+                    android:id="@+id/tv_recipe_detail_office_sick_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_recipe_detail_dispatch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ask_item_height"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/ask_padding_left"
+                android:paddingRight="@dimen/ask_padding_right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="草药配送"
+                    android:textColor="@color/color_ask_text_tag"
+                    android:textSize="@dimen/ask_tag_size" />
+
+                <TextView
+                    android:id="@+id/tv_recipe_detail_dispatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/color_ask_text_content"
+                    android:textSize="@dimen/ask_content_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_mine_tip_more" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_recipe_detail_med_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="草药名称："
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_med_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:gravity="center_vertical"
+                    android:hint="草药名称"
+                    android:paddingLeft="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_recipe_detail_med_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="用量："
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_med_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_edit_bg"
+                    android:gravity="center_vertical"
+                    android:hint="用量"
+                    android:inputType="number"
+                    android:paddingLeft="8dp"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tv_recipe_detail_med_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center_vertical"
+                    android:text="单位"
+                    android:textSize="15dp" />
+
+                <Button
+                    android:id="@+id/btn_recipe_detail_med_add"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@drawable/common_btn_confirm_bg"
+                    android:text="添加"
+                    android:textColor="#fff" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recipe_detail_med"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中医辨证依据："
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_cn_gist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="中医辨证依据"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发病机理："
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_sick_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="发病机理"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="治法："
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_treat_way"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="治法"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="西医主要临床症状"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_en_gist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="西医主要临床症状"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="医嘱"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_doc_advice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="医嘱"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="煎/服药方法"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_recipe_detail_med_usage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/common_edit_bg"
+                    android:hint="煎/服药方法"
+                    android:lineSpacingExtra="6dp"
+                    android:maxLines="10"
+                    android:padding="8dp"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_recipe_detail_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/common_btn_confirm_bg"
+            android:text="确定"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/common_btn_cancel_bg"
+            android:text="取消" />
+
+    </LinearLayout>
+
+</LinearLayout>

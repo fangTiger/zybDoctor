@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/et_dialog_dic_sick_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="请输入补充内容，用逗号分隔。"
+        android:textSize="16dp" />
+
+</LinearLayout>

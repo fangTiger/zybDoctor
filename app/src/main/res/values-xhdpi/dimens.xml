@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="act_login_view_width">300dp</dimen>
+
+    <dimen name="act_main_doc_photo_margin_top">24dp</dimen>
+    <dimen name="act_main_doc_photo_margin_bottom">40dp</dimen>
+
+    <dimen name="frg_ask_title_height">100dp</dimen>
+    <dimen name="frg_ask_divider_height">80dp</dimen>
+    <dimen name="frg_ask_title_padding">8dp</dimen>
+    <dimen name="frg_ask_title_text_size">14dp</dimen>
+    <dimen name="frg_ask_recycler_margin">20dp</dimen>
+    <dimen name="frg_ask_item_height">120dp</dimen>
+    <dimen name="frg_ask_item_name_margin_top">20dp</dimen>
+    <dimen name="frg_ask_item_name_margin_left">16dp</dimen>
+    <dimen name="frg_ask_item_time_margin_top">20dp</dimen>
+    <dimen name="frg_ask_item_time_width">160dp</dimen>
+    <dimen name="frg_ask_item_add_width">200dp</dimen>
+    <dimen name="frg_ask_item_code_width">160dp</dimen>
+    <dimen name="frg_ask_item_state_padding">8dp</dimen>
+
+    <dimen name="frg_ask_disp_search_padding">20dp</dimen>
+    <dimen name="frg_ask_disp_search_height">40dp</dimen>
+    <dimen name="frg_ask_disp_search_size">14dp</dimen>
+    <dimen name="frg_ask_disp_content_margin">16dp</dimen>
+    <dimen name="frg_ask_disp_content_padding">12dp</dimen>
+    <dimen name="frg_ask_disp_header_height">48dp</dimen>
+    <dimen name="frg_ask_disp_header_margin_top">12dp</dimen>
+    <dimen name="frg_ask_disp_item_height">60dp</dimen>
+    <dimen name="frg_ask_disp_item_index_width">60dp</dimen>
+    <dimen name="frg_ask_disp_item_sicker_width">120dp</dimen>
+    <dimen name="frg_ask_disp_item_time_width">180dp</dimen>
+    <dimen name="frg_ask_disp_item_cost_width">140dp</dimen>
+    <dimen name="frg_ask_disp_item_doctor_width">140dp</dimen>
+
+    <dimen name="act_patient_info_photo_size">236dp</dimen>
+    <dimen name="act_patient_info_msg_width">280dp</dimen>
+    <dimen name="act_patient_info_msg_height">236dp</dimen>
+    <dimen name="act_patient_info_msg_margin">64dp</dimen>
+    <dimen name="act_patient_info_submit_margin">160dp</dimen>
+
+    <dimen name="act_treat_im_padding">16dp</dimen>
+    <dimen name="act_treat_photo_size">236dp</dimen>
+    <dimen name="act_treat_photo_margin">16dp</dimen>
+    <dimen name="act_treat_msg_height">160dp</dimen>
+    <dimen name="act_treat_msg_padding">16dp</dimen>
+    <dimen name="act_treat_btn_call_margin">50dp</dimen>
+    <dimen name="act_treat_btn_call_width">160dp</dimen>
+    <dimen name="act_treat_btn_call_height">32dp</dimen>
+    <dimen name="act_treat_btn_height">30dp</dimen>
+    <dimen name="act_treat_btn_text_size">14dp</dimen>
+    <dimen name="act_treat_btn_submit_padding">12dp</dimen>
+    <dimen name="act_treat_btn_submit_width">82dp</dimen>
+    <dimen name="act_treat_btn_submit_margin">24dp</dimen>
+
+    <dimen name="act_treat_block_distance">16dp</dimen>
+    <dimen name="ask_title_height">48dp</dimen>
+    <dimen name="ask_padding_left">28dp</dimen>
+    <dimen name="ask_padding_right">40dp</dimen>
+    <dimen name="ask_title_size">16dp</dimen>
+    <dimen name="ask_tag_size">14dp</dimen>
+    <dimen name="ask_content_size">13dp</dimen>
+    <dimen name="ask_item_height">40dp</dimen>
+    <dimen name="ask_item_state_width">60dp</dimen>
+
+    <dimen name="act_medicine_add_left_width">400dp</dimen>
+    <dimen name="act_medicine_add_row_space">16dp</dimen>
+    <dimen name="act_medicine_add_tag_width">130dp</dimen>
+    <dimen name="act_medicine_add_list_margin">16dp</dimen>
+    <dimen name="act_medicine_add_list_padding">16dp</dimen>
+    <dimen name="act_medicine_add_btn_submit_padding">12dp</dimen>
+    <dimen name="act_medicine_add_btn_confirm_width">80dp</dimen>
+    <dimen name="act_medicine_add_btn_confirm_margin">24dp</dimen>
+
+    <dimen name="frg_mine_item_height">60dp</dimen>
+
+    <dimen name="act_my_earn_list_header_padding">24dp</dimen>
+    <dimen name="act_my_earn_list_header_margin">12dp</dimen>
+    <dimen name="act_my_earn_list_time_margin">12dp</dimen>
+    <dimen name="act_my_earn_list_list_padding">24dp</dimen>
+    <dimen name="act_my_earn_list_item_date_width">90dp</dimen>
+    <dimen name="act_my_earn_list_item_money_width">100dp</dimen>
+    <dimen name="act_my_earn_list_item_height">48dp</dimen>
+    <dimen name="act_my_earn_list_item_week_margin">12dp</dimen>
+    <dimen name="act_my_earn_list_item_text_size">13dp</dimen>
+    <dimen name="act_my_earn_list_item_title_padding">12dp</dimen>
+
+    <dimen name="act_treat_ebm_left_block_width">200dp</dimen>
+    <dimen name="act_treat_ebm_type_height">40dp</dimen>
+
+</resources>

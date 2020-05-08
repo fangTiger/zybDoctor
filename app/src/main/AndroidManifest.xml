@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zuojianyou.zybdoctor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:name="com.zuojianyou.zybdoctor.application.MyApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_screenshot"
+        android:debuggable="false"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_screenshot"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.android7.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.UserLoginActivity"></activity>
+        <activity android:name=".activity.RegistrationActivity" />
+        <activity android:name=".activity.PatientInfoActivity" />
+        <activity
+            android:name=".activity.TreatActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity android:name=".activity.TreatEbmActivity" />
+        <activity android:name=".activity.TreatPatentActivity" />
+        <activity android:name=".activity.PersonalRecipeActivity" />
+        <activity android:name=".activity.RecipeAddActivity" />
+        <activity android:name=".activity.VisitOrderActivity" />
+        <activity android:name=".activity.RecipeOrderActivity" />
+        <activity android:name=".activity.RecordTestActivity" />
+
+        <activity android:name=".activity.DispensaryActivity" />
+        <activity android:name=".activity.MyArticleActivity" />
+        <activity android:name=".activity.ArticleEditActivity" />
+        <activity android:name=".activity.ArticleDetailActivity" />
+        <activity android:name=".activity.MyCollectListActivity" />
+        <activity android:name=".activity.MyOrderListActivity" />
+        <activity android:name=".activity.MyEarnListActivity" />
+        <activity android:name=".activity.MyBlogActivity" />
+        <activity android:name=".activity.ArticleCreateActivity" />
+        <activity android:name=".activity.VideoRecordActivity" />
+        <activity android:name=".activity.VideoPlayerActivity" />
+
+        <service android:name=".service.Mp3RecordService" />
+        <service android:name=".service.Mp3PlayerService" />
+
+        <!--视屏聊天-->
+        <activity
+            android:name=".voip.SingleCallActivity"
+            android:showOnLockScreen="true"
+            android:showWhenLocked="true"
+            tools:ignore="UnusedAttribute">
+            <intent-filter>
+                <action android:name="${applicationId}.kit.voip.single" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MedicineAddActivity" />
+        <activity android:name=".activity.RecipeListActivity" />
+        <activity android:name=".activity.SickSampleActivity" />
+        <activity android:name=".activity.MyRecipeActivity" />
+        <activity android:name=".activity.MyRecipeDetailActivity" />
+        <activity android:name=".activity.MyEarnDetailActivity" />
+        <activity android:name=".activity.MyRecipeAddActivity" />
+        <activity android:name=".activity.MyPwdEditActivity" />
+        <activity android:name=".activity.AiFaceActivity" />
+        <activity android:name=".activity.AttestationActivity" />
+        <activity android:name=".activity.UserRegisterActivity" />
+        <activity android:name=".activity.ImageCreateActivity" />
+        <activity android:name=".activity.WorkSetActivity" />
+        <activity android:name=".activity.ServiceHelpActivity" />
+        <activity android:name=".activity.WebActivity" />
+
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"/>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true" />
+
+
+        <!-- 单聊界面 -->
+        <receiver android:name=".voip.VoipReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.voip.Receiver" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".voip.FloatingVoipService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>

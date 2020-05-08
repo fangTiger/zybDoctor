@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="请选择地区"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="8dp"
+                android:src="@mipmap/ic_btn_dialog_close" />
+
+        </RelativeLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_country"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:background="@drawable/bg_article_menu_divider"
+                android:button="@null"
+                tools:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_province"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:background="@drawable/bg_article_menu_divider"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_city"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:background="@drawable/bg_article_menu_divider"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_area"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:background="@drawable/bg_article_menu_divider"
+                android:button="@null" />
+
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_popup_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

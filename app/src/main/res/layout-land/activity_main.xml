@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="54dp"
+        android:layout_height="match_parent"
+        android:background="#e6e0d9"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_act_main_doc_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/act_main_doc_photo_margin_top"
+            android:layout_marginBottom="@dimen/act_main_doc_photo_margin_bottom"
+            android:src="@mipmap/ic_user_photo_default" />
+
+        <RadioGroup
+            android:id="@+id/rg_index_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_index_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_index_rb_home" />
+
+            <RadioButton
+                android:id="@+id/rb_index_ask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_index_rb_1" />
+
+            <RadioButton
+                android:id="@+id/rb_index_disp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_index_rb_2" />
+
+            <RadioButton
+                android:id="@+id/rb_index_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_index_rb_3" />
+
+            <RadioButton
+                android:id="@+id/rb_index_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_index_rb_4" />
+
+        </RadioGroup>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_btn_setting"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+    <com.zuojianyou.zybdoctor.views.ScrollableViewPager
+        android:id="@+id/vp_main_act_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

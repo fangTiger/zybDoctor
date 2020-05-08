@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout_frag_mine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f9f9f9"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/img_mine_header_bg"
+                android:gravity="center_vertical"
+                android:padding="24dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/photo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/ic_user_photo_default" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="100dp"
+                        android:textColor="#333"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="赵闵堂" />
+
+                    <TextView
+                        android:id="@+id/unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/name"
+                        android:layout_marginLeft="16dp"
+                        android:layout_toRightOf="@+id/name"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="#333"
+                        android:textSize="13dp"
+                        tools:text="北京大学第一医院" />
+
+                    <TextView
+                        android:id="@+id/office"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/name"
+                        android:layout_marginTop="8dp"
+                        android:ellipsize="end"
+                        android:maxWidth="100dp"
+                        android:maxLines="1"
+                        android:textColor="#b4b4b4"
+                        android:textSize="13dp"
+                        tools:text="皮肤科、儿科" />
+
+                    <TextView
+                        android:id="@+id/level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/office"
+                        android:layout_marginLeft="30dp"
+                        android:layout_toRightOf="@+id/office"
+                        android:textColor="#b4b4b4"
+                        android:textSize="13dp"
+                        tools:text="主任医师" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/office"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_mine_star_light" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_mine_star_light" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_mine_star_light" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_mine_star_light" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_mine_star_light" />
+
+                        <TextView
+                            android:id="@+id/score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5.0"
+                            android:textColor="#b4b4b4"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:id="@+id/num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:textColor="#b4b4b4"
+                            android:textSize="13dp"
+                            tools:text="接诊量：8956" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/ask_list_item_bg"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btn_frag_mine_my_earn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="我的收入"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <RelativeLayout
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="#e3e3e3" />
+
+                <TextView
+                    android:id="@+id/btn_frag_mine_my_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="我的订单"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_mine_btn_attestation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_0"
+                    android:drawablePadding="6dp"
+                    android:text="医师认证"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tv_attestation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_frag_mine_work_set"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_8"
+                    android:drawablePadding="6dp"
+                    android:text="约诊设置"
+                    android:textColor="#333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:textColor="#999"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_frag_mine_my_blog"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_1"
+                    android:drawablePadding="6dp"
+                    android:text="我的主页"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="发布动态"
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_2"
+                    android:drawablePadding="6dp"
+                    android:text="约诊设置"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="完善门诊时间，方便患者查看"
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_frag_mine_my_collect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_3"
+                    android:drawablePadding="6dp"
+                    android:text="我的收藏"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_frag_mine_my_article"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_4"
+                    android:drawablePadding="6dp"
+                    android:text="我发布的文章"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_mine_btn_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_5"
+                    android:drawablePadding="6dp"
+                    android:text="个人处方"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_mine_btn_pwd_edit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_7"
+                    android:drawablePadding="6dp"
+                    android:text="修改密码"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_mine_btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_6"
+                    android:drawablePadding="6dp"
+                    android:text="检查更新"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fragment_mine_btn_help"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/wo_9"
+                    android:drawablePadding="6dp"
+                    android:text="帮助与反馈"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_frag_mine_exit"
+                android:layout_width="160dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:background="@drawable/btn_red_bg"
+                android:text="退出当前账号"
+                android:textColor="#fff" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_divider"
+    android:orientation="vertical"
+    android:paddingLeft="1dp"
+    android:paddingTop="8dp"
+    android:paddingRight="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="14dp"
+            tools:text="张三" />
+
+        <TextView
+            android:id="@+id/tv_patient_sex"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="男" />
+
+        <TextView
+            android:id="@+id/tv_patient_age"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="36" />
+
+        <TextView
+            android:id="@+id/tv_patient_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="15100965236" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="13dp"
+            android:text="验方名称" />
+
+        <TextView
+            android:id="@+id/tv_sick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="验方名称" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="13dp"
+            android:text="中医诊断" />
+
+        <TextView
+            android:id="@+id/tv_diag_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="中医诊断" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="13dp"
+            android:text="疗效评级" />
+
+        <TextView
+            android:id="@+id/tv_diag_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="疗效评级" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="中医处方"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/tv_diag_med"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="中医处方" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="13dp"
+            android:text="问诊时间" />
+
+        <TextView
+            android:id="@+id/tv_diag_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="13dp"
+            tools:text="问诊时间" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

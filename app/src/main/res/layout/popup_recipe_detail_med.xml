@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_ebm_sick_dialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#999"
+    android:padding="1dp">
+
+    <ListView
+        android:id="@+id/lv_ebm_dialog_list_sick"
+        android:layout_width="318dp"
+        android:layout_height="300dp"
+        android:background="#fff"/>
+
+    <ProgressBar
+        android:id="@+id/pb_ebm_dialog_sick"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

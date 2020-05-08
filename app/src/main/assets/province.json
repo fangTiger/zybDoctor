@@ -1,0 +1,206 @@
+[
+  {
+    "areaId": 110000,
+    "areaName": "北京",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 120000,
+    "areaName": "天津",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 130000,
+    "areaName": "河北省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 140000,
+    "areaName": "山西省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 150000,
+    "areaName": "内蒙古自治区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 210000,
+    "areaName": "辽宁省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 220000,
+    "areaName": "吉林省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 230000,
+    "areaName": "黑龙江省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 310000,
+    "areaName": "上海",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 320000,
+    "areaName": "江苏省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 330000,
+    "areaName": "浙江省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 340000,
+    "areaName": "安徽省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 350000,
+    "areaName": "福建省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 360000,
+    "areaName": "江西省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 370000,
+    "areaName": "山东省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 410000,
+    "areaName": "河南省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 420000,
+    "areaName": "湖北省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 430000,
+    "areaName": "湖南省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 440000,
+    "areaName": "广东省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 450000,
+    "areaName": "广西壮族自治区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 460000,
+    "areaName": "海南省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 500000,
+    "areaName": "重庆",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 510000,
+    "areaName": "四川省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 520000,
+    "areaName": "贵州省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 530000,
+    "areaName": "云南省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 540000,
+    "areaName": "西藏自治区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 610000,
+    "areaName": "陕西省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 620000,
+    "areaName": "甘肃省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 630000,
+    "areaName": "青海省",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 640000,
+    "areaName": "宁夏回族自治区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 650000,
+    "areaName": "新疆维吾尔自治区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 710000,
+    "areaName": "台湾",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 810000,
+    "areaName": "香港特别行政区",
+    "areaParent": 0,
+    "areaType": 1
+  },
+  {
+    "areaId": 820000,
+    "areaName": "澳门特别行政区",
+    "areaParent": 0,
+    "areaType": 1
+  }
+]

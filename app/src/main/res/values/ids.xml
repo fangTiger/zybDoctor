@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_image_name" type="id" />
+    <item name="tag_image_path" type="id" />
+    <item name="tag_video_path" type="id" />
+
+    <item name="tag_country_id" type="id" />
+    <item name="tag_province_id" type="id" />
+    <item name="tag_city_id" type="id" />
+    <item name="tag_area_id" type="id" />
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:src="@mipmap/ic_common_act_btn_back" />
+
+    <ImageButton
+        android:id="@+id/btn_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:background="#aaa"
+        android:src="@mipmap/ic_change_camera" />
+
+    <ImageView
+        android:id="@+id/iv_ai_face_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_face_position"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/tv_ai_face_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="#333"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/iv_ai_face_position"
+        android:layout_marginBottom="32dp"
+        android:text="请将脸部保持在方框中"/>
+
+
+</RelativeLayout>

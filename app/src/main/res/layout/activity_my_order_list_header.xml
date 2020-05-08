@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="@dimen/frg_ask_disp_search_padding">
+
+        <TextView
+            android:id="@+id/tv_my_order_list_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frg_ask_disp_search_height"
+            android:background="@drawable/common_btn_search_bg"
+            android:drawableLeft="@mipmap/ic_common_btn_search"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
+            android:hint="姓名、手机号、确认病症"
+            android:paddingLeft="16dp"
+            android:textColor="#8a8a8a"
+            android:textSize="@dimen/frg_ask_disp_search_size" />
+
+        <ImageView
+            android:id="@+id/btn_my_order_list_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:src="@mipmap/ic_common_btn_delete" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_time_duration"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#fff"
+        android:drawableRight="@mipmap/ic_my_order_list_time_tip"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="交易时间"
+        android:textColor="@color/colorTextBlack" />
+
+    <LinearLayout
+        android:id="@+id/ll_my_order_list_time_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_time_one_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_my_order_menu_border"
+                android:textColor="@color/colorPrimaryDark"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="8dp"
+                android:text="近一周" />
+
+            <TextView
+                android:id="@+id/btn_time_one_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_my_order_menu_border"
+                android:textColor="@color/colorPrimaryDark"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:layout_marginLeft="8dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="8dp"
+                android:text="近一个月" />
+
+            <TextView
+                android:id="@+id/btn_time_three_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_my_order_menu_border"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="8dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="8dp"
+                android:text="近三个月" />
+
+            <TextView
+                android:id="@+id/btn_time_one_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_my_order_menu_border"
+                android:textColor="@color/colorPrimaryDark"
+                android:paddingLeft="8dp"
+                android:layout_marginLeft="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="8dp"
+                android:text="近一年" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="自定义"
+                android:textColor="@color/colorTextBlack" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最长可查找时间跨度一年的交易"
+                android:textColor="@color/colorTextGray"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_time_begin"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="@drawable/bg_my_order_time"
+                android:drawableRight="@mipmap/ic_spinner_more"
+                android:drawablePadding="8dp"
+                android:textColor="@color/colorTextBlack"
+                tools:text="2019/07/09" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tv_time_end"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="@drawable/bg_my_order_time"
+                android:drawableRight="@mipmap/ic_spinner_more"
+                android:drawablePadding="8dp"
+                android:textColor="@color/colorTextBlack"
+                tools:text="2019/07/09" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:gravity="center"
+                android:textColor="@color/color_ask_title_red"
+                android:background="@drawable/btn_border_bg"
+                android:text="确定" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/rg_order_list_menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="12dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_order_list_menu_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_article_menu_divider"
+            android:button="@null"
+            android:gravity="center"
+            android:tag="0"
+            android:text="全部"
+            android:textColor="@color/text_menu_color" />
+
+        <RadioButton
+            android:id="@+id/rb_order_list_menu_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_article_menu_divider"
+            android:button="@null"
+            android:gravity="center"
+            android:tag="1"
+            android:text="待付费"
+            android:textColor="@color/text_menu_color" />
+
+        <RadioButton
+            android:id="@+id/rb_order_list_menu_take"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_article_menu_divider"
+            android:button="@null"
+            android:gravity="center"
+            android:tag="2"
+            android:text="待收药"
+            android:textColor="@color/text_menu_color" />
+
+        <RadioButton
+            android:id="@+id/rb_order_list_menu_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_article_menu_divider"
+            android:button="@null"
+            android:gravity="center"
+            android:tag="3"
+            android:text="已完成"
+            android:textColor="@color/text_menu_color" />
+
+    </RadioGroup>
+
+</LinearLayout>

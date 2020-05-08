@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/et_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/common_btn_search_bg"
+            android:gravity="center_vertical"
+            android:hint="就诊人、验方名称、中医诊断等"
+            android:paddingLeft="16dp"
+            android:textColor="#8a8a8a"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/btn_search_by_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="12dp"
+            android:src="@mipmap/ic_common_btn_search" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/color_common_divider"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="就诊人姓名" />
+
+        <TextView
+            android:id="@+id/tv_patient_sex"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="性别" />
+
+        <TextView
+            android:id="@+id/tv_patient_age"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="年龄" />
+
+        <TextView
+            android:id="@+id/tv_patient_phone"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="联系电话" />
+
+        <TextView
+            android:id="@+id/tv_sick_name"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="验方名称" />
+
+        <TextView
+            android:id="@+id/tv_diag_name"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="中医诊断" />
+
+        <TextView
+            android:id="@+id/tv_diag_score"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="疗效评级" />
+
+        <TextView
+            android:id="@+id/tv_diag_med"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="中医处方" />
+
+        <TextView
+            android:id="@+id/tv_diag_time"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="#fff"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="问诊时间" />
+
+    </LinearLayout>
+
+</LinearLayout>

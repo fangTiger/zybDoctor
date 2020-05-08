@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_patient_photo"
+            android:layout_width="@dimen/act_patient_info_photo_size"
+            android:layout_height="@dimen/act_patient_info_photo_size"
+            android:background="#eee" />
+
+        <LinearLayout
+            android:layout_width="@dimen/act_patient_info_msg_width"
+            android:layout_height="@dimen/act_patient_info_msg_height"
+            android:layout_marginLeft="@dimen/act_patient_info_msg_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="就诊人："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="性&#8195;别："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="年&#8195;龄："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="手机号："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="身份证："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:text="籍&#8195;贯："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_add_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="住&#8195;址："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_patient_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="挂号费："
+                android:textSize="13dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_act_patient_start"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/act_patient_info_submit_margin"
+        android:background="@drawable/btn_red_bg"
+        android:text="开始问诊"
+        android:textColor="#fff"/>
+
+</LinearLayout>

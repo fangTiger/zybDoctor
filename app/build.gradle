@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.zuojianyou.zybdoctor"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 18
+        versionName "1.2.6"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.2.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.3.0-alpha04'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha04'
+    implementation 'org.xutils:xutils:3.5.1'
+    implementation 'com.alibaba:fastjson:1.2.58'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+//    implementation 'com.google.android:flexbox:0.3.0-alpha3'
+    implementation 'com.google.android:flexbox:0.3.2'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
+    //webrtc
+    implementation project(':libwebrtc')
+    implementation project(':libskywebrtc')
+    implementation project(':libskywebrtc2')
+    implementation project(':webrtclibrary')
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <color android:color="#c1a782" />
+    </item>
+
+    <item
+        android:bottom="@dimen/ask_divider_size"
+        android:left="@dimen/ask_divider_size"
+        android:right="@dimen/ask_divider_size"
+        android:top="@dimen/ask_divider_size">
+        <color android:color="#f7f4f0" />
+    </item>
+
+</layer-list>

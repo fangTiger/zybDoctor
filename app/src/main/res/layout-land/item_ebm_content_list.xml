@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_divider"
+    android:minHeight="38dp"
+    android:paddingLeft="@dimen/ask_divider_size"
+    android:paddingRight="@dimen/ask_divider_size">
+
+    <TextView
+        android:id="@+id/tv_ebm_content_item_name"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="4dp"
+        android:textColor="@color/color_ask_title_black"
+        android:textSize="11dp"
+        tools:text="中医症形" />
+
+    <TextView
+        android:id="@+id/tv_ebm_content_item_symptom"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:padding="4dp"
+        android:textColor="@color/color_ask_title_black"
+        android:textSize="11dp"
+        tools:text="中医辩证依据" />
+
+    <TextView
+        android:id="@+id/tv_ebm_content_item_repice"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:padding="4dp"
+        android:textColor="@color/color_ask_title_black"
+        android:textSize="11dp"
+        tools:text="中药验方" />
+
+    <TextView
+        android:id="@+id/tv_ebm_content_item_tisane"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:padding="4dp"
+        android:textColor="@color/color_ask_title_black"
+        android:textSize="11dp"
+        tools:text="服用剂量与方法" />
+
+    <TextView
+        android:id="@+id/tv_ebm_content_item_advice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/ask_divider_size"
+        android:background="#fff"
+        android:padding="4dp"
+        android:textColor="@color/color_ask_title_black"
+        android:textSize="11dp"
+        tools:text="医嘱" />
+
+</LinearLayout>

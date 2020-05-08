@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/color_common_divider" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/ask_divider_size"
+        android:left="@dimen/ask_divider_size"
+        android:right="@dimen/ask_divider_size"
+        android:top="@dimen/ask_divider_size">
+        <shape>
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+    <item android:right="12dp">
+        <bitmap
+            android:gravity="end"
+            android:src="@mipmap/ic_spinner_more" />
+    </item>
+</layer-list>

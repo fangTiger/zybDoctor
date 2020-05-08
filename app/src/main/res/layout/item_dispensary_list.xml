@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dis_list_item_index"
+        android:layout_width="@dimen/frg_ask_disp_item_index_width"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:maxLines="1"
+        android:visibility="gone"
+        tools:text="5623" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <TextView
+            android:id="@+id/tv_dis_list_item_sicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_ask_text_tag"
+            android:textSize="14dp"
+            tools:text="欧阳楠楠" />
+
+        <TextView
+            android:id="@+id/tv_dis_list_item_pay_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="12dp"
+            tools:text="2019-11-11 10:00" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_dis_list_item_sick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:textColor="@color/color_ask_text_content"
+            tools:text="病症" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_dis_list_item_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:textColor="@color/color_ask_text_content"
+                tools:text="1026.35元" />
+
+            <TextView
+                android:id="@+id/tv_dis_list_item_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="13dp"
+                android:textColor="@color/color_ask_text_content"
+                tools:text="李医师" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

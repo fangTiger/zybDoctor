@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_weight="1"
+    android:background="@color/color_common_divider"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_treat_med_item_name"
+        android:layout_width="118dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_common_act_bg"
+        android:gravity="center"
+        android:text="名称"
+        android:textColor="@color/color_ask_text_tag"
+        android:textSize="@dimen/ask_tag_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:layout_marginLeft="@dimen/ask_divider_size"
+        android:background="@color/color_common_act_bg"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/tv_treat_med_item_value"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:paddingLeft="12dp"
+            android:textSize="@dimen/ask_content_size"
+            android:inputType="number"
+            android:textColor="@color/color_ask_text_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/ask_edit_bg"
+            tools:text="1"/>
+
+        <TextView
+            android:id="@+id/tv_treat_med_item_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:gravity="center"
+            android:text="g"
+            android:textColor="@color/color_ask_text_content"
+            android:textSize="@dimen/ask_content_size"/>
+
+        <ImageButton
+            android:id="@+id/ib_treat_med_item_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginLeft="32dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_common_btn_delete"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff">
+
+        <ImageButton
+            android:id="@+id/ib_ebm_btn_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="4dp"
+            android:src="@mipmap/ic_btn_dialog_close" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="中医循证医学库" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/act_treat_ebm_left_block_width"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rg_ebm_menu_type"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/act_treat_ebm_type_height"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_ebm_menu_cn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="11dp"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/common_list_item_checkbox"
+                    android:drawablePadding="4dp"
+                    android:paddingLeft="8dp"
+                    android:text="中医病症" />
+
+                <RadioButton
+                    android:id="@+id/rb_ebm_menu_en"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:textSize="11dp"
+                    android:drawableLeft="@drawable/common_list_item_checkbox"
+                    android:drawablePadding="4dp"
+                    android:paddingLeft="8dp"
+                    android:text="西医病症" />
+
+
+            </RadioGroup>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_act_ebm_menu"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="12dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_emb_search_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/et_act_ebm_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_btn_search_bg"
+                    android:hint="关键字"
+                    android:paddingLeft="16dp"
+                    android:textColor="#686b6d"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_act_ebm_search"
+                    android:layout_width="44dp"
+                    android:layout_height="28dp"
+                    android:background="@null"
+                    android:text="查询" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_emb_sick_info_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_emb_search_block"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@color/color_common_divider"
+                android:orientation="vertical"
+                android:padding="@dimen/ask_divider_size">
+
+                <TextView
+                    android:id="@+id/tv_act_ebm_sick_symptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#f6f6f6"
+                    android:gravity="center_vertical"
+                    android:minHeight="28dp"
+                    android:paddingLeft="16dp"
+                    android:text="西医主要临床症状："
+                    android:textColor="#686b6d"
+                    android:textSize="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="@dimen/ask_divider_size"
+                    android:background="#f6f6f6"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="诊断："
+                        android:textColor="#686b6d"
+                        android:textSize="12dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_treat_sick_cn_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#686b6d"
+                            android:textSize="12dp"
+                            tools:text="中医诊断：" />
+
+                        <TextView
+                            android:id="@+id/tv_divider"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true" />
+
+                        <TextView
+                            android:id="@+id/tv_treat_sick_west_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/tv_divider"
+                            android:textColor="#686b6d"
+                            android:textSize="12dp"
+                            tools:text="西医诊断：" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_emb_sick_list_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/ll_emb_sick_info_block"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/color_common_divider"
+                    android:padding="@dimen/ask_divider_size">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="中医证形"
+                        android:textColor="@color/color_ask_title_black"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/ask_divider_size"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="中医辩证依据"
+                        android:textColor="@color/color_ask_title_black"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/ask_divider_size"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="中药验方"
+                        android:textColor="@color/color_ask_title_black"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/ask_divider_size"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="服用剂量与方法"
+                        android:textColor="@color/color_ask_title_black"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/ask_divider_size"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:text="医嘱"
+                        android:textColor="@color/color_ask_title_black"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nsv_frag_home_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_act_ebm_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_common_divider" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_frag_home_load"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ProgressBar
+                                android:id="@+id/pb_frag_home_load"
+                                style="?android:attr/progressBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="8dp" />
+
+                            <TextView
+                                android:id="@+id/tv_frag_home_load_tip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="加载中..." />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/frag_home_empty_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:minHeight="400dp"
+                            android:text="没有数据"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_ebm_sick_dialog"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:layout_below="@+id/ll_emb_search_block"
+                android:layout_alignLeft="@+id/ll_emb_search_block"
+                android:layout_marginTop="-16dp"
+                android:background="@drawable/paper_bg"
+                android:padding="12dp"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/ib_ebm_dialog_btn_close"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <ListView
+                    android:id="@+id/lv_ebm_dialog_list_sick"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ib_ebm_dialog_btn_close" />
+
+                <ProgressBar
+                    android:id="@+id/pb_ebm_dialog_sick"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

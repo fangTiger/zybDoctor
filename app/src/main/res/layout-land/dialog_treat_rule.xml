@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="600dp"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_divider"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="指标"
+        android:textColor="#333"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#fff"
+        android:layout_marginTop="@dimen/ask_divider_size"
+        android:layout_marginBottom="@dimen/ask_divider_size">
+
+        <LinearLayout
+            android:id="@+id/ll_dialog_treat_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingRight="32dp"
+            android:paddingBottom="16dp">
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#fff"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <Button
+            android:id="@+id/btn_dialog_treat_cancel"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_border_bg"
+            android:text="取消"
+            android:textColor="#7e352b" />
+
+        <Button
+            android:id="@+id/btn_dialog_treat_confirm"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/btn_red_bg"
+            android:text="确定"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+</LinearLayout>

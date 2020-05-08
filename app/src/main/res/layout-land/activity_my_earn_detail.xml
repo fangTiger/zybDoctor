@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_common_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp">
+
+        <ImageButton
+            android:id="@+id/ib_act_base_list_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp"
+            android:src="@mipmap/ic_common_act_btn_back" />
+
+        <TextView
+            android:id="@+id/tv_act_base_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="收入详情"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="16dp" />
+
+        <ImageButton
+            android:id="@+id/ib_act_base_list_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/act_my_earn_list_header_margin"
+        android:background="@android:color/white"
+        android:padding="@dimen/act_my_earn_list_header_padding">
+
+        <ImageView
+            android:id="@+id/iv_earn_header_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_common_money" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/iv_earn_header_icon"
+            android:text="收入合计（人民币元）"
+            android:textColor="@color/color_ask_text_tag" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_earn_header_tip"
+            android:layout_alignLeft="@+id/tv_earn_header_tip"
+            android:layout_marginTop="4dp"
+            android:text="0.00元"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_earn_num_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="就诊人数"
+            android:textColor="@color/color_ask_text_tag" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_earn_header_tip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="0"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_earn_weight_tip"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_alignParentRight="true"
+            android:text="药剂副数"
+            android:textColor="@color/color_ask_text_tag" />
+
+        <TextView
+            android:id="@+id/tv_earn_header_weight"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/tv_earn_header_tip"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:text="0"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/act_my_earn_list_header_margin">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_earn_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:padding="@dimen/act_my_earn_list_list_padding" />
+
+        <TextView
+            android:id="@+id/tv_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:gravity="center"
+            android:text="没有结果" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

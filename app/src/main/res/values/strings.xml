@@ -1,0 +1,37 @@
+<resources>
+
+    <string name="app_name">中医宝医生端</string>
+
+    <string name="tag_act_ebm_sick_symptom">西医主要临床症状：</string>
+    <string name="tag_act_ebm_sick_cn_name">中医诊断：</string>
+    <string name="tag_act_ebm_sick_west_name">西医诊断：</string>
+
+    <string name="tip_act_treat_recipe_common">当前以中医循证医学药方计费</string>
+    <string name="tip_act_treat_recipe_personal">当前以自己处方计费</string>
+
+    <string name="title_act_recipe_add">添加个人处方</string>
+    <string name="title_act_patent_add">添加成品药与产品</string>
+    <string name="title_act_med_add">添加草药</string>
+
+    <string name="tip_load_view_loading">加载中...</string>
+    <string name="tip_load_view_complete">加载完成</string>
+    <string name="tip_load_view_anymore">----我是有底线的----</string>
+
+    <string-array name="sex_array">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string-array name="country_array">
+        <item>中国</item>
+        <item>外籍</item>
+    </string-array>
+
+    <string name="essential_write">(必填)</string>
+    <string name="not_essential_write">(选填)</string>
+
+    <string name="service_tel">客服电话</string>
+    <string name="service_tel_num">400-1823-999</string>
+    <string name="doc_work_add_example">例：湖南省长沙市***中医诊所</string>
+
+</resources>

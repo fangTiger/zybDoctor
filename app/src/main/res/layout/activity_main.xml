@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eff0f7"
+    tools:context=".activity.MainActivity">
+
+    <com.zuojianyou.zybdoctor.views.ScrollableViewPager
+        android:id="@+id/vp_main_act_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg_index_main"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="0.5dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_index_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:padding="8dp"
+            android:textSize="16dp"
+            android:text="主页"
+            android:textColor="@color/text_menu_color"
+            android:drawableTop="@drawable/ic_index_rb_home"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_index_ask"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:textColor="@color/text_menu_color"
+            android:text="问诊"
+            android:padding="8dp"
+            android:textSize="16dp"
+            android:drawableTop="@drawable/ic_index_rb_1"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_index_disp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_menu_color"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="取药"
+            android:padding="8dp"
+            android:textSize="16dp"
+            android:drawableTop="@drawable/ic_index_rb_2"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_index_review"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_menu_color"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:button="@null"
+            android:textSize="16dp"
+            android:text="复诊"
+            android:drawableTop="@drawable/ic_index_rb_3"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_index_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:textColor="@color/text_menu_color"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_index_rb_4"
+            android:text="我的"
+            android:textSize="16dp"
+            android:gravity="center" />
+
+    </RadioGroup>
+
+</LinearLayout>

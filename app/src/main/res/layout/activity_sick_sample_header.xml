@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/et_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/common_btn_search_bg"
+            android:gravity="center_vertical"
+            android:hint="就诊人、验方名称、中医诊断等"
+            android:paddingLeft="16dp"
+            android:textColor="#8a8a8a"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/btn_search_by_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="12dp"
+            android:src="@mipmap/ic_common_btn_search" />
+
+    </RelativeLayout>
+
+</LinearLayout>

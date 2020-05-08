@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cb_dialog_dic_sick_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:button="@null"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textColor="@color/text_sick_item_menu"
+    android:background="@drawable/bg_dic_sick_item"
+    android:textSize="15dp"
+    tools:text="选项" />

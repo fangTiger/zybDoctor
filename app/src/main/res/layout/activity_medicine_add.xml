@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_common_act_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ib_reg_btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_common_act_btn_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#333"
+            android:textSize="16dp"
+            tools:text="添加草药" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="60dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="12dp"
+            android:background="@null"
+            android:text="确定"
+            android:textColor="@color/color_ask_title_red"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_recipe_detail_dispatch"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/act_medicine_add_list_margin"
+            android:paddingRight="@dimen/act_medicine_add_list_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="草药配送："
+                android:textSize="14dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recipe_detail_dispatch"
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_recipe_detail_med_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/act_medicine_add_list_margin"
+            android:paddingRight="@dimen/act_medicine_add_list_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="草药名称："
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/et_recipe_detail_med_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入草药名称"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_recipe_detail_med_weight"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/act_medicine_add_list_margin"
+            android:paddingRight="@dimen/act_medicine_add_list_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用&#8195;&#8195;量："
+                android:textSize="14dp"/>
+
+            <EditText
+                android:id="@+id/et_recipe_detail_med_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入用量"
+                android:inputType="number"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/tv_recipe_detail_med_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:gravity="center_vertical"
+                tools:text="盒" />
+
+            <Button
+                android:id="@+id/btn_recipe_detail_med_add"
+                android:layout_width="@dimen/act_medicine_add_btn_confirm_width"
+                android:layout_height="32dp"
+                android:layout_marginLeft="@dimen/act_medicine_add_btn_confirm_margin"
+                android:background="@drawable/bg_btn_border_red"
+                android:text="添加"
+                android:textColor="@color/color_ask_title_red" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recipe_detail_med"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="@dimen/act_medicine_add_list_margin" />
+
+</LinearLayout>

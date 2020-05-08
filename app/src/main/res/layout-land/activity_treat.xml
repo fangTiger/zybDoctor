@@ -1,0 +1,2232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/act_treat_im_padding">
+
+        <ImageView
+            android:id="@+id/iv_treat_mbr_photo"
+            android:layout_width="@dimen/act_treat_photo_size"
+            android:layout_height="@dimen/act_treat_photo_size"
+            android:layout_marginBottom="@dimen/act_treat_photo_margin"
+            android:background="#eee" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/act_treat_msg_height"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/act_treat_msg_padding"
+            android:paddingRight="@dimen/act_treat_msg_padding">
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="就诊人："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="性&#8195;别："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="年&#8195;龄："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="手机号："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="身份证："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="籍&#8195;贯："
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_treat_mbr_add_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="住&#8195;址："
+                android:textSize="13dp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_act_treat_chat"
+            android:layout_width="@dimen/act_treat_btn_call_width"
+            android:layout_height="@dimen/act_treat_btn_call_height"
+            android:layout_marginTop="@dimen/act_treat_btn_call_margin"
+            android:background="@drawable/btn_red_bg"
+            android:text="呼叫"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_common_act_bg"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/act_treat_block_distance">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:background="#fff"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_treat_btn_judge_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:text="问诊"
+                            android:textSize="@dimen/ask_title_size" />
+
+                        <TextView
+                            android:id="@+id/tv_treat_btn_judge_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:text="望诊"
+                            android:textSize="@dimen/ask_title_size" />
+
+                        <TextView
+                            android:id="@+id/tv_treat_btn_judge_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:text="闻诊"
+                            android:textSize="@dimen/ask_title_size" />
+
+                        <TextView
+                            android:id="@+id/tv_treat_btn_judge_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:text="切诊"
+                            android:textSize="@dimen/ask_title_size" />
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_judge_0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/color_common_divider"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/ask_divider_size"
+                            android:paddingBottom="@dimen/ask_divider_size">
+
+                            <LinearLayout
+                                android:id="@+id/ll_treat_btn_open_record_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginBottom="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="录音："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <TextView
+                                    android:id="@+id/tv_treat_record_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="00:00:00"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_record"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_record_start" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="主诉："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_zhusu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small"
+                                    android:visibility="invisible" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="现病史："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_xianbingshi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_xianbingshi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_judge_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/color_common_divider"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/ask_divider_size"
+                            android:paddingBottom="@dimen/ask_divider_size">
+
+                            <LinearLayout
+                                android:id="@+id/ll_treat_see"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="图像："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_add_see_pic"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_big" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="体征："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_tizheng"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_tizheng"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="面部："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_mianbu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_mianbu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="舌头："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_shetou"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_shetou"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="手掌："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_shouzhang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_shouzhang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="补充："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_more1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="28dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:paddingLeft="4dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small"
+                                    android:visibility="invisible" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_judge_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/color_common_divider"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/ask_divider_size"
+                            android:paddingBottom="@dimen/ask_divider_size">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="气味："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_qiwei"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_qiwei"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="声音："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_shengyin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_shengyin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="补充："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_more2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="28dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:paddingLeft="4dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small"
+                                    android:visibility="invisible" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_judge_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/color_common_divider"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/ask_divider_size"
+                            android:paddingBottom="@dimen/ask_divider_size">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="脉象："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/tv_treat_content_maixiang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:id="@+id/ib_treat_btn_maixiang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/ask_item_height"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:background="#fff"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:paddingRight="@dimen/ask_padding_right">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="补充："
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_more3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="28dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:paddingLeft="4dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="胃疼" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:padding="4dp"
+                                    android:src="@mipmap/ic_btn_add_small"
+                                    android:visibility="invisible" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:layout_marginTop="@dimen/act_treat_block_distance"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/ask_padding_left"
+                        android:text="过往病史"
+                        android:textColor="@color/color_ask_title_red"
+                        android:textSize="@dimen/ask_title_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/ask_divider_size"
+                        android:paddingBottom="@dimen/ask_divider_size">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="既往史："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_sick_jiwangshi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="胃疼" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_jiwangshi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:padding="4dp"
+                                android:src="@mipmap/ic_btn_add_small" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="个人史："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_sick_gerenshi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="胃疼" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_gerenshi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:padding="4dp"
+                                android:src="@mipmap/ic_btn_add_small" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="家族史："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_sick_jiazushi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="胃疼" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_jiazushi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:padding="4dp"
+                                android:src="@mipmap/ic_btn_add_small" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:layout_marginTop="@dimen/act_treat_block_distance"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/ask_padding_left"
+                        android:text="报告"
+                        android:textColor="@color/color_ask_title_red"
+                        android:textSize="@dimen/ask_title_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/ask_divider_size"
+                        android:paddingBottom="@dimen/ask_divider_size">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="指标："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_rule"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="胃疼" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_rule"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:padding="4dp"
+                                android:src="@mipmap/ic_btn_add_small" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_lab"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="14dp"
+                                android:text="实验室图片："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_add_lab_pic"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@null"
+                                android:src="@mipmap/ic_btn_add_big" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="14dp"
+                                android:text="影像检查&#8195;："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <ImageButton
+                                android:id="@+id/ib_treat_btn_add_img_pic"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:background="@null"
+                                android:src="@mipmap/ic_btn_add_big" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/ll_traet_emb_block"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingTop="16dp"
+                            android:paddingRight="@dimen/ask_padding_right"
+                            android:paddingBottom="16dp">
+
+                            <Button
+                                android:id="@+id/btn_act_treat_open_ebm"
+                                android:layout_width="150dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="14dp"
+                                android:background="@drawable/btn_red_bg"
+                                android:text="中医循证医学库"
+                                android:textColor="#fff" />
+
+                            <TextView
+                                android:id="@+id/btn_act_treat_tag_ebm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="12dp"
+                                android:text="说明：中医循证医学库包含病症、西医诊断及临床表现、中医诊断及临床表现、发病机理、闻法等信息，用以辅助医师诊断疾病"
+                                android:textColor="#7e352b"
+                                android:textSize="10dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:minHeight="@dimen/ask_item_height"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="发病机理："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <EditText
+                                android:id="@+id/tv_treat_sick_reason"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="内容" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/icon_flag_star"
+                                android:text="中医诊断："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <EditText
+                                android:id="@+id/tv_treat_sick_cn_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="内容" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@mipmap/icon_flag_star"
+                                android:text="西医病名："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_sick_west_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="内容" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_item_height"
+                            android:layout_marginBottom="@dimen/ask_divider_size"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:paddingRight="@dimen/ask_padding_right">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="治&#8195;&#8195;法："
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <EditText
+                                android:id="@+id/tv_treat_sick_therapies"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:textColor="@color/color_ask_text_content"
+                                android:textSize="@dimen/ask_content_size"
+                                tools:text="内容" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_treat_recipe_menu"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_title_height"
+                            android:layout_marginTop="@dimen/act_treat_block_distance"
+                            android:layout_marginBottom="1dp"
+                            android:background="#fff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_treat_btn_common_recipe"
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:text="中医循证医学验方"
+                                android:textColor="@color/color_ask_title_red"
+                                android:textSize="@dimen/ask_title_size"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_btn_personal_recipe"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/ask_padding_left"
+                                android:text="自己处方"
+                                android:textColor="@color/color_ask_title_black"
+                                android:textSize="@dimen/ask_title_size" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="24dp">
+
+                                <Button
+                                    android:id="@+id/btn_act_treat_no_med"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="32dp"
+                                    android:background="@drawable/bg_btn_border_red"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
+                                    android:text="不用药"
+                                    android:textColor="@color/color_text_menu_checked"
+                                    android:textSize="10dp" />
+
+                                <Button
+                                    android:id="@+id/btn_act_treat_reset_med"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="24dp"
+                                    android:layout_toLeftOf="@+id/btn_act_treat_no_med"
+                                    android:background="@drawable/bg_btn_border_red"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
+                                    android:text="重置验方"
+                                    android:textColor="@color/color_text_menu_checked"
+                                    android:textSize="10dp" />
+
+                                <Button
+                                    android:id="@+id/btn_act_treat_save_recipe"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="32dp"
+                                    android:background="@drawable/bg_btn_border_red"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
+                                    android:text="保存到个人处方库"
+                                    android:textColor="@color/color_text_menu_checked"
+                                    android:textSize="10dp" />
+
+                                <Button
+                                    android:id="@+id/btn_act_treat_open_recipe"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="24dp"
+                                    android:layout_toLeftOf="@+id/btn_act_treat_save_recipe"
+                                    android:background="@drawable/bg_btn_border_red"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
+                                    android:text="选择个人处方"
+                                    android:textColor="@color/color_text_menu_checked"
+                                    android:textSize="10dp" />
+
+                                <Button
+                                    android:id="@+id/btn_act_treat_open_sample"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="24dp"
+                                    android:layout_toLeftOf="@+id/btn_act_treat_open_recipe"
+                                    android:background="@drawable/bg_btn_border_red"
+                                    android:paddingLeft="12dp"
+                                    android:paddingRight="12dp"
+                                    android:text="个人病案库"
+                                    android:textColor="@color/color_text_menu_checked"
+                                    android:textSize="10dp" />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#fff"
+                            android:paddingLeft="32dp"
+                            android:paddingTop="12dp"
+                            android:paddingRight="32dp"
+                            android:paddingBottom="12dp">
+
+                            <TextView
+                                android:id="@+id/tv_treat_tip_recipe"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:background="@drawable/ask_warning_bg"
+                                android:drawableLeft="@mipmap/ic_tag_warning"
+                                android:drawablePadding="3dp"
+                                android:paddingLeft="6dp"
+                                android:textColor="#c1a782"
+                                android:textSize="13dp" />
+
+                        </RelativeLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/ll_medicine_recipe_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:layout_marginBottom="@dimen/ask_divider_size"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="118dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/color_common_act_bg"
+                                        android:gravity="center"
+                                        android:text="验方名称"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size" />
+
+                                    <TextView
+                                        android:id="@+id/tv_treat_medicine_name"
+                                        android:layout_width="118dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/ask_divider_size"
+                                        android:layout_weight="1"
+                                        android:background="@color/color_common_act_bg"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="12dp"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size"
+                                        tools:text="ABCD" />
+
+                                    <TextView
+                                        android:layout_width="118dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/ask_divider_size"
+                                        android:background="@color/color_common_act_bg"
+                                        android:gravity="center"
+                                        android:text="核心服务代码"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size" />
+
+                                    <TextView
+                                        android:id="@+id/tv_treat_medicine_code"
+                                        android:layout_width="118dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="@dimen/ask_divider_size"
+                                        android:layout_weight="1"
+                                        android:background="@color/color_common_act_bg"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="12dp"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size"
+                                        tools:text="ABCD" />
+
+                                </LinearLayout>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_act_treat_herbal_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="#fff"
+                                    android:paddingLeft="@dimen/ask_padding_left">
+
+                                    <Button
+                                        android:id="@+id/btn_act_treat_add_med1"
+                                        android:layout_width="160dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/btn_border_bg"
+                                        android:text="添加草药"
+                                        android:textColor="#7e352b" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_personal_recipe_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_act_treat_herbal_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="#fff"
+                                    android:paddingLeft="@dimen/ask_padding_left">
+
+                                    <Button
+                                        android:id="@+id/btn_act_treat_add_med2"
+                                        android:layout_width="160dp"
+                                        android:layout_height="30dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/btn_border_bg"
+                                        android:text="添加草药"
+                                        android:textColor="#7e352b" />
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:layout_marginTop="@dimen/act_treat_block_distance"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/ask_padding_left"
+                        android:text="用药剂量与复诊"
+                        android:textColor="@color/color_ask_title_red"
+                        android:textSize="@dimen/ask_title_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/ask_divider_size"
+                        android:paddingBottom="@dimen/ask_divider_size">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@mipmap/icon_flag_star"
+                                    android:text="数量"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:layout_weight="1"
+                                android:background="@color/color_common_act_bg"
+                                android:orientation="horizontal"
+                                android:padding="6dp">
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_number"
+                                    android:layout_width="160dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:gravity="center_vertical"
+                                    android:inputType="number"
+                                    android:paddingLeft="12dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:text="副"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@mipmap/icon_flag_star"
+                                    android:text="用药天数"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:layout_weight="1"
+                                android:background="@color/color_common_act_bg"
+                                android:orientation="horizontal"
+                                android:padding="6dp">
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_days"
+                                    android:layout_width="160dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:gravity="center_vertical"
+                                    android:inputType="number"
+                                    android:paddingLeft="12dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="4dp"
+                                    android:text="天"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="复诊日期"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:layout_weight="1"
+                                android:background="@color/color_common_act_bg"
+                                android:orientation="horizontal"
+                                android:padding="6dp">
+
+                                <TextView
+                                    android:id="@+id/tv_treat_btn_review_time"
+                                    android:layout_width="160dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="12dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="1" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@mipmap/icon_flag_star"
+                                    android:text="是否煎药"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:layout_weight="1"
+                                android:background="@color/color_common_act_bg"
+                                android:orientation="horizontal"
+                                android:padding="6dp">
+
+                                <Spinner
+                                    android:id="@+id/sp_treat_boil_type"
+                                    android:layout_width="160dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/ask_spinner_bg"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="12dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="1" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="74dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">m
+
+                            <TextView
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:text="用药说明"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <androidx.core.widget.NestedScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="6dp">
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_yongyaoshuoming"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="#fff"
+                                    android:gravity="left|top"
+                                    android:hint="请输入用药说明"
+                                    android:minHeight="74dp"
+                                    android:padding="4dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                            </androidx.core.widget.NestedScrollView>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="74dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="118dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="医嘱"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <androidx.core.widget.NestedScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:padding="6dp">
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_yizhu"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="74dp"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:gravity="left|top"
+                                    android:hint="请输入用医嘱"
+                                    android:padding="4dp"
+                                    android:textColor="@color/color_ask_text_content"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                            </androidx.core.widget.NestedScrollView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:layout_marginTop="@dimen/act_treat_block_distance"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/ask_padding_left"
+                        android:text="成品药与技术服务"
+                        android:textColor="@color/color_ask_title_red"
+                        android:textSize="@dimen/ask_title_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/ask_divider_size"
+                        android:paddingBottom="@dimen/ask_divider_size">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_treat_patent_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_act_treat_open_patent"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="#fff"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btn_act_treat_open_patent"
+                                android:layout_width="160dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="22dp"
+                                android:background="@drawable/btn_border_bg"
+                                android:text="+添加成品药或技术服务"
+                                android:textColor="#7e352b" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/ask_title_height"
+                        android:layout_marginTop="@dimen/act_treat_block_distance"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/ask_padding_left"
+                        android:text="收费信息"
+                        android:textColor="@color/color_ask_title_red"
+                        android:textSize="@dimen/ask_title_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_common_divider"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/ask_divider_size"
+                        android:paddingBottom="@dimen/ask_divider_size">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="84dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="药费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_yaofei"
+                                android:layout_width="104dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="0.00元"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_content_size" />
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="问诊费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <LinearLayout
+                                android:layout_width="126dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center_vertical"
+                                android:padding="6dp">
+
+                                <EditText
+                                    android:id="@+id/et_treat_content_wenzhenfei"
+                                    android:layout_width="84dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/ask_edit_bg"
+                                    android:gravity="center_vertical"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="12dp"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_content_size"
+                                    tools:text="0.00" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="4dp"
+                                    android:text="元"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_content_size" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_act_treat_xishu"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="84dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="@color/color_common_act_bg"
+                                    android:gravity="center"
+                                    android:text="系数"
+                                    android:textColor="@color/color_ask_text_tag"
+                                    android:textSize="@dimen/ask_tag_size" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="@color/color_common_act_bg"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="6dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingRight="@dimen/ask_padding_right"
+                                    android:paddingBottom="6dp">
+
+                                    <Spinner
+                                        android:id="@+id/sp_treat_content_xishu"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/ask_edit_bg"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="12dp"
+                                        android:textSize="@dimen/ask_content_size" />
+                                    />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="84dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="煎药费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_jianyaofei"
+                                android:layout_width="104dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="0.00元"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_content_size" />
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="成品药费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_chengpinyaofei"
+                                android:layout_width="126dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="0.00元"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_content_size" />
+
+                            <TextView
+                                android:layout_width="84dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="技术服务费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_jishufuwufei"
+                                android:layout_width="126dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:layout_weight="1"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="0.00元"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_content_size" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="84dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="运费"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_tag_size" />
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_yunfei"
+                                android:layout_width="104dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center"
+                                android:text="0.00元"
+                                android:textColor="@color/color_ask_text_tag"
+                                android:textSize="@dimen/ask_content_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="@dimen/ask_divider_size"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_treat_content_feiyongheji"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/ask_divider_size"
+                                android:background="@color/color_common_act_bg"
+                                android:gravity="center|right"
+                                android:paddingRight="@dimen/ask_padding_right"
+                                android:text="费用合计：0.00元"
+                                android:textColor="@color/color_ask_title_red"
+                                android:textSize="@dimen/ask_tag_size" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_act_treat_dispatch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ask_title_height"
+                            android:layout_marginTop="@dimen/act_treat_block_distance"
+                            android:layout_weight="1"
+                            android:background="#fff"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/ask_padding_left"
+                            android:text="配送信息"
+                            android:textColor="@color/color_ask_title_red"
+                            android:textSize="@dimen/ask_title_size"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/color_common_divider"
+                            android:orientation="vertical"
+                            android:paddingTop="@dimen/ask_divider_size"
+                            android:paddingBottom="@dimen/ask_divider_size">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="118dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="@color/color_common_act_bg"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@mipmap/icon_flag_star"
+                                        android:text="配送中心"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:layout_weight="1"
+                                    android:background="@color/color_common_act_bg"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <Spinner
+                                        android:id="@+id/sp_treat_content_peisong"
+                                        android:layout_width="160dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/ask_spinner_bg"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="12dp"
+                                        android:textColor="@color/color_ask_text_content"
+                                        android:textSize="@dimen/ask_content_size" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="118dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="@color/color_common_act_bg"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@mipmap/icon_flag_star"
+                                        android:text="收货人"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:layout_weight="1"
+                                    android:background="@color/color_common_act_bg"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <Spinner
+                                        android:id="@+id/sp_treat_content_receiver"
+                                        android:layout_width="160dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/ask_spinner_bg"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="12dp"
+                                        android:textColor="@color/color_ask_text_content"
+                                        android:textSize="@dimen/ask_content_size"
+                                        tools:text="1" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_marginTop="@dimen/ask_divider_size"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="118dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:background="@color/color_common_act_bg"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@mipmap/icon_flag_star"
+                                        android:text="收货地址"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_tag_size" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/ask_divider_size"
+                                    android:layout_weight="1"
+                                    android:background="@color/color_common_act_bg"
+                                    android:orientation="horizontal"
+                                    android:padding="6dp">
+
+                                    <EditText
+                                        android:id="@+id/et_treat_content_receiver"
+                                        android:layout_width="506dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/ask_edit_bg"
+                                        android:gravity="center_vertical"
+                                        android:maxLines="1"
+                                        android:paddingLeft="12dp"
+                                        android:textColor="@color/color_ask_text_tag"
+                                        android:textSize="@dimen/ask_content_size" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/act_treat_btn_submit_padding">
+
+                <Button
+                    android:id="@+id/btn_act_treat_recipe_order"
+                    android:layout_width="@dimen/act_treat_btn_submit_width"
+                    android:layout_height="@dimen/act_treat_btn_height"
+                    android:layout_marginRight="@dimen/act_treat_btn_submit_margin"
+                    android:background="@drawable/btn_red_bg"
+                    android:text="核验处方"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/act_treat_btn_text_size" />
+
+                <Button
+                    android:id="@+id/btn_act_treat_visit_order"
+                    android:layout_width="@dimen/act_treat_btn_submit_width"
+                    android:layout_height="@dimen/act_treat_btn_height"
+                    android:layout_marginRight="@dimen/act_treat_btn_submit_margin"
+                    android:background="@drawable/btn_border_bg"
+                    android:text="就诊单"
+                    android:textColor="#7e352b"
+                    android:textSize="@dimen/act_treat_btn_text_size" />
+
+                <Button
+                    android:id="@+id/btn_act_treat_submit"
+                    android:layout_width="@dimen/act_treat_btn_submit_width"
+                    android:layout_height="@dimen/act_treat_btn_height"
+                    android:layout_marginRight="@dimen/act_treat_btn_submit_margin"
+                    android:background="@drawable/btn_border_bg"
+                    android:text="确定"
+                    android:textColor="#7e352b"
+                    android:textSize="@dimen/act_treat_btn_text_size" />
+
+                <Button
+                    android:id="@+id/btn_act_treat_cancel"
+                    android:layout_width="@dimen/act_treat_btn_submit_width"
+                    android:layout_height="@dimen/act_treat_btn_height"
+                    android:layout_marginRight="@dimen/act_treat_btn_submit_margin"
+                    android:background="@drawable/btn_border_bg"
+                    android:text="取消"
+                    android:textColor="#7e352b"
+                    android:textSize="@dimen/act_treat_btn_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="6dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/ask_content_shadow" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

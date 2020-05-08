@@ -1,0 +1,14 @@
+[
+  {
+    "areaId": 156,
+    "areaName": "中国",
+    "areaParent": 0,
+    "areaType": 0
+  },
+  {
+    "areaId": 900,
+    "areaName": "外籍",
+    "areaParent": 0,
+    "areaType": 0
+  }
+]

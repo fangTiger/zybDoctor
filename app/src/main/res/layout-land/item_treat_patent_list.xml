@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:paddingLeft="12dp"
+    android:background="@color/color_common_act_bg"
+    android:layout_height="36dp">
+
+    <TextView
+        android:id="@+id/tv_patent_item_name"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_ask_text_content"
+        android:layout_weight="1"
+        android:textSize="13dp"
+        tools:text="名字" />
+
+    <EditText
+        android:id="@+id/tv_patent_item_num"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:layout_margin="6dp"
+        android:inputType="number"
+        android:background="@drawable/ask_edit_bg"
+        android:textColor="@color/color_ask_text_content"
+        android:textSize="13dp"
+        tools:text="数量" />
+
+    <TextView
+        android:id="@+id/tv_patent_item_unit"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_ask_text_content"
+        android:textSize="13dp"
+        tools:text="数量" />
+
+    <TextView
+        android:id="@+id/tv_patent_item_price"
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_ask_text_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="13dp"
+        tools:text="单价" />
+
+    <ImageButton
+        android:id="@+id/ib_patent_item_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/ic_common_btn_delete"
+        android:background="@null"/>
+
+</LinearLayout>

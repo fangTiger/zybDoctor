@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_common_act_theme"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/frg_ask_title_height"
+        android:background="#fff"
+        android:paddingLeft="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_btn_date1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/frg_ask_title_padding"
+            android:paddingBottom="@dimen/frg_ask_title_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07-12"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frg_ask_title_padding"
+                android:layout_marginBottom="@dimen/frg_ask_title_padding"
+                android:text="周五"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0人"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_date_divider1"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/frg_ask_divider_height"
+            android:background="#eff0f7"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn_date2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/frg_ask_title_padding"
+            android:paddingBottom="@dimen/frg_ask_title_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07-13"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frg_ask_title_padding"
+                android:layout_marginBottom="@dimen/frg_ask_title_padding"
+                android:text="周六"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0人"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_date_divider2"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/frg_ask_divider_height"
+            android:background="#eff0f7"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn_date3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/frg_ask_title_padding"
+            android:paddingBottom="@dimen/frg_ask_title_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07-14"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frg_ask_title_padding"
+                android:layout_marginBottom="@dimen/frg_ask_title_padding"
+                android:text="周日"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_date_divider3"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/frg_ask_divider_height"
+            android:background="#eff0f7"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn_date4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/frg_ask_title_padding"
+            android:paddingBottom="@dimen/frg_ask_title_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07-15"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/frg_ask_title_padding"
+                android:layout_marginBottom="@dimen/frg_ask_title_padding"
+                android:text="周一"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0人"
+                android:textColor="#515151"
+                android:textSize="@dimen/frg_ask_title_text_size"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_date_divider4"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/frg_ask_divider_height"
+            android:background="#eff0f7"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:layout_width="64dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_btn_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="12dp"
+                android:src="@mipmap/ic_ask_btn_calendar" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_fragment_ask_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_fragment_ask_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_review_list"
+                android:layout_margin="@dimen/frg_ask_recycler_margin" />
+
+            <TextView
+                android:id="@+id/tv_fragment_ask_empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="无人预约"
+                android:textColor="#989898"
+                android:textSize="14dp" />
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/frg_ask_item_height"
+    android:background="@drawable/ask_list_item_bg">
+
+    <TextView
+        android:id="@+id/index"
+        android:layout_width="32dp"
+        android:layout_height="match_parent"
+        android:background="#f8b865"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/frg_ask_item_name_margin_left"
+        android:layout_marginTop="@dimen/frg_ask_item_name_margin_top"
+        android:layout_toRightOf="@+id/index"
+        android:drawableRight="@mipmap/ic_ask_tag_online"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:text="杨超越"
+        android:textColor="#333"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/sex"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/name"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/name"
+        android:gravity="center_vertical"
+        android:text="女"
+        android:textColor="#999"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/name"
+        android:layout_toRightOf="@+id/sex"
+        android:gravity="center_vertical"
+        android:text="30岁"
+        android:textColor="#999"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="@dimen/frg_ask_item_time_width"
+        android:layout_height="30dp"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_marginTop="@dimen/frg_ask_item_time_margin_top"
+        android:gravity="center_vertical"
+        android:text="预约时间：8:00-12:00"
+        android:textColor="#f2a3a5"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="@dimen/frg_ask_item_add_width"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/time"
+        android:layout_toRightOf="@+id/time"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:text="籍贯：北京市海淀区五棵松"
+        android:textColor="#999"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/code"
+        android:layout_width="@dimen/frg_ask_item_code_width"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/time"
+        android:layout_toRightOf="@+id/add"
+        android:gravity="center_vertical"
+        android:text="身份证号：130******4563"
+        android:textColor="#999"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:layout_width="@dimen/ask_item_state_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:padding="@dimen/frg_ask_item_state_padding">
+
+        <TextView
+            android:id="@+id/state_ask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/ic_ask_state_ok"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="诊断"
+            android:textColor="#555"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/state_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/ic_ask_state_ok"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="缴费"
+            android:textColor="#555"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/state_take"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/ic_ask_state_ok"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="取药"
+            android:textColor="#555"
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

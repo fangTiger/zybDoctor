@@ -1,0 +1,13 @@
+--------------key store----------
+key store password:zybkey2019
+alias:key0
+password:zybkey2019
+validity(years):25
+
+--------------certificate----------
+first and last name:zuojianyou
+organizational unit:CN
+organization:CN
+city or lacality:BEIJING
+state or province:HAIDIAN
+country code(XX):CN

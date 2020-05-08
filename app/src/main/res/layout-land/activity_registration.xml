@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageButton
+            android:id="@+id/ib_reg_btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_btn_dialog_close" />
+
+        <ImageButton
+            android:id="@+id/ib_reg_btn_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@mipmap/ic_btn_dialog_ok" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#e2e2e2" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_reg_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="就诊人*"
+                android:textColor="#f00"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_reg_name"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@+id/tv_reg_name"
+                android:layout_marginTop="10dp"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:maxLength="10"
+                android:hint="请输入就诊人姓名"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_reg_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_reg_name"
+                android:layout_marginTop="16dp"
+                android:text="手机号*"
+                android:textColor="#f00"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_reg_mobile"
+                android:layout_width="450dp"
+                android:layout_height="28dp"
+                android:layout_below="@+id/tv_reg_mobile"
+                android:layout_marginTop="10dp"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/et_reg_card"
+                android:layout_width="450dp"
+                android:layout_height="28dp"
+                android:maxLength="18"
+                android:layout_alignTop="@+id/et_reg_mobile"
+                android:layout_alignParentRight="true"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:hint="请输入身份证号"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_reg_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/et_reg_card"
+                android:layout_alignTop="@+id/tv_reg_mobile"
+                android:text="身份证号"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_reg_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_reg_mobile"
+                android:layout_marginTop="16dp"
+                android:text="性别*"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textColor="#f00"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/et_reg_sex"
+                android:layout_width="450dp"
+                android:layout_height="28dp"
+                android:layout_below="@+id/tv_reg_sex"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/spinner_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/et_reg_age"
+                android:layout_width="450dp"
+                android:layout_height="28dp"
+                android:layout_alignTop="@+id/et_reg_sex"
+                android:layout_alignParentRight="true"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:inputType="number"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_reg_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/et_reg_age"
+                android:layout_alignTop="@+id/tv_reg_sex"
+                android:text="年龄*"
+                android:textColor="#f00"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_reg_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_reg_sex"
+                android:layout_marginTop="16dp"
+                android:text="籍贯*"
+                android:textColor="#f00"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_reg_add"
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_reg_add"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_reg_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:background="@drawable/spinner_bg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    tools:text="北京市"
+                    android:textSize="12dp"/>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_reg_add_detail"
+                android:layout_width="450dp"
+                android:layout_height="28dp"
+                android:layout_alignTop="@+id/rl_reg_add"
+                android:layout_alignParentRight="true"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_add_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/et_reg_add_detail"
+                android:layout_alignTop="@+id/tv_reg_add"
+                android:text="详细地址"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_reg_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_reg_add"
+                android:layout_marginTop="16dp"
+                android:text="挂号费"
+                android:textSize="@dimen/registration_title_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_reg_cost"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@+id/tv_reg_cost"
+                android:layout_marginTop="10dp"
+                android:background="#f2f2f2"
+                android:inputType="numberDecimal"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/iv_reg_photo"
+                android:layout_width="240dp"
+                android:layout_height="160dp"
+                android:src="@mipmap/img_ai_photo"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerInside"
+                android:layout_below="@+id/et_reg_cost"
+                android:layout_marginTop="12dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_reg_patient_dialog"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:layout_below="@+id/et_reg_name"
+                android:layout_alignLeft="@+id/et_reg_name"
+                android:background="@drawable/paper_bg"
+                android:padding="12dp"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/ib_reg_btn_patient_close"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel" />
+
+                <ListView
+                    android:id="@+id/lv_reg_list_patient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ib_reg_btn_patient_close" />
+
+                <ProgressBar
+                    android:id="@+id/pb_reg_patient"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
