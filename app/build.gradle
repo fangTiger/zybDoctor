@@ -6,19 +6,60 @@ android {
         applicationId "com.zuojianyou.zybdoctor"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 18
-        versionName "1.2.6"
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+        versionCode 19
+        versionName "1.2.7"
+
+        multiDexEnabled true
+        flavorDimensions "default"
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'zybkey2019'
+            storeFile file('../key/signkey.jks')
+            storePassword 'zybkey2019'
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
+
+
+    productFlavors {
+        dev {}
+        zyb {}
+    }
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name != "debug") {
+                variant.getPackageApplication().outputDirectory = new File(buildDir.absolutePath + "/outputs/apk/release")
+            }
+
+            outputFileName = "${variant.productFlavors[0].name}_${defaultConfig.versionName}_${variant.buildType.name}.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -26,7 +67,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.aar', '*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.2.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
@@ -39,8 +80,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
 //    implementation 'com.google.android:flexbox:0.3.0-alpha3'
     implementation 'com.google.android:flexbox:0.3.2'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
-
+//    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation 'com.android.support:multidex:1.0.3'
     //webrtc
     implementation project(':libwebrtc')
     implementation project(':libskywebrtc')

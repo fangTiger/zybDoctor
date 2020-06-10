@@ -96,6 +96,10 @@ public class ServerAPI {
     public static final String OFFICE_LIST_URL = "/appDoc/sick/getOfficeList";
     public static final String OFFICE_SICK_LIST_URL = "/appDoc/sick/getOffSickByOfficeId";
 
+    public static final String WX_DOC_APP_PAY = "/pay/wxpay/getWxDocAppPay";
+
+    public static final String ALI_DOC_APP_PAY = "/pay/alipay/getAliDocAppPay";
+
     public static String getOfficeListUrl() {
         return BASE_DOMAIN + OFFICE_LIST_URL;
     }

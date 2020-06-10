@@ -24,7 +24,7 @@ public class WXPayEntryActivity extends BaseActivity implements IWXAPIEventHandl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wx_entry);
+//        setContentView(R.layout.activity_wx_entry);
 
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID);
         api.registerApp(Constants.APP_ID);
@@ -54,5 +54,6 @@ public class WXPayEntryActivity extends BaseActivity implements IWXAPIEventHandl
             case -2://取消
                 break;
         }
+        finish();
     }
 }

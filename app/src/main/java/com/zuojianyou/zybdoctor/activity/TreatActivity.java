@@ -844,10 +844,7 @@ public class TreatActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SkyEngineKit.init(new VoipEvent(TreatActivity.this));
-                if (!BuildConfig.DEBUG)
-                    CallSingleActivity.openActivity(TreatActivity.this, mbrId, true, false);
-                else
-                    CallSingleActivity.openActivity(TreatActivity.this, "111111", true, false);
+                CallSingleActivity.openActivity(TreatActivity.this, mbrId, true, false);
             }
         });
     }

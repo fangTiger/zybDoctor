@@ -56,7 +56,7 @@ public class RegistrationActivity extends BaseActivity {
     List<AreaInfo> cityList;
     LocationSelector locationSelector;
     SexSelector sexSelector;
-    TextView tvLocation, tvSex;
+    TextView tvLocation, tvSex, areaTv;
     EditText etName, etMobile, etCard, etAge, etAdd, etCost;
     ImageView ivPhoto;
 
@@ -65,6 +65,8 @@ public class RegistrationActivity extends BaseActivity {
     ListView lvPatient;
     PatientAdapter patientAdapter;
     ProgressBar pbPatient;
+
+    private LocationSelector lSelector;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -127,6 +129,14 @@ public class RegistrationActivity extends BaseActivity {
                     mUserInfo.setBirthProvince(String.valueOf(tvLocation.getTag(R.id.tag_province_id)));
                 if (tvLocation.getTag(R.id.tag_city_id) != null)
                     mUserInfo.setBirthCity(String.valueOf(tvLocation.getTag(R.id.tag_city_id)));
+
+                if (areaTv.getTag(R.id.tag_province_id) != null)
+                    mUserInfo.setProvince(String.valueOf(areaTv.getTag(R.id.tag_province_id)));
+                if (areaTv.getTag(R.id.tag_city_id) != null)
+                    mUserInfo.setCity(String.valueOf(areaTv.getTag(R.id.tag_city_id)));
+                if (areaTv.getTag(R.id.tag_area_id) != null)
+                    mUserInfo.setCountry(String.valueOf(areaTv.getTag(R.id.tag_area_id)));
+
                 mUserInfo.setAddress(etAdd.getText().toString().trim());
                 mUserInfo.setFee(Double.parseDouble(etCost.getText().toString().trim()));
                 submitPatient();
@@ -150,6 +160,15 @@ public class RegistrationActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 sexSelector.showSelector();
+            }
+        });
+
+        areaTv = findViewById(R.id.area_tv);
+        lSelector = new LocationSelector(areaTv, LocationSelector.TYPE_NO_COUNTRY);
+        areaTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lSelector.showSelector();
             }
         });
 

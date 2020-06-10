@@ -204,13 +204,13 @@
 
             </RelativeLayout>
 
-            <EditText
-                android:id="@+id/et_reg_add_detail"
+            <TextView
+                android:id="@+id/area_tv"
                 android:layout_width="450dp"
                 android:layout_height="28dp"
                 android:layout_alignTop="@+id/rl_reg_add"
                 android:layout_alignParentRight="true"
-                android:background="#f2f2f2"
+                android:background="@drawable/spinner_bg"
                 android:gravity="center_vertical"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
@@ -218,20 +218,33 @@
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/tv_add_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/et_reg_add_detail"
+                android:layout_alignLeft="@id/et_reg_age"
                 android:layout_alignTop="@+id/tv_reg_add"
-                android:text="详细地址"
+                android:text="收货地址"
                 android:textSize="@dimen/registration_title_text_size"
                 android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_reg_add_detail"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_below="@+id/rl_reg_add"
+                android:layout_marginTop="10dp"
+                android:background="#f2f2f2"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColorHint="#bbb"
+                android:textSize="12dp"
+                android:hint="详细地址：如街道、楼牌号等"/>
 
             <TextView
                 android:id="@+id/tv_reg_cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_reg_add"
+                android:layout_below="@+id/et_reg_add_detail"
                 android:layout_marginTop="16dp"
                 android:text="挂号费"
                 android:textSize="@dimen/registration_title_text_size"
