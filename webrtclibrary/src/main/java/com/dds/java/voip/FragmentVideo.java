@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +25,10 @@ import com.dds.skywebrtc.EnumType;
 import com.dds.skywebrtc.SkyEngineKit;
 import com.dds.webrtc.R;
 
+import org.webrtc.EglRenderer;
 import org.webrtc.SurfaceViewRenderer;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -79,6 +83,30 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
     private View btnPhotoSick;
     private ImageView outgoingSpeakerImageView;
     private boolean isSpeakerMode = false;
+    private Handler mHandler = new Handler();
+
+    private String picName = "";
+
+    private EglRenderer.FrameListener mFrameListener = new EglRenderer.FrameListener() {
+
+        @Override
+        public void onFrame(Bitmap frame) {
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    activity.startScreenShot(picName,frame);
+//                    new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            saveBitmapFile(frame, new File(Environment.getExternalStorageDirectory(),"test.png"));
+//                        }
+//                    }).start();
+//                    Log.e("zyb", frame.getWidth() + "x" +frame.getHeight());
+                    remoteSurfaceView.removeFrameListener(mFrameListener);
+                }
+            });
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,16 +207,33 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
         public void onClick(View v) {
             int i = v.getId();
             if (i == R.id.photoFaceButton) {
-                activity.startScreenShot("面部");
+                if (remoteSurfaceView != null) {
+                    picName = "面部";
+                    remoteSurfaceView.addFrameListener(mFrameListener,1);
+                }
+
+//                activity.startScreenShot("面部");
             }
             if (i == R.id.photoTongueButton) {
-                activity.startScreenShot("舌质、舌苔");
+                if (remoteSurfaceView != null) {
+                    picName = "舌质、舌苔";
+                    remoteSurfaceView.addFrameListener(mFrameListener,1);
+                }
+//                activity.startScreenShot("舌质、舌苔");
             }
             if (i == R.id.photoHandButton) {
-                activity.startScreenShot("手掌");
+                if (remoteSurfaceView != null) {
+                    picName = "手掌";
+                    remoteSurfaceView.addFrameListener(mFrameListener,1);
+                }
+//                activity.startScreenShot("手掌");
             }
             if (i == R.id.photoSickButton) {
-                activity.startScreenShot("病灶处");
+                if (remoteSurfaceView != null) {
+                    picName = "病灶处";
+                    remoteSurfaceView.addFrameListener(mFrameListener,1);
+                }
+//                activity.startScreenShot("病灶处");
             }
         }
     };
@@ -412,6 +457,18 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
 
         for (int i = 0; i < viewsPipRenderer.length; i++) {
             pipRenderer.addView(viewsPipRenderer[i]);
+        }
+    }
+
+
+    public void saveBitmapFile(Bitmap bitmap, File file) {
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            bos.flush();
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

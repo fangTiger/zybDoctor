@@ -6,11 +6,10 @@ import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.widget.Toast;
 
 import com.zuojianyou.zybdoctor.units.statusBarTools.StatusBarCompat;
 import com.zuojianyou.zybdoctor.views.LoadingDialog;
@@ -77,6 +76,4 @@ public class BaseActivity extends AppCompatActivity {
             loadingDialog = null;
         }
     }
-
-
 }

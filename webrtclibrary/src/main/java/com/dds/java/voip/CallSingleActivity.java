@@ -259,6 +259,13 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
         startActivityForResult(mediaProjectionManager.createScreenCaptureIntent(), REQUEST_MEDIA_PROJECTION);
     }
 
+    public void startScreenShot(String name, Bitmap bitmap) {
+        picName = name;
+        showShotImage(bitmap);
+        FragmentVideo fragmentVideo = (FragmentVideo) fragment;
+        fragmentVideo.hiddenOtherView();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -287,6 +294,8 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
             @Override
             public void onClick(View v) {
                 popupWindow.dismiss();
+                FragmentVideo fragmentVideo = (FragmentVideo) fragment;
+                fragmentVideo.showOtherView();
             }
         });
         viewPopup.findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
@@ -298,6 +307,8 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
                 intent.putExtra("name", picName);
                 sendBroadcast(intent);
                 popupWindow.dismiss();
+                FragmentVideo fragmentVideo = (FragmentVideo) fragment;
+                fragmentVideo.showOtherView();
             }
         });
         ImageView imageView = viewPopup.findViewById(R.id.iv_photo_show);
@@ -313,7 +324,7 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
         if (!file1.exists()) {
             file1.mkdirs();
         }
-        File file = new File(path, name + ".jpeg");
+        File file = new File(path, name + ".jpg");
         if (file.exists()) {
             file.delete();
         }
@@ -328,5 +339,10 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
             e.printStackTrace();
         }
         return file.getAbsolutePath();
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

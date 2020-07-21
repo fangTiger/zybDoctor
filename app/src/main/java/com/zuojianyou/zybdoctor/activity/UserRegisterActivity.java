@@ -72,7 +72,7 @@ public class UserRegisterActivity extends BaseActivity {
         findViewById(R.id.btn_register_agreement).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = ServerAPI.BASE_DOMAIN+"/p/joined/secret.html";
+                String url = ServerAPI.BASE_DOMAIN+"/p/joined/serviceAgre.html";
                 Intent intent=new Intent(getContext(),WebActivity.class);
                 intent.putExtra("title","服务协议");
                 intent.putExtra("url",url);
@@ -82,7 +82,7 @@ public class UserRegisterActivity extends BaseActivity {
         findViewById(R.id.btn_register_privacy).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = ServerAPI.BASE_DOMAIN+"/p/joined/serviceAgre.html";
+                String url = ServerAPI.BASE_DOMAIN+"/p/joined/secret.html";
                 Intent intent=new Intent(getContext(),WebActivity.class);
                 intent.putExtra("title","隐私政策");
                 intent.putExtra("url",url);

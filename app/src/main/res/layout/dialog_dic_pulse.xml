@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/lecun_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="左寸脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lecun_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/lecun_text"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/legu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/lecun_recycler_view"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="左关脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/legu_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/legu_text"
+        android:layout_alignTop="@id/legu_text"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/lechi_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/legu_recycler_view"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="左尺脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lechi_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/lechi_text"
+        android:layout_alignTop="@id/lechi_text"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/ricun_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/lechi_recycler_view"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="右寸脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ricun_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/ricun_text"
+        android:layout_alignTop="@id/ricun_text"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/rigu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/ricun_recycler_view"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="右关脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rigu_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/rigu_text"
+        android:layout_alignTop="@id/rigu_text"
+        android:overScrollMode="never"/>
+
+    <TextView
+        android:id="@+id/richi_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/rigu_recycler_view"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/colorTextBlack"
+        android:text="右尺脉搏"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/richi_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/richi_text"
+        android:layout_alignTop="@id/richi_text"
+        android:overScrollMode="never"/>
+</RelativeLayout>

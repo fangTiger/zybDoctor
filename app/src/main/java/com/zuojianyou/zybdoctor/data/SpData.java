@@ -60,6 +60,23 @@ public class SpData {
         return token;
     }
 
+    public static void setPersonId(String id) {
+        SharedPreferences.Editor editor = get().edit();
+        editor.putString("sp_person_id", id);
+        editor.commit();
+    }
+
+    public static void clearPersonId() {
+        SharedPreferences.Editor editor = get().edit();
+        editor.remove("sp_person_id");
+        editor.commit();
+    }
+
+    public static String getPersonId() {
+        String user = get().getString("sp_person_id", null);
+        return user;
+    }
+
     public static void setMbrId(String id) {
         SharedPreferences.Editor editor = get().edit();
         editor.putString("sp_mbr_id", id);

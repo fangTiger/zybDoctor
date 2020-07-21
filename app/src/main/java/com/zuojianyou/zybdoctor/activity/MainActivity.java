@@ -165,7 +165,7 @@ public class MainActivity extends BaseActivity {
         int userState = SocketManager.getInstance(this).getUserState();
         if (userState != 1 && SpData.getMbrId() != null) {
             String ws = "ws://" + WebrtcUtil.HOST + ":5000/ws";
-            String id = SpData.getMbrId();
+            String id = SpData.getPersonId();
             SocketManager.getInstance(this).connect(
                     ws, id, 0);
         }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.zuojianyou.zybdoctor">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,13 +12,16 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
         android:name="com.zuojianyou.zybdoctor.application.MyApplication"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_screenshot"
-        android:debuggable="false"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_screenshot"
@@ -43,8 +45,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.UserLoginActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.UserLoginActivity"/>
         <activity android:name=".activity.RegistrationActivity" />
         <activity android:name=".activity.PatientInfoActivity" />
         <activity
@@ -73,18 +75,7 @@
         <service android:name=".service.Mp3RecordService" />
         <service android:name=".service.Mp3PlayerService" />
 
-        <!--视屏聊天-->
-        <activity
-            android:name=".voip.SingleCallActivity"
-            android:showOnLockScreen="true"
-            android:showWhenLocked="true"
-            tools:ignore="UnusedAttribute">
-            <intent-filter>
-                <action android:name="${applicationId}.kit.voip.single" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".activity.MedicineAddActivity" />
         <activity android:name=".activity.RecipeListActivity" />
         <activity android:name=".activity.SickSampleActivity" />
@@ -109,20 +100,6 @@
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true" />
-
-
-        <!-- 单聊界面 -->
-        <receiver android:name=".voip.VoipReceiver">
-            <intent-filter>
-                <action android:name="${applicationId}.voip.Receiver" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".voip.FloatingVoipService"
-            android:enabled="true"
-            android:exported="true" />
-
 
         <meta-data
             android:name="UMENG_APPKEY"

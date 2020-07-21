@@ -141,11 +141,14 @@ public class MainFragmentAsk extends Fragment {
             dateDivider[5] = view.findViewById(R.id.ll_date_divider6);
             dateDivider[6] = view.findViewById(R.id.ll_date_divider7);
         }
-
         for (int i = 0; i < btnDate.length; i++) {
-            btnDate[i].setTag(i);
-            btnDate[i].setOnClickListener(btnDateClicked);
+            if (btnDate[i] !=null) {
+                btnDate[i].setTag(i);
+                btnDate[i].setOnClickListener(btnDateClicked);
+            }
+
         }
+
         setRadioState(Calendar.getInstance());
     }
 
@@ -318,6 +321,7 @@ public class MainFragmentAsk extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), PatientInfoActivity.class);
+                    intent.putExtra("personid", info.getPersonid());
                     intent.putExtra("mbrId", info.getMbrId());
                     intent.putExtra("regId", info.getRegistrationId());
                     intent.putExtra("fee", info.getFee());

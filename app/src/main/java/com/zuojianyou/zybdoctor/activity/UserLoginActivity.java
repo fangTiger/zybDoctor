@@ -213,6 +213,7 @@ public class UserLoginActivity extends BaseActivity {
                     JSONObject jsonData = json.getJSONObject("data");
                     SpData.setToken(jsonData.getString("token"));
                     SpData.setMbrId(jsonData.getString("doctorId"));
+                    SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
@@ -273,6 +274,7 @@ public class UserLoginActivity extends BaseActivity {
                     JSONObject jsonData = json.getJSONObject("data");
                     SpData.setToken(jsonData.getString("token"));
                     SpData.setMbrId(jsonData.getString("doctorId"));
+                    SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);

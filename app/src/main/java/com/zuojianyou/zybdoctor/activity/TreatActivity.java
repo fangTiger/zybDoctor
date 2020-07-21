@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -16,15 +17,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.provider.MediaStore;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -42,23 +34,29 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.dds.java.voip.CallSingleActivity;
 import com.dds.java.voip.VoipEvent;
-import com.dds.nodejs.WebrtcUtil;
 import com.dds.skywebrtc.SkyEngineKit;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import com.zuojianyou.zybdoctor.BuildConfig;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.AddListInfo;
 import com.zuojianyou.zybdoctor.beans.DispatchListInfo;
@@ -132,7 +130,7 @@ public class TreatActivity extends BaseActivity {
     public static final String ACTION_TREAT_BACK = "action_treat_back";//
 
     String ebmSickInfo = null;
-    String mbrId, regId, diaId, sickId, repiceId;
+    String personid, mbrId, regId, diaId, sickId, repiceId;
     boolean isPay = false;
     int medRes = MED_RES_DATA;
     DiagnoseInfo diagnoseInfo;
@@ -171,6 +169,13 @@ public class TreatActivity extends BaseActivity {
     List<DispatchListInfo> dispatchAll;
 
     PopupWindow popupMenu;
+
+    private String lecunPulse = "";
+    private String leguPulse = "";
+    private String lechiPulse = "";
+    private String ricunPulse = "";
+    private String riguPulse = "";
+    private String richiPulse = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -211,7 +216,7 @@ public class TreatActivity extends BaseActivity {
         };
         Intent intentPlayer = new Intent(this, Mp3PlayerService.class);
         bindService(intentPlayer, playerConn, Service.BIND_AUTO_CREATE);
-
+        personid = getIntent().getStringExtra("personid");
         mbrId = getIntent().getStringExtra("mbrId");
         regId = getIntent().getStringExtra("regId");
         diaId = getIntent().getStringExtra("diaId");
@@ -844,7 +849,7 @@ public class TreatActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SkyEngineKit.init(new VoipEvent(TreatActivity.this));
-                CallSingleActivity.openActivity(TreatActivity.this, mbrId, true, false);
+                CallSingleActivity.openActivity(TreatActivity.this, personid, true, false);
             }
         });
     }
@@ -1406,9 +1411,83 @@ public class TreatActivity extends BaseActivity {
                     object = diagnoseInfo.getPulseObj();
                     break;
             }
-            new DicSickDialog(getContext(), title, object, textView).show();
+            new DicSickDialog(TreatActivity.this, title, object, textView).show();
         }
     };
+
+    public void updatePulseView(){
+        DiagnoseInfo.PulseObj pulseObj = diagnoseInfo.getPulseObj();
+        if (pulseObj != null) {
+            StringBuffer sb = new StringBuffer();
+            if (pulseObj.getLecunPulseObj() != null) {
+                for (DicSick dic : pulseObj.getLecunPulseObj()) {
+                    if (dic.isChecked()) {
+                        lecunPulse = dic.getDataName();
+                        sb.append(lecunPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            if (pulseObj.getLeguPulseObj() != null) {
+                for (DicSick dic : pulseObj.getLeguPulseObj()) {
+                    if (dic.isChecked()) {
+                        leguPulse = dic.getDataName();
+                        sb.append(leguPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            if (pulseObj.getLechiPulseObj() != null) {
+                for (DicSick dic : pulseObj.getLechiPulseObj()) {
+                    if (dic.isChecked()) {
+                        lechiPulse = dic.getDataName();
+                        sb.append(lechiPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            if (pulseObj.getRicunPulseObj() != null) {
+                for (DicSick dic : pulseObj.getRicunPulseObj()) {
+                    if (dic.isChecked()) {
+                        ricunPulse = dic.getDataName();
+                        sb.append(ricunPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            if (pulseObj.getRiguPulseObj() != null) {
+                for (DicSick dic : pulseObj.getRiguPulseObj()) {
+                    if (dic.isChecked()) {
+                        riguPulse = dic.getDataName();
+                        sb.append(riguPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            if (pulseObj.getRichiPulseObj() != null) {
+                for (DicSick dic : pulseObj.getRichiPulseObj()) {
+                    if (dic.isChecked()) {
+                        richiPulse = dic.getDataName();
+                        sb.append(richiPulse);
+                        sb.append(";");
+                        break;
+                    }
+                }
+            }
+
+            setViewText(R.id.tv_treat_content_maixiang, sb.toString());
+        }
+    }
 
     class GridHerbalAdapter extends RecyclerView.Adapter<HerbalHolder> {
 
@@ -1721,6 +1800,7 @@ public class TreatActivity extends BaseActivity {
                     mbrId = basicInfo.getMbrId();
                     regId = basicInfo.getRegistrationId();
                     diaId = basicInfo.getDiagnoseId();
+                    personid = parameter.getMbrObj().getPersonid();
                     httpMbrInfo();
                 } else {
                     onDiagnoseReturn(parameter);
@@ -1765,7 +1845,44 @@ public class TreatActivity extends BaseActivity {
         setViewText(R.id.tv_treat_content_qiwei, basicInfo.getSmell());
         setViewText(R.id.tv_treat_content_shengyin, basicInfo.getVoice());
         setViewText(R.id.et_treat_content_more2, basicInfo.getVoiceDesc());
-        setViewText(R.id.tv_treat_content_maixiang, basicInfo.getPulse());
+
+        if (!TextUtils.isEmpty(basicInfo.getPulse())) {
+            BasicInfo.Pulse pulse = JSON.parseObject(basicInfo.getPulse(), BasicInfo.Pulse.class);
+            StringBuffer sb = new StringBuffer();
+            if (!TextUtils.isEmpty(pulse.getLecunPulse())) {
+                lecunPulse = pulse.getLecunPulse();
+                sb.append(lecunPulse);
+                sb.append(";");
+            }
+            if (!TextUtils.isEmpty(pulse.getLeguPulse())) {
+                leguPulse = pulse.getLeguPulse();
+                sb.append(leguPulse);
+                sb.append(";");
+            }
+            if (!TextUtils.isEmpty(pulse.getLechiPulse())) {
+                lechiPulse = pulse.getLechiPulse();
+                sb.append(lechiPulse);
+                sb.append(";");
+            }
+            if (!TextUtils.isEmpty(pulse.getRicunPulse())) {
+                ricunPulse = pulse.getRicunPulse();
+                sb.append(ricunPulse);
+                sb.append(";");
+            }
+            if (!TextUtils.isEmpty(pulse.getRiguPulse())) {
+                riguPulse = pulse.getRiguPulse();
+                sb.append(riguPulse);
+                sb.append(";");
+            }
+            if (!TextUtils.isEmpty(pulse.getRichiPulse())) {
+                richiPulse = pulse.getRichiPulse();
+                sb.append(richiPulse);
+                sb.append(";");
+            }
+
+            setViewText(R.id.tv_treat_content_maixiang, sb.toString());
+        }
+
         setViewText(R.id.et_treat_content_more3, basicInfo.getPulseDesc());
         sickId = basicInfo.getSickId();
         setViewText(R.id.tv_treat_sick_cn_name, basicInfo.getSickName());
@@ -2045,7 +2162,9 @@ public class TreatActivity extends BaseActivity {
         basicInfo.setSmell(getViewText(R.id.tv_treat_content_qiwei));
         basicInfo.setVoice(getViewText(R.id.tv_treat_content_shengyin));
         basicInfo.setVoiceDesc(getViewText(R.id.et_treat_content_more2));
-        basicInfo.setPulse(getViewText(R.id.tv_treat_content_maixiang));
+
+        basicInfo.setPulse(JSON.toJSONString(new BasicInfo.Pulse(lecunPulse,leguPulse,lechiPulse,ricunPulse,riguPulse,richiPulse)));
+
         basicInfo.setPulseDesc(getViewText(R.id.et_treat_content_more3));
         basicInfo.setSickId(sickId);
         basicInfo.setSickName(getViewText(R.id.tv_treat_sick_cn_name));
@@ -2712,6 +2831,7 @@ public class TreatActivity extends BaseActivity {
                     addReportItem(dicSick, "3", resultPath);
                     addImageToContent("3", dicSick.getDataName(), resultPath);
 //                    shotInfos.add(new ShotInfo(picName, resultPath));
+                    Toast.makeText(getContext(), "上传成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), jsonObject.getString("errMsg"), Toast.LENGTH_SHORT).show();
                 }

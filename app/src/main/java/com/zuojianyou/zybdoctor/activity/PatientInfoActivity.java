@@ -18,7 +18,7 @@ import com.zuojianyou.zybdoctor.units.ServerAPI;
  */
 public class PatientInfoActivity extends BaseActivity {
 
-    String mbrId, regId, diaId;
+    String personid, mbrId, regId, diaId;
     double fee;
     boolean payState;
 
@@ -26,6 +26,7 @@ public class PatientInfoActivity extends BaseActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
+        personid = getIntent().getStringExtra("personid");
         mbrId = getIntent().getStringExtra("mbrId");
         regId = getIntent().getStringExtra("regId");
         diaId = getIntent().getStringExtra("diaId");
@@ -40,6 +41,7 @@ public class PatientInfoActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PatientInfoActivity.this, TreatActivity.class);
+                intent.putExtra("personid", personid);
                 intent.putExtra("mbrId", mbrId);
                 intent.putExtra("regId", regId);
                 intent.putExtra("fee", fee);

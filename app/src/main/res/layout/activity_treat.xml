@@ -732,7 +732,7 @@
                             android:textColor="@color/color_ask_text_tag"
                             android:textSize="@dimen/ask_tag_size" />
 
-                        <EditText
+                        <TextView
                             android:id="@+id/tv_treat_content_maixiang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

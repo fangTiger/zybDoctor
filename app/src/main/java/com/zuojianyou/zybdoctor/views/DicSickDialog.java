@@ -1,9 +1,11 @@
 package com.zuojianyou.zybdoctor.views;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.zuojianyou.zybdoctor.R;
+import com.zuojianyou.zybdoctor.activity.TreatActivity;
+import com.zuojianyou.zybdoctor.beans.treat.DiagnoseInfo;
 import com.zuojianyou.zybdoctor.beans.treat.DicAsk;
 import com.zuojianyou.zybdoctor.beans.treat.DicBody;
 import com.zuojianyou.zybdoctor.beans.treat.DicFace;
@@ -44,12 +48,16 @@ public class DicSickDialog extends Dialog {
     private Object object;
     private View contentView;
     private int spanCount;
+    private TreatActivity activity;
 
-    public DicSickDialog(Context context, String title, Object object, TextView etShow) {
-        super(context, R.style.AlertDialog);
+    public DicSickDialog(Activity activity, String title, Object object, TextView etShow) {
+        super(activity, R.style.AlertDialog);
         this.title = title;
         this.etShow = etShow;
         this.object = object;
+        if (activity instanceof  TreatActivity) {
+            this.activity = (TreatActivity) activity;
+        }
     }
 
     @Override
@@ -87,11 +95,54 @@ public class DicSickDialog extends Dialog {
         } else if (object instanceof DicPersonal) {
             DicPersonal dicPersonal = (DicPersonal) object;
             initPersonal(dicPersonal);
+        } else if (object instanceof DiagnoseInfo.PulseObj) {
+            DiagnoseInfo.PulseObj obj = (DiagnoseInfo.PulseObj) object;
+            intPulseObj(obj);
         }
 
         findViewById(R.id.btn_dialog_dic_sick_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dismiss();
+            }
+        });
+    }
+
+    private void intPulseObj(DiagnoseInfo.PulseObj obj){
+        View view = getLayoutInflater().inflate(R.layout.dialog_dic_pulse, null);
+        RecyclerView lecunRecyclerView = view.findViewById(R.id.lecun_recycler_view);
+        lecunRecyclerView.setNestedScrollingEnabled(false);
+        lecunRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        lecunRecyclerView.setAdapter(new SickAdapter(obj.getLecunPulseObj(), 1));
+        RecyclerView leguRecyclerView = view.findViewById(R.id.legu_recycler_view);
+        leguRecyclerView.setNestedScrollingEnabled(false);
+        leguRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        leguRecyclerView.setAdapter(new SickAdapter(obj.getLeguPulseObj(), 1));
+        RecyclerView lechiRecyclerView = view.findViewById(R.id.lechi_recycler_view);
+        lechiRecyclerView.setNestedScrollingEnabled(false);
+        lechiRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        lechiRecyclerView.setAdapter(new SickAdapter(obj.getLechiPulseObj(), 1));
+        RecyclerView ricunRecyclerView = view.findViewById(R.id.ricun_recycler_view);
+        ricunRecyclerView.setNestedScrollingEnabled(false);
+        ricunRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        ricunRecyclerView.setAdapter(new SickAdapter(obj.getRicunPulseObj(), 1));
+        RecyclerView riguRecyclerView = view.findViewById(R.id.rigu_recycler_view);
+        riguRecyclerView.setNestedScrollingEnabled(false);
+        riguRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        riguRecyclerView.setAdapter(new SickAdapter(obj.getRiguPulseObj(), 1));
+        RecyclerView richiRecyclerView = view.findViewById(R.id.richi_recycler_view);
+        richiRecyclerView.setNestedScrollingEnabled(false);
+        richiRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        richiRecyclerView.setAdapter(new SickAdapter(obj.getRichiPulseObj(), 1));
+
+        llContent.addView(view);
+
+        findViewById(R.id.btn_dialog_dic_sick_confirm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (activity != null) {
+                    activity.updatePulseView();
+                }
                 dismiss();
             }
         });

@@ -6,8 +6,8 @@ android {
         applicationId "com.zuojianyou.zybdoctor"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 19
-        versionName "1.2.7"
+        versionCode 20
+        versionName "1.2.8"
 
         multiDexEnabled true
         flavorDimensions "default"
@@ -38,7 +38,7 @@ android {
 
     productFlavors {
         dev {}
-        zyb {}
+        zybdoctor {}
     }
 
     productFlavors.all { flavor ->
@@ -87,4 +87,6 @@ dependencies {
     implementation project(':libskywebrtc')
     implementation project(':libskywebrtc2')
     implementation project(':webrtclibrary')
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
 }

@@ -3,7 +3,7 @@ package com.zuojianyou.zybdoctor.beans.treat;
 import java.io.Serializable;
 
 public class MbrInfo implements Serializable {
-
+    private String personid;
     private String mbrId;
     private String name;
     private String sex;
@@ -19,6 +19,14 @@ public class MbrInfo implements Serializable {
     private String address;
     private String priceType;
     private String personimg;
+
+    public String getPersonid() {
+        return personid;
+    }
+
+    public void setPersonid(String personid) {
+        this.personid = personid;
+    }
 
     public String getPersonimg() {
         return personimg;

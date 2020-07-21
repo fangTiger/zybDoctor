@@ -1,7 +1,7 @@
 package com.zuojianyou.zybdoctor.beans;
 
 public class AskListInfo {
-
+    private String personid;
     private String mbrId;
     private String name;
     private String age;
@@ -25,6 +25,14 @@ public class AskListInfo {
     private DictionaryBean payObj;
     private DictionaryBean takeMedObj;
     private DictionaryBean birthCountyObj;
+
+    public String getPersonid() {
+        return personid;
+    }
+
+    public void setPersonid(String personid) {
+        this.personid = personid;
+    }
 
     public String getPersonimg() {
         return personimg;

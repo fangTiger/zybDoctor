@@ -54,9 +54,9 @@ public class PeerConnectionHelper {
 
     public final static String TAG = "dds_webRtcHelper";
 
-    public static final int VIDEO_RESOLUTION_WIDTH = 320;
-    public static final int VIDEO_RESOLUTION_HEIGHT = 240;
-    public static final int FPS = 10;
+    public static final int VIDEO_RESOLUTION_WIDTH = 640;   //320
+    public static final int VIDEO_RESOLUTION_HEIGHT = 480;  //240
+    public static final int FPS = 25;  //10
     public static final String VIDEO_CODEC_H264 = "H264";
     public static final String VIDEO_TRACK_ID = "ARDAMSv0";
     public static final String AUDIO_TRACK_ID = "ARDAMSa0";

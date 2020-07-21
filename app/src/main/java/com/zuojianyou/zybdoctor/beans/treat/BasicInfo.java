@@ -328,4 +328,72 @@ public class BasicInfo {
     public void setDiagRadio(String diagRadio) {
         this.diagRadio = diagRadio;
     }
+
+    public static class Pulse{
+        private String lecunPulse = "";
+        private String leguPulse = "";
+        private String lechiPulse = "";
+        private String ricunPulse = "";
+        private String riguPulse = "";
+        private String richiPulse = "";
+
+        public Pulse(){}
+
+        public Pulse(String lecunPulse, String leguPulse, String lechiPulse, String ricunPulse, String riguPulse, String richiPulse) {
+            this.lecunPulse = lecunPulse;
+            this.leguPulse = leguPulse;
+            this.lechiPulse = lechiPulse;
+            this.ricunPulse = ricunPulse;
+            this.riguPulse = riguPulse;
+            this.richiPulse = richiPulse;
+        }
+
+        public String getLecunPulse() {
+            return lecunPulse;
+        }
+
+        public void setLecunPulse(String lecunPulse) {
+            this.lecunPulse = lecunPulse;
+        }
+
+        public String getLeguPulse() {
+            return leguPulse;
+        }
+
+        public void setLeguPulse(String leguPulse) {
+            this.leguPulse = leguPulse;
+        }
+
+        public String getLechiPulse() {
+            return lechiPulse;
+        }
+
+        public void setLechiPulse(String lechiPulse) {
+            this.lechiPulse = lechiPulse;
+        }
+
+        public String getRicunPulse() {
+            return ricunPulse;
+        }
+
+        public void setRicunPulse(String ricunPulse) {
+            this.ricunPulse = ricunPulse;
+        }
+
+        public String getRiguPulse() {
+            return riguPulse;
+        }
+
+        public void setRiguPulse(String riguPulse) {
+            this.riguPulse = riguPulse;
+        }
+
+        public String getRichiPulse() {
+            return richiPulse;
+        }
+
+        public void setRichiPulse(String richiPulse) {
+            this.richiPulse = richiPulse;
+        }
+    }
 }

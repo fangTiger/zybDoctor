@@ -427,10 +427,12 @@ public class RegistrationActivity extends BaseActivity {
                     JSONObject jsonData = json.getJSONObject("data");
                     String registrationId = jsonData.getString("registrationId");
                     String mbrId = jsonData.getString("mbrId");
+                    String personid = jsonData.getString("personid");
                     Intent intent = new Intent(RegistrationActivity.this, TreatActivity.class);
                     intent.putExtra("mbrId", mbrId);
                     intent.putExtra("regId", registrationId);
                     intent.putExtra("fee", mUserInfo.getFee());
+                    intent.putExtra("personid", personid);
                     startActivity(intent);
                     finish();
                 } else {

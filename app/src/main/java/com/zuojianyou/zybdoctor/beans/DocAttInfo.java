@@ -29,7 +29,16 @@ public class DocAttInfo {
     private String docTypeName;
     private String docOffiName;
     private String practAddress;
+    private String practAgent;
     private List<DocProfessInfo> professArr;
+
+    public String getPractAgent() {
+        return practAgent;
+    }
+
+    public void setPractAgent(String practAgent) {
+        this.practAgent = practAgent;
+    }
 
     public String getWdescPic() {
         return wdescPic;

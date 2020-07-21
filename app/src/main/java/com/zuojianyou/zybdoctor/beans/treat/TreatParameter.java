@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreatParameter {
-
+    private MbrInfo mbrObj;
     private SickHis sickHisObj;//
     private List<Report> reportArr;//*
     private List<Record> recordArr;//*
@@ -23,6 +23,14 @@ public class TreatParameter {
         boxMedArr = new ArrayList<>();
         revisitObj = new Revisit();
         basicInfoObj = new BasicInfo();
+    }
+
+    public MbrInfo getMbrObj() {
+        return mbrObj;
+    }
+
+    public void setMbrObj(MbrInfo mbrObj) {
+        this.mbrObj = mbrObj;
     }
 
     public SickHis getSickHisObj() {

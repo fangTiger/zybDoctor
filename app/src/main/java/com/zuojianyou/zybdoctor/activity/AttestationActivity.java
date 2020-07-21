@@ -1,31 +1,44 @@
 package com.zuojianyou.zybdoctor.activity;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.alibaba.fastjson.JSONObject;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.DocAttInfo;
 import com.zuojianyou.zybdoctor.beans.DocProfessInfo;
@@ -59,14 +72,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class AttestationActivity extends BaseActivity {
 
     final int CODE_SIGN_CREATE = 300;
@@ -81,8 +86,8 @@ public class AttestationActivity extends BaseActivity {
 
     LocationSelector locationSelector;
     SexSelector sexSelector;
-
-    TextView tvDocName, tvDocBirthDay, tvProfess, tvGoodAt, tvDocWorkAdd, tvDocIntro;
+    EditText docWorkNameEt;
+    TextView tvDocName, tvDocBirthDay, tvProfess, tvGoodAt, tvDocWorkAdd, tvDocIntro, workText;
     RecyclerView rvGoodAt;
     GoodAtAdapter goodAtAdapter;
 
@@ -174,6 +179,11 @@ public class AttestationActivity extends BaseActivity {
             }
         });
 
+        docWorkNameEt = findViewById(R.id.doc_work_name_et);
+        workText = findViewById(R.id.work_text);
+        SpannableStringBuilder ss = new SpannableStringBuilder("请填写主要执业机构名称");
+        ss.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.color_tag_marked_yellow)),3,11, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        workText.setText(ss);
         tvDocName = findViewById(R.id.tv_doc_name);
         tvDocName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -433,6 +443,7 @@ public class AttestationActivity extends BaseActivity {
             tvDocBirthDay.setText(getTime(calendar));
         }
         tvDocWorkAdd.setText(docAttInfo.getPractAddress());
+        docWorkNameEt.setText(docAttInfo.getPractAgent());
         tvDocIntro.setText(docAttInfo.getWdesc());
         tvSex.setText(docAttInfo.getSexObj().getKeyName());
         tvSex.setTag(docAttInfo.getSexObj().getKeyValue());
@@ -1199,6 +1210,7 @@ public class AttestationActivity extends BaseActivity {
         if (docPhotoUrl != null) jsonObject.put("shPic", docPhotoUrl);
         jsonObject.put("name", tvDocName.getText().toString().trim());
         jsonObject.put("practAddress", tvDocWorkAdd.getText().toString().trim());
+        jsonObject.put("practAgent", docWorkNameEt.getText().toString().trim());
         jsonObject.put("birthday", tvDocBirthDay.getText().toString().replaceAll("-", ""));
         jsonObject.put("sex", tvSex.getTag());
         jsonObject.put("doctorTyp", tvProfess.getTag());
@@ -1269,22 +1281,55 @@ public class AttestationActivity extends BaseActivity {
         }));
     }
 
+//    private void showDatePicker() {
+//        Calendar calendar;
+//        if (TextUtils.isEmpty(tvDocBirthDay.getText())) {
+//            calendar = Calendar.getInstance();
+//        } else {
+//            calendar = getTime(tvDocBirthDay.getText().toString());
+//        }
+//        new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                Calendar mCalendar = Calendar.getInstance();
+//                mCalendar.set(year, month, dayOfMonth);
+//                tvDocBirthDay.setText(getTime(mCalendar));
+//            }
+//        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+//    }
+
     private void showDatePicker() {
-        Calendar calendar;
-        if (TextUtils.isEmpty(tvDocBirthDay.getText())) {
-            calendar = Calendar.getInstance();
-        } else {
-            calendar = getTime(tvDocBirthDay.getText().toString());
-        }
-        new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+        TimePickerView pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Calendar mCalendar = Calendar.getInstance();
-                mCalendar.set(year, month, dayOfMonth);
-                tvDocBirthDay.setText(getTime(mCalendar));
+            public void onTimeSelect(Date date,View v) {//选中事件回调
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                tvDocBirthDay.setText(format.format(date));
             }
-        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+        })
+                .setType(new boolean[]{true, true, true, false, false, false})// 默认全部显示
+                .setCancelText("取消")//取消按钮文字
+                .setSubmitText("确认")//确认按钮文字
+                .setContentTextSize(18)//滚轮文字大小
+                .setTitleSize(18)//标题文字大小
+                .setTitleText("选择出生日期")//标题文字
+                .setOutSideCancelable(false)//点击屏幕，点在控件外部范围时，是否取消显示
+                .isCyclic(true)//是否循环滚动
+                .setTitleColor(getResources().getColor(R.color.color_ask_title_black))//标题文字颜色
+                .setSubmitColor(getResources().getColor(R.color.color_ask_title_red))//确定按钮文字颜色
+                .setCancelColor(getResources().getColor(R.color.color_ask_title_red))//取消按钮文字颜色
+                .setTitleBgColor(Color.WHITE)//标题背景颜色 Night mode
+                .setBgColor(Color.WHITE)//滚轮背景颜色 Night mode
+//                .setDate(selectedDate)// 如果不设置的话，默认是系统时间*/
+//                .setRangDate(startDate,endDate)//起始终止年月日设定
+                .setLabel("年","月","日","","","")//默认设置为年月日时分秒
+                .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+                .isDialog(false)//是否显示为对话框样式
+                .build();
+
+        pvTime.show();
     }
+
+
 
     private String getTime(Calendar calendar) {
         int year = calendar.get(Calendar.YEAR);
