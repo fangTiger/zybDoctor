@@ -1,0 +1,51 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bjgjdsj.zyb.voip">
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 悬浮窗显示 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application>
+        
+        <!-- ======================java====================== -->
+        <activity
+            android:name="com.bjgjdsj.zyb.voip.core.CallSingleActivity"
+            tools:ignore="UnusedAttribute"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true"
+            android:showWhenLocked="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="${applicationId}.kit.voip.single" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.bjgjdsj.zyb.voip.core.CallMultiActivity"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="com.bjgjdsj.zyb.voip.core.VoipReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.voip.Receiver" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 悬浮窗 -->
+        <service
+            android:name="com.bjgjdsj.zyb.voip.core.FloatingVoipService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+</manifest>

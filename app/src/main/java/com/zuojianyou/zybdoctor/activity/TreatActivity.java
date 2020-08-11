@@ -5,7 +5,6 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -49,10 +48,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.bjgjdsj.zyb.voip.core.CallSingleActivity;
 import com.bumptech.glide.Glide;
-import com.dds.java.voip.CallSingleActivity;
-import com.dds.java.voip.VoipEvent;
-import com.dds.skywebrtc.SkyEngineKit;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
@@ -848,7 +845,6 @@ public class TreatActivity extends BaseActivity {
         findViewById(R.id.btn_act_treat_chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SkyEngineKit.init(new VoipEvent(TreatActivity.this));
                 CallSingleActivity.openActivity(TreatActivity.this, personid, true, false);
             }
         });

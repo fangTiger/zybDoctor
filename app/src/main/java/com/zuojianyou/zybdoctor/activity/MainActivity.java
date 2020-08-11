@@ -14,15 +14,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.core.content.FileProvider;
-
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -34,12 +25,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+
 import com.alibaba.fastjson.JSONObject;
+import com.bjgjdsj.zyb.voip.core.consts.Urls;
+import com.bjgjdsj.zyb.voip.core.socket.IUserState;
+import com.bjgjdsj.zyb.voip.core.socket.SocketManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.dds.java.socket.IUserState;
-import com.dds.java.socket.SocketManager;
-import com.dds.nodejs.WebrtcUtil;
+import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.constants.BroadcastAction;
 import com.zuojianyou.zybdoctor.data.SpData;
 import com.zuojianyou.zybdoctor.units.DocAuthStateUtils;
@@ -48,14 +46,12 @@ import com.zuojianyou.zybdoctor.units.MyCallBack;
 import com.zuojianyou.zybdoctor.units.ServerAPI;
 import com.zuojianyou.zybdoctor.units.ToastUtils;
 import com.zuojianyou.zybdoctor.views.ScrollableViewPager;
-import com.zuojianyou.zybdoctor.R;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.File;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,18 +152,16 @@ public class MainActivity extends BaseActivity {
 
         });
 
-        SocketManager.getInstance(this).addUserStateCallback(iUserState);
+        SocketManager.getInstance().addUserStateCallback(iUserState);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        int userState = SocketManager.getInstance(this).getUserState();
+        int userState = SocketManager.getInstance().getUserState();
         if (userState != 1 && SpData.getMbrId() != null) {
-            String ws = "ws://" + WebrtcUtil.HOST + ":5000/ws";
             String id = SpData.getPersonId();
-            SocketManager.getInstance(this).connect(
-                    ws, id, 0);
+            SocketManager.getInstance().connect(Urls.WS, id, 0);
         }
     }
 
@@ -266,7 +260,7 @@ public class MainActivity extends BaseActivity {
         unregisterReceiver(treatBackReceiver);
         unRegisterMyReceiver();
         unRegisterAuthReceiver();
-        SocketManager.getInstance(this).unConnect();
+        SocketManager.getInstance().unConnect();
     }
 
     class TreatBackReceiver extends BroadcastReceiver {

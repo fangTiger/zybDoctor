@@ -1,1 +1,3 @@
-include ':app', ':libwebrtc', ':libskywebrtc', ':libskywebrtc2', ':webrtclibrary'
+include ':libvoip'
+include ':base'
+include ':app',':libwebrtc',':module_p2pchat'
