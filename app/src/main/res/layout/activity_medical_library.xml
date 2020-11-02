@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/titlebar"
+        layout="@layout/title_bar_common"/>
+    <LinearLayout
+        android:id="@+id/search_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlebar"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/keyword_et"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/common_btn_search_bg"
+            android:hint="关键字"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="44dp"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:textSize="14dp"
+            android:textColor="@color/colorTextBlack"
+            android:text="查询" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_ll"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/traditional_medicine_rb"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:background="@drawable/bg_treat_ebm_menu_type"
+                android:textSize="16dp"
+                android:textColor="@color/text_menu_color"
+                android:checked="true"
+                android:gravity="center"
+                android:text="中医病症" />
+
+
+            <RadioButton
+                android:id="@+id/western_medicine_rb"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_treat_ebm_menu_type"
+                android:button="@null"
+                android:textSize="16dp"
+                android:textColor="@color/text_menu_color"
+                android:gravity="center"
+                android:text="西医病症" />
+
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menu_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/sick_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_ll"
+        android:orientation="vertical"
+        android:background="@color/color_common_act_bg"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_emb_sick_info_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@color/color_common_divider"
+            android:orientation="vertical"
+            android:padding="@dimen/ask_divider_size">
+
+            <TextView
+                android:id="@+id/western_sick_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_treat_ebm_menu_bg"
+                android:gravity="center_vertical"
+                android:minHeight="28dp"
+                android:paddingLeft="12dp"
+                android:text="西医主要临床症状："
+                android:textColor="#686b6d"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/traditional_diagnose_tv"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_marginTop="@dimen/ask_divider_size"
+                android:layout_marginBottom="@dimen/ask_divider_size"
+                android:background="@color/color_treat_ebm_menu_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:textColor="#686b6d"
+                android:textSize="12dp"
+                android:text="中医诊断：" />
+
+            <TextView
+                android:id="@+id/western_diagnose_tv"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@color/color_treat_ebm_menu_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:textColor="#686b6d"
+                android:textSize="12dp"
+                android:text="西医诊断：" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sick_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/no_data_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_ll"
+        android:text="没有数据"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:textColor="@color/colorTextBlack"
+        android:visibility="gone"/>
+</RelativeLayout>

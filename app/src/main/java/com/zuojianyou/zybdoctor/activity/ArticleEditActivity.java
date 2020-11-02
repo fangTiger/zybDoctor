@@ -23,10 +23,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.ArticleInfo;
-import com.zuojianyou.zybdoctor.units.FileUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.FileUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.KeyValue;

@@ -4,13 +4,16 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bjgjdsj.zyb.voip.core.Utils;
 import com.bjgjdsj.zyb.voip.core.VoipReceiver;
 import com.dds.skywebrtc.CallSession;
 import com.dds.skywebrtc.SkyEngineKit;
 import com.zuojianyou.zybdoctor.base.BaseApplication;
+import com.zuojianyou.zybdoctor.base.data.SpData;
 
 import java.lang.ref.WeakReference;
 import java.net.URI;
@@ -73,14 +76,20 @@ public class SocketManager implements IEvent {
                     }
 
                     if (factory != null) {
-                        webSocket.setSocket(factory.createSocket());
+                        webSocket.setSocketFactory(factory);
+//                        webSocket.setSocket(factory.createSocket());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
             // 开始connect
-            webSocket.connect();
+            try {
+                webSocket.connect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
 
 
@@ -122,7 +131,15 @@ public class SocketManager implements IEvent {
 
     public void sendInvite(String room, List<String> users, boolean audioOnly) {
         if (webSocket != null) {
-            webSocket.sendInvite(room, myId, users, audioOnly);
+            String nickname = "";
+            String photoUrl = "";
+            String info = SpData.getDoctorInfo();
+            if (!TextUtils.isEmpty(info)) {
+                JSONObject json = JSONObject.parseObject(info);
+                nickname = json.getString("name");
+                photoUrl = "https://www.yimall1688.com/img" + json.getString("shPic");
+            }
+            webSocket.sendInvite(room, myId, nickname,photoUrl,users, audioOnly);
         }
     }
 
@@ -193,11 +210,13 @@ public class SocketManager implements IEvent {
 
     // ========================================================================================
     @Override
-    public void onInvite(String room, boolean audioOnly, String inviteId, String userList) {
+    public void onInvite(String room, boolean audioOnly, String inviteId, String inviteNickname, String invitePhotoUrl,String userList) {
         Intent intent = new Intent();
         intent.putExtra("room", room);
         intent.putExtra("audioOnly", audioOnly);
         intent.putExtra("inviteId", inviteId);
+        intent.putExtra("inviteNickname", inviteNickname);
+        intent.putExtra("invitePhotoUrl", invitePhotoUrl);
         intent.putExtra("userList", userList);
         intent.setAction(Utils.ACTION_VOIP_RECEIVER);
         intent.setComponent(new ComponentName(BaseApplication.getAppContext().getPackageName(), VoipReceiver.class.getName()));
@@ -339,7 +358,9 @@ public class SocketManager implements IEvent {
     @Override
     public void reConnect() {
         handler.post(() -> {
-            webSocket.reconnect();
+            if (webSocket != null) {
+                webSocket.reconnect();
+            }
         });
     }
     //===========================================================================================

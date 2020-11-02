@@ -25,11 +25,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.DoctorInfo;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.DocAuthStateUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.DocAuthStateUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -82,31 +82,10 @@ public class MainFragmentMine extends Fragment {
         TextView tvAppVersion = view.findViewById(R.id.tv_app_version);
         tvAppVersion.setText("v" + MainActivity.getVersionName(getContext()));
 
-        view.findViewById(R.id.btn_frag_mine_exit).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.setting_ll).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view = getLayoutInflater().inflate(R.layout.popup_common_alert, null);
-                PopupWindow popupWindow = new PopupWindow(view, -1, -1);
-                TextView tv = view.findViewById(R.id.tv_alert_msg);
-                tv.setText("确定退出当前账号？");
-                view.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popupWindow.dismiss();
-                    }
-                });
-                view.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popupWindow.dismiss();
-                        SpData.clearUser();
-                        SpData.clearPwd();
-                        Intent intent = new Intent(getActivity(), UserLoginActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        getActivity().startActivity(intent);
-                    }
-                });
-                popupWindow.showAtLocation(ivPhoto.getRootView(), Gravity.CENTER, 0, 0);
+               startActivity(new Intent(getContext(), SettingActivity.class));
 
             }
         });

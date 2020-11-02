@@ -36,10 +36,28 @@ public class BasicInfo {
     private String expensFee;
     private String sumFee;
     private String sumFeeCh;
+    private String newMedicineFee;
+    private String newBoxMedicineFee;
 
     private String sendAddress;
     private String reName;
     private String centerId;
+
+    public String getNewMedicineFee() {
+        return newMedicineFee;
+    }
+
+    public void setNewMedicineFee(String newMedicineFee) {
+        this.newMedicineFee = newMedicineFee;
+    }
+
+    public String getNewBoxMedicineFee() {
+        return newBoxMedicineFee;
+    }
+
+    public void setNewBoxMedicineFee(String newBoxMedicineFee) {
+        this.newBoxMedicineFee = newBoxMedicineFee;
+    }
 
     public String getSendAddress() {
         return sendAddress;

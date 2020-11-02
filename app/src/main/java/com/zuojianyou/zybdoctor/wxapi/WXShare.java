@@ -8,8 +8,8 @@ import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import com.zuojianyou.zybdoctor.constants.Constants;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.app.Constants;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 
 import java.io.ByteArrayOutputStream;
 

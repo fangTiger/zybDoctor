@@ -34,6 +34,8 @@ import java.util.UUID;
 public class CallSingleActivity extends AppCompatActivity implements CallSession.CallSessionCallback {
 
     public static final String EXTRA_TARGET = "targetId";
+    public static final String EXTRA_NICKNAME = "nickname";
+    public static final String EXTRA_PHOTO_URL = "photoUrl";
     public static final String EXTRA_MO = "isOutGoing";
     public static final String EXTRA_AUDIO_ONLY = "audioOnly";
     public static final String EXTRA_FROM_FLOATING_VIEW = "fromFloatingView";
@@ -41,6 +43,8 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
     private Handler handler = new Handler(Looper.getMainLooper());
     private boolean isOutgoing;
     private String targetId;
+    private String nickname;
+    private String photoUrl;
     private boolean isAudioOnly;
     private boolean isFromFloatingView;
 
@@ -50,11 +54,13 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
     private String room;
 
 
-    public static void openActivity(Context context, String targetId, boolean isOutgoing,
+    public static void openActivity(Context context, String targetId, String nickname,String photoUrl, boolean isOutgoing,
                                     boolean isAudioOnly) {
         Intent voip = new Intent(context, CallSingleActivity.class);
         voip.putExtra(CallSingleActivity.EXTRA_MO, isOutgoing);
         voip.putExtra(CallSingleActivity.EXTRA_TARGET, targetId);
+        voip.putExtra(CallSingleActivity.EXTRA_NICKNAME, nickname);
+        voip.putExtra(CallSingleActivity.EXTRA_PHOTO_URL, photoUrl);
         voip.putExtra(CallSingleActivity.EXTRA_AUDIO_ONLY, isAudioOnly);
         voip.putExtra(CallSingleActivity.EXTRA_FROM_FLOATING_VIEW, false);
         if (context instanceof Activity) {
@@ -83,6 +89,8 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
         }
         final Intent intent = getIntent();
         targetId = intent.getStringExtra(EXTRA_TARGET);
+        nickname = intent.getStringExtra(EXTRA_NICKNAME);
+        photoUrl = intent.getStringExtra(EXTRA_PHOTO_URL);
         isFromFloatingView = intent.getBooleanExtra(EXTRA_FROM_FLOATING_VIEW, false);
         isOutgoing = intent.getBooleanExtra(EXTRA_MO, false);
         isAudioOnly = intent.getBooleanExtra(EXTRA_AUDIO_ONLY, false);
@@ -119,6 +127,10 @@ public class CallSingleActivity extends AppCompatActivity implements CallSession
         } else {
             fragment = new FragmentVideo();
         }
+        Bundle bundle = new Bundle();
+        bundle.putString("nickname",nickname);
+        bundle.putString("photoUrl",photoUrl);
+        fragment.setArguments(bundle);
         currentFragment = (CallSession.CallSessionCallback) fragment;
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (isReplace) {

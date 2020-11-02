@@ -11,10 +11,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zuojianyou.zybdoctor.units.statusBarTools.StatusBarCompat;
+import com.zuojianyou.zybdoctor.utils.statusBarTools.StatusBarCompat;
+import com.zuojianyou.zybdoctor.views.BaseView;
 import com.zuojianyou.zybdoctor.views.LoadingDialog;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements BaseView {
 
     protected boolean isPad;
 
@@ -75,5 +76,25 @@ public class BaseActivity extends AppCompatActivity {
             if (loadingDialog.isShowing()) loadingDialog.dismiss();
             loadingDialog = null;
         }
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+
+    }
+
+    @Override
+    public void showErrorMsg(String msg, String errorCode) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
     }
 }

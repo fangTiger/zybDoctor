@@ -256,8 +256,10 @@ public class MyWebSocket extends WebSocketClient {
             String room = (String) data.get("room");
             boolean audioOnly = (boolean) data.get("audioOnly");
             String inviteID = (String) data.get("inviteID");
+            String inviteNickname = (String) data.get("inviteNickname");
+            String invitePhotoUrl = (String) data.get("invitePhotoUrl");
             String userList = (String) data.get("userList");
-            this.iEvent.onInvite(room, audioOnly, inviteID, userList);
+            this.iEvent.onInvite(room, audioOnly, inviteID,inviteNickname,invitePhotoUrl, userList);
         }
     }
 
@@ -286,11 +288,13 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
     }
 
     // 发送邀请
-    public void sendInvite(String room, String myId, List<String> users, boolean audioOnly) {
+    public void sendInvite(String room, String myId, String myNickname,String myPhotoUrl, List<String> users, boolean audioOnly) {
         Map<String, Object> map = new HashMap<>();
         map.put("eventName", "__invite");
 
@@ -298,6 +302,8 @@ public class MyWebSocket extends WebSocketClient {
         childMap.put("room", room);
         childMap.put("audioOnly", audioOnly);
         childMap.put("inviteID", myId);
+        childMap.put("inviteNickname", myNickname);
+        childMap.put("invitePhotoUrl", myPhotoUrl);
 
         String join = StringUtil.listToString(users);
         childMap.put("userList", join);
@@ -306,7 +312,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // 取消邀请
@@ -326,7 +335,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // 发送响铃通知
@@ -344,7 +356,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     //加入房间
@@ -361,7 +376,9 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
     }
 
     // 拒接接听
@@ -379,7 +396,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // 离开房间
@@ -413,7 +433,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // send answer
@@ -428,7 +451,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // send ice-candidate
@@ -463,7 +489,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // 断开重连
@@ -478,7 +507,10 @@ public class MyWebSocket extends WebSocketClient {
         JSONObject object = new JSONObject(map);
         final String jsonString = object.toString();
         Log.d(TAG, "send-->" + jsonString);
-        send(jsonString);
+        if (isOpen()) {
+            send(jsonString);
+        }
+
     }
 
     // 忽略证书

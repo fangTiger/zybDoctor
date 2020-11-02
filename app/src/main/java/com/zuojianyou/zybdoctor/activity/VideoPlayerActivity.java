@@ -7,7 +7,7 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 public class VideoPlayerActivity extends BaseActivity {
 

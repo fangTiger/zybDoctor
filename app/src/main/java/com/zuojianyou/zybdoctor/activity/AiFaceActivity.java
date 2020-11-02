@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.units.AiFaceUtils;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.AiFaceUtils;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.KeyValue;

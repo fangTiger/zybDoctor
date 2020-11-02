@@ -4,12 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -20,13 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.alibaba.fastjson.JSONObject;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.MD5;
@@ -107,6 +106,28 @@ public class UserLoginActivity extends BaseActivity {
         btnConfirm.setOnClickListener(confirmClicked);
 
         requestPermission();
+
+
+        findViewById(R.id.btn_register_agreement).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = ServerAPI.BASE_DOMAIN+"/p/joined/serviceAgre.html";
+                Intent intent=new Intent(getContext(),WebActivity.class);
+                intent.putExtra("title","服务协议");
+                intent.putExtra("url",url);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.btn_register_privacy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = ServerAPI.BASE_DOMAIN+"/p/joined/secret.html";
+                Intent intent=new Intent(getContext(),WebActivity.class);
+                intent.putExtra("title","隐私政策");
+                intent.putExtra("url",url);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -215,9 +236,7 @@ public class UserLoginActivity extends BaseActivity {
                     SpData.setMbrId(jsonData.getString("doctorId"));
                     SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    httpGetMineInfo();
                 } else {
                     String errMsg = json.getString("errMsg");
                     Toast.makeText(getContext(), errMsg, Toast.LENGTH_SHORT).show();
@@ -276,9 +295,7 @@ public class UserLoginActivity extends BaseActivity {
                     SpData.setMbrId(jsonData.getString("doctorId"));
                     SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    httpGetMineInfo();
                 } else {
                     String errMsg = json.getString("errMsg");
                     Toast.makeText(getContext(), errMsg, Toast.LENGTH_SHORT).show();
@@ -302,6 +319,36 @@ public class UserLoginActivity extends BaseActivity {
                 btnConfirm.setEnabled(true);
             }
         });
+    }
+
+    public void httpGetMineInfo() {
+        String url = ServerAPI.getDocInfoUrl();
+        RequestParams entity = new RequestParams(url);
+        ServerAPI.addHeader(entity);
+        x.http().get(entity, new HttpCallback(new MyCallBack() {
+            @Override
+            public void onSuccess(String data) {
+                SpData.setDoctorInfo(data);
+                startActivity(new Intent(getContext(), MainActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                startActivity(new Intent(getContext(), MainActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onCancelled(Callback.CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        }));
     }
 
     @Override

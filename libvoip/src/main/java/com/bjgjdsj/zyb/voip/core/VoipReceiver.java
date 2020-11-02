@@ -20,13 +20,15 @@ public class VoipReceiver extends BroadcastReceiver {
             String room = intent.getStringExtra("room");
             boolean audioOnly = intent.getBooleanExtra("audioOnly", true);
             String inviteId = intent.getStringExtra("inviteId");
+            String inviteNickname = intent.getStringExtra("inviteNickname");
+            String invitePhotoUrl = intent.getStringExtra("invitePhotoUrl");
             String userList = intent.getStringExtra("userList");
             String[] list = userList.split(",");
             SkyEngineKit.init(new VoipEvent());
             boolean b = SkyEngineKit.Instance().startInCall(BaseApplication.getAppContext(), room, inviteId, audioOnly);
             if (b) {
                 if (list.length == 1) {
-                    CallSingleActivity.openActivity(context, inviteId, false, audioOnly);
+                    CallSingleActivity.openActivity(context, inviteId, inviteNickname,invitePhotoUrl,false, audioOnly);
                 } else {
                     // 群聊
                 }

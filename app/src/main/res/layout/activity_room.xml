@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <FrameLayout
+        android:id="@+id/full_window_fl"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.qiniu.droid.rtc.QNTextureView
+            android:id="@+id/texture_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/small1_window_fl"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintDimensionRatio="H,3:4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.qiniu.droid.rtc.QNTextureView
+            android:id="@+id/texture_view1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/small2_window_fl"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintDimensionRatio="H,3:4"
+        app:layout_constraintTop_toTopOf="@id/small1_window_fl"
+        app:layout_constraintRight_toLeftOf="@id/small1_window_fl"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.qiniu.droid.rtc.QNTextureView
+            android:id="@+id/texture_view2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/menu_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/av_photo_menu"
+        android:background="@null"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/small1_window_fl"
+        app:layout_constraintRight_toRightOf="@id/small1_window_fl"
+        app:layout_constraintLeft_toLeftOf="@id/small1_window_fl"/>
+
+    <LinearLayout
+        android:id="@+id/menu_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/av_menu_bg"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/menu_btn"
+        app:layout_constraintRight_toRightOf="@id/small1_window_fl"
+        app:layout_constraintLeft_toLeftOf="@id/small1_window_fl">
+
+        <TextView
+            android:id="@+id/face_picture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/av_photo_face"
+            android:drawablePadding="4dp"
+            android:gravity="center_horizontal"
+            android:text="  面部  "
+            android:textColor="#666" />
+
+        <TextView
+            android:id="@+id/tongue_picture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableTop="@drawable/av_photo_tongue"
+            android:drawablePadding="4dp"
+            android:gravity="center_horizontal"
+            android:text="  舌苔  "
+            android:textColor="#666" />
+
+        <TextView
+            android:id="@+id/hand_picture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableTop="@drawable/av_photo_hand"
+            android:drawablePadding="4dp"
+            android:gravity="center_horizontal"
+            android:text="  手掌  "
+            android:textColor="#666" />
+
+        <TextView
+            android:id="@+id/sick_picture_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableTop="@drawable/av_photo_sick"
+            android:drawablePadding="4dp"
+            android:gravity="center_horizontal"
+            android:text="病灶处"
+            android:textColor="#666" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/info_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/photo_iv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ac_default_header" />
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/photo_iv"
+            android:text="昵称"
+            android:singleLine="true"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/name_tv"
+            android:layout_below="@id/name_tv"
+            android:layout_marginTop="5dp"
+            android:text="等待对方接受邀请..."
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/minimize_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@null"
+        android:src="@drawable/av_minimize"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/hangup_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <ImageButton
+            android:id="@+id/hangup_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/av_hang_up"
+            android:background="@null"
+           />
+
+        <ImageButton
+            android:id="@+id/answer_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:src="@drawable/av_video_answer"
+            android:background="@null"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/switch_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/av_camera"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="@id/hangup_ll"
+        app:layout_constraintBottom_toBottomOf="@id/hangup_ll"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/capture_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:src="@mipmap/ic_audio_stop"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

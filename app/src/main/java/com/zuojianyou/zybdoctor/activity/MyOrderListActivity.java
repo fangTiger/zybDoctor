@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.OrderListInfo;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 import com.zuojianyou.zybdoctor.views.TextInput;
 
 import java.text.ParseException;

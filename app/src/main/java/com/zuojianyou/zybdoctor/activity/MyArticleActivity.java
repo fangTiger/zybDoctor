@@ -34,11 +34,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.ArticleListInfo;
 import com.zuojianyou.zybdoctor.beans.ArticleMenuInfo;
-import com.zuojianyou.zybdoctor.constants.BroadcastAction;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.TimeUtils;
+import com.zuojianyou.zybdoctor.app.BroadcastAction;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.TimeUtils;
 import com.zuojianyou.zybdoctor.views.ImageSelectDialog;
 
 import org.xutils.common.Callback;

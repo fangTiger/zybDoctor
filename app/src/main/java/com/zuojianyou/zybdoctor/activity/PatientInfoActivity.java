@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.treat.MbrInfo;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 /**
  * 病人信息

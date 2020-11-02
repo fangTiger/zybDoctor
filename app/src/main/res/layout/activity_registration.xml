@@ -317,7 +317,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/registration_item_height"
                         android:background="@drawable/bg_divider_bottom"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/tv_reg_cost"

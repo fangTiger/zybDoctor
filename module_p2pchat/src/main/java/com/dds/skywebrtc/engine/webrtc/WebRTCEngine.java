@@ -65,7 +65,7 @@ public class WebRTCEngine implements IEngine, Peer.IPeerEvent {
     public static final String VIDEO_CODEC_H264 = "H264";
     private static final int VIDEO_RESOLUTION_WIDTH = 640;
     private static final int VIDEO_RESOLUTION_HEIGHT = 480;
-    private static final int FPS = 20;
+    private static final int FPS = 24;
 
     // 对话实例列表
     private ConcurrentHashMap<String, Peer> peers = new ConcurrentHashMap<>();

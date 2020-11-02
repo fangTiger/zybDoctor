@@ -19,6 +19,7 @@ import org.webrtc.SessionDescription;
 import org.webrtc.SurfaceViewRenderer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -98,7 +99,7 @@ public class Peer implements SdpObserver, PeerConnection.Observer {
     }
 
     // 添加RemoteIceCandidate
-    public void addRemoteIceCandidate(final IceCandidate candidate) {
+    public synchronized void addRemoteIceCandidate(final IceCandidate candidate) {
         Log.d("dds_test", "addRemoteIceCandidate");
         if (pc != null) {
             if (queuedRemoteCandidates != null) {
@@ -291,10 +292,11 @@ public class Peer implements SdpObserver, PeerConnection.Observer {
     }
 
 
-    private void drainCandidates() {
+    private synchronized void drainCandidates() {
         Log.i("dds_test", "drainCandidates");
         if (queuedRemoteCandidates != null) {
             Log.d(TAG, "Add " + queuedRemoteCandidates.size() + " remote candidates");
+
             for (IceCandidate candidate : queuedRemoteCandidates) {
                 pc.addIceCandidate(candidate);
             }

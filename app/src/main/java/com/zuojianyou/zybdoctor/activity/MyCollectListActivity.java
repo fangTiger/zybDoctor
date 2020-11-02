@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.ArticleListInfo;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 public class MyCollectListActivity extends BaseListActivity {
 

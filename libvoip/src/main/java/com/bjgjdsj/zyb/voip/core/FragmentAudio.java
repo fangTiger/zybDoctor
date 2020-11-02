@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bjgjdsj.zyb.voip.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dds.skywebrtc.CallSession;
 import com.dds.skywebrtc.EnumType;
 import com.dds.skywebrtc.SkyEngineKit;
@@ -48,6 +50,9 @@ public class FragmentAudio extends Fragment implements CallSession.CallSessionCa
     private boolean isSpeakerOn = false;// 扬声器
     private CallSingleActivity activity;
 
+    private String nickname;
+    private String photoUrl;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +71,8 @@ public class FragmentAudio extends Fragment implements CallSession.CallSessionCa
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        nickname = getArguments().getString("nickname");
+        photoUrl = getArguments().getString("photoUrl");
         View view = inflater.inflate(R.layout.fragment_audio, container, false);
         initView(view);
         init();
@@ -75,7 +82,9 @@ public class FragmentAudio extends Fragment implements CallSession.CallSessionCa
     private void initView(View view) {
         minimizeImageView = view.findViewById(R.id.minimizeImageView);
         portraitImageView = view.findViewById(R.id.portraitImageView);
+        Glide.with(getContext()).load(photoUrl).apply(new RequestOptions().placeholder(R.drawable.av_default_header)).into(portraitImageView);
         nameTextView = view.findViewById(R.id.nameTextView);
+        nameTextView.setText(nickname);
         descTextView = view.findViewById(R.id.descTextView);
         durationTextView = view.findViewById(R.id.durationTextView);
         muteImageView = view.findViewById(R.id.muteImageView);

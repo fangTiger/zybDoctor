@@ -10,7 +10,7 @@
     <string name="tip_act_treat_recipe_personal">当前以自己处方计费</string>
 
     <string name="title_act_recipe_add">添加个人处方</string>
-    <string name="title_act_patent_add">添加成品药与产品</string>
+    <string name="title_act_patent_add">添加成品药</string>
     <string name="title_act_med_add">添加草药</string>
 
     <string name="tip_load_view_loading">加载中...</string>

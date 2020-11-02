@@ -75,7 +75,8 @@
                     android:layout_height="wrap_content"
                     android:tag="3"
                     android:layout_weight="1"
-                    android:text="技术服务"/>
+                    android:text="技术服务"
+                    android:visibility="invisible"/>
 
             </RadioGroup>
 

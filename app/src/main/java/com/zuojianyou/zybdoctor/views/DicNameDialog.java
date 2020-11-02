@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.treat.DicSick;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.KeyValue;

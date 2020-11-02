@@ -6,10 +6,12 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dds.skywebrtc.engine.EngineCallback;
 import com.dds.skywebrtc.engine.webrtc.WebRTCEngine;
 import com.dds.skywebrtc.inter.ISkyEvent;
+import com.zuojianyou.zybdoctor.base.BaseApplication;
 
 import org.webrtc.IceCandidate;
 import org.webrtc.SessionDescription;
@@ -178,8 +180,10 @@ public class CallSession implements EngineCallback {
         mIsAudioOnly = true;
         // 告诉远端
         sendTransAudio();
+
+        toggleSpeaker(false);
         // 本地切换
-        if (sessionCallback.get() != null) {
+        if (sessionCallback != null && sessionCallback.get() != null) {
             sessionCallback.get().didChangeMode(true);
         }
 
@@ -234,7 +238,7 @@ public class CallSession implements EngineCallback {
 
             if (!isAudioOnly()) {
                 // 画面预览
-                if (sessionCallback.get() != null) {
+                if (sessionCallback != null && sessionCallback.get() != null) {
                     sessionCallback.get().didCreateLocalVideoTrack();
                 }
 
@@ -258,7 +262,7 @@ public class CallSession implements EngineCallback {
             }
             // 更换界面
             _callState = EnumType.CallState.Connected;
-            if (sessionCallback.get() != null) {
+            if (sessionCallback != null && sessionCallback.get() != null) {
                 startTime = System.currentTimeMillis();
                 sessionCallback.get().didChangeState(_callState);
 
@@ -279,6 +283,7 @@ public class CallSession implements EngineCallback {
         if (sessionCallback != null && sessionCallback.get() != null) {
             sessionCallback.get().didCallEndWithReason(null);
         }
+        Toast.makeText(BaseApplication.getAppContext(),"对方已拒绝", Toast.LENGTH_SHORT).show();
     }
 
     // 对方已响铃
@@ -291,8 +296,10 @@ public class CallSession implements EngineCallback {
     // 切换到语音
     public void onTransAudio(String userId) {
         mIsAudioOnly = true;
+
+        toggleSpeaker(false);
         // 本地切换
-        if (sessionCallback.get() != null) {
+        if (sessionCallback != null && sessionCallback.get() != null) {
             sessionCallback.get().didChangeMode(true);
         }
     }
@@ -306,6 +313,7 @@ public class CallSession implements EngineCallback {
     public void onCancel(String userId) {
         shouldStopRing();
         release();
+        Toast.makeText(BaseApplication.getAppContext(),"对方已取消", Toast.LENGTH_SHORT).show();
     }
 
     public void onReceiveOffer(String userId, String description) {
@@ -333,13 +341,13 @@ public class CallSession implements EngineCallback {
     public void onLeave(String userId) {
         if (mRoomSize > 2) {
             // 返回到界面上
-            if (sessionCallback.get() != null) {
+            if (sessionCallback != null && sessionCallback.get() != null) {
                 sessionCallback.get().didUserLeave(userId);
             }
         }
         executor.execute(() -> iEngine.leaveRoom(userId));
 
-
+        Toast.makeText(BaseApplication.getAppContext(),"对方已挂断", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -411,7 +419,7 @@ public class CallSession implements EngineCallback {
         }
         // 更换界面
         _callState = EnumType.CallState.Connected;
-        if (sessionCallback.get() != null) {
+        if (sessionCallback != null && sessionCallback.get() != null) {
             startTime = System.currentTimeMillis();
             sessionCallback.get().didChangeState(_callState);
 
@@ -468,7 +476,7 @@ public class CallSession implements EngineCallback {
     @Override
     public void onRemoteStream(String userId) {
         // 画面预览
-        if (sessionCallback.get() != null) {
+        if (sessionCallback != null && sessionCallback.get() != null) {
             sessionCallback.get().didReceiveRemoteVideoTrack(userId);
         }
     }

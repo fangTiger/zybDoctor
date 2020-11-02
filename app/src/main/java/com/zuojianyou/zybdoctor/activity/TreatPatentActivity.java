@@ -21,9 +21,9 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.MedicineInfo;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -41,7 +41,7 @@ public class TreatPatentActivity extends BaseActivity {
     RadioGroup rgType;
     View viewPrice;
     EditText etName, etPrice, etNum;
-    TextView tvUnit, tvPrice;
+    TextView tvUnit, tvPrice, descTv;
 
     View dialogLayout;
     View btnDialogClose;
@@ -101,7 +101,7 @@ public class TreatPatentActivity extends BaseActivity {
         });
         etPrice = findViewById(R.id.et_patent_price);
         tvPrice = findViewById(R.id.tv_patent_price_offer);
-
+        descTv = findViewById(R.id.desc_tv);
         etName = findViewById(R.id.et_patent_name);
         etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -156,6 +156,7 @@ public class TreatPatentActivity extends BaseActivity {
                     patentAdapter.notifyDataSetChanged();
                     selectPatent = null;
                     etName.setText(null);
+                    descTv.setText("描述");
                     etNum.setText(null);
                     etPrice.setText(null);
                     tvPrice.setText(null);
@@ -196,6 +197,7 @@ public class TreatPatentActivity extends BaseActivity {
                         patentAdapter.notifyDataSetChanged();
                         selectPatent = null;
                         etName.setText(null);
+                        descTv.setText("描述");
                         etNum.setText(null);
                         etPrice.setText(null);
                         tvPrice.setText(null);
@@ -233,6 +235,7 @@ public class TreatPatentActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectPatent = (MedicineInfo) dialogListAdapter.getItem(position);
                 etName.setText(selectPatent.getGdName());
+                descTv.setText(selectPatent.getGdDesc());
                 tvUnit.setText(selectPatent.getMedUnit());
                 etPrice.setText(selectPatent.getRetailPrice());
                 tvPrice.setText("指导售价：" + selectPatent.getRetailPrice() + "元");

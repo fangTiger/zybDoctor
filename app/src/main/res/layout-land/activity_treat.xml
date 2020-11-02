@@ -1601,6 +1601,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/treat_boil_type_ll"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/ask_divider_size"
@@ -1710,7 +1711,7 @@
                         android:background="#fff"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/ask_padding_left"
-                        android:text="成品药与技术服务"
+                        android:text="成品药"
                         android:textColor="@color/color_ask_title_red"
                         android:textSize="@dimen/ask_title_size"
                         android:textStyle="bold" />
@@ -1742,7 +1743,7 @@
                                 android:layout_height="30dp"
                                 android:layout_marginRight="22dp"
                                 android:background="@drawable/btn_border_bg"
-                                android:text="+添加成品药或技术服务"
+                                android:text="+添加成品药"
                                 android:textColor="#7e352b" />
 
                         </LinearLayout>
@@ -1775,6 +1776,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/yaofei_text"
                                 android:layout_width="84dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/color_common_act_bg"
@@ -1802,7 +1804,8 @@
                                 android:gravity="center"
                                 android:text="问诊费"
                                 android:textColor="@color/color_ask_text_tag"
-                                android:textSize="@dimen/ask_tag_size" />
+                                android:textSize="@dimen/ask_tag_size"
+                                android:visibility="gone"/>
 
                             <LinearLayout
                                 android:layout_width="126dp"
@@ -1810,7 +1813,8 @@
                                 android:layout_marginLeft="@dimen/ask_divider_size"
                                 android:background="@color/color_common_act_bg"
                                 android:gravity="center_vertical"
-                                android:padding="6dp">
+                                android:padding="6dp"
+                                android:visibility="gone">
 
                                 <EditText
                                     android:id="@+id/et_treat_content_wenzhenfei"
@@ -1838,7 +1842,8 @@
                                 android:id="@+id/ll_act_treat_xishu"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="gone">
 
                                 <TextView
                                     android:layout_width="84dp"
@@ -1869,9 +1874,6 @@
                                         android:gravity="center_vertical"
                                         android:paddingLeft="12dp"
                                         android:textSize="@dimen/ask_content_size" />
-                                    />
-
-
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -1891,7 +1893,8 @@
                                 android:gravity="center"
                                 android:text="煎药费"
                                 android:textColor="@color/color_ask_text_tag"
-                                android:textSize="@dimen/ask_tag_size" />
+                                android:textSize="@dimen/ask_tag_size"
+                                android:visibility="gone"/>
 
                             <TextView
                                 android:id="@+id/tv_treat_content_jianyaofei"
@@ -1902,7 +1905,8 @@
                                 android:gravity="center"
                                 android:text="0.00元"
                                 android:textColor="@color/color_ask_text_tag"
-                                android:textSize="@dimen/ask_content_size" />
+                                android:textSize="@dimen/ask_content_size"
+                                android:visibility="gone"/>
 
                             <TextView
                                 android:layout_width="110dp"
@@ -1933,7 +1937,8 @@
                                 android:gravity="center"
                                 android:text="技术服务费"
                                 android:textColor="@color/color_ask_text_tag"
-                                android:textSize="@dimen/ask_tag_size" />
+                                android:textSize="@dimen/ask_tag_size"
+                                android:visibility="gone"/>
 
                             <TextView
                                 android:id="@+id/tv_treat_content_jishufuwufei"
@@ -1945,7 +1950,8 @@
                                 android:gravity="center"
                                 android:text="0.00元"
                                 android:textColor="@color/color_ask_text_tag"
-                                android:textSize="@dimen/ask_content_size" />
+                                android:textSize="@dimen/ask_content_size"
+                                android:visibility="gone"/>
 
 
                         </LinearLayout>
@@ -1954,7 +1960,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="36dp"
                             android:layout_marginTop="@dimen/ask_divider_size"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <TextView
                                 android:layout_width="84dp"
@@ -2052,6 +2059,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/treat_content_peisong_ll"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/ask_divider_size"
@@ -2091,6 +2099,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/treat_content_receiver_ll"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/ask_divider_size"

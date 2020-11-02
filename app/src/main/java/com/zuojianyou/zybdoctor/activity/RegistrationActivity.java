@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +25,9 @@ import com.bumptech.glide.Glide;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.AreaInfo;
 import com.zuojianyou.zybdoctor.beans.OldUserInfo;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 import com.zuojianyou.zybdoctor.views.LocationSelector;
 import com.zuojianyou.zybdoctor.views.SexSelector;
 
@@ -40,7 +39,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

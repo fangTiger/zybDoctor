@@ -1,6 +1,5 @@
 package com.zuojianyou.zybdoctor.activity;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
@@ -39,10 +38,10 @@ import com.zuojianyou.zybdoctor.beans.MedicineInfo;
 import com.zuojianyou.zybdoctor.beans.OfficeInfo;
 import com.zuojianyou.zybdoctor.beans.OfficeSickInfo;
 import com.zuojianyou.zybdoctor.beans.RecipeTreeItem;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 import com.zuojianyou.zybdoctor.views.ScrollFlexBoxManager;
 
 import org.xutils.common.Callback;

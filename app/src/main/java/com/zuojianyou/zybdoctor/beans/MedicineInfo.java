@@ -13,6 +13,15 @@ public class MedicineInfo {
     private String useNum;
     private String manager;
     private String centerId;
+    private String gdDesc;
+
+    public String getGdDesc() {
+        return gdDesc;
+    }
+
+    public void setGdDesc(String gdDesc) {
+        this.gdDesc = gdDesc;
+    }
 
     public String getCenterId() {
         return centerId;

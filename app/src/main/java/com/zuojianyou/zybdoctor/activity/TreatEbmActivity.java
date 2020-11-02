@@ -31,9 +31,9 @@ import com.zuojianyou.zybdoctor.beans.EbmMenuInfo;
 import com.zuojianyou.zybdoctor.beans.MedicineInfo;
 import com.zuojianyou.zybdoctor.beans.SickInfo;
 import com.zuojianyou.zybdoctor.beans.SickSearchInfo;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -525,7 +525,7 @@ public class TreatEbmActivity extends BaseActivity {
         } else {
             entity.addBodyParameter("keyWd", keyword);
         }
-        entity.addBodyParameter("parentId", mId);
+        entity.addBodyParameter("parentId", "");
         entity.addBodyParameter("pageSize", String.valueOf(PAGE_SIZE));
         entity.addBodyParameter("pageNum", String.valueOf(sickInfos.size() / PAGE_SIZE + 1));
         x.http().get(entity, new HttpCallback(new MyCallBack() {

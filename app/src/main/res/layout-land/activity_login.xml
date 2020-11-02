@@ -147,6 +147,39 @@
             android:textColor="#fff"
             android:textSize="16dp" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="登录即代表您同意" />
+
+            <TextView
+                android:id="@+id/btn_register_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="用户服务协议"
+                android:textColor="@color/color_ask_title_red" />
+
+            <TextView
+                android:id="@+id/btn_register_privacy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="隐私政策"
+                android:textColor="@color/color_ask_title_red" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

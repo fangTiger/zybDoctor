@@ -7,7 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import java.io.IOException;
 

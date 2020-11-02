@@ -493,6 +493,38 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/setting_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frg_mine_item_height"
+                android:background="@drawable/ask_list_item_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/mine_setting"
+                    android:drawablePadding="6dp"
+                    android:text="设置"
+                    android:textColor="#333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/ic_mine_tip_more"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#999"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btn_frag_mine_exit"
                 android:layout_width="160dp"
@@ -501,8 +533,8 @@
                 android:layout_margin="16dp"
                 android:background="@drawable/btn_red_bg"
                 android:text="退出当前账号"
-                android:textColor="#fff" />
-
+                android:textColor="#fff"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

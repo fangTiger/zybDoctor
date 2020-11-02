@@ -1,7 +1,8 @@
 package com.zuojianyou.zybdoctor.application;
 
-import com.bjgjdsj.zyb.voip.core.VoipEvent;
-import com.dds.skywebrtc.SkyEngineKit;
+//import com.bjgjdsj.zyb.voip.core.VoipEvent;
+//import com.dds.skywebrtc.SkyEngineKit;
+import com.qiniu.droid.rtc.QNRTCEnv;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 import com.zuojianyou.zybdoctor.BuildConfig;
@@ -18,7 +19,7 @@ public class MyApplication extends BaseApplication {
         super.onCreate();
         myApp = this;
 
-        SkyEngineKit.init(new VoipEvent());
+//        SkyEngineKit.init(new VoipEvent());
 
         x.Ext.init(this);
         x.Ext.setDebug(BuildConfig.DEBUG);
@@ -27,5 +28,8 @@ public class MyApplication extends BaseApplication {
         UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, null);
         // 选用AUTO页面采集模式
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
+
+        //七牛
+        QNRTCEnv.init(getApplicationContext());
     }
 }

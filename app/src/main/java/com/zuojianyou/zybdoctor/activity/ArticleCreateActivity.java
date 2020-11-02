@@ -1,13 +1,11 @@
 package com.zuojianyou.zybdoctor.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,12 +22,12 @@ import android.widget.VideoView;
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.constants.BroadcastAction;
-import com.zuojianyou.zybdoctor.units.FileUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.app.BroadcastAction;
+import com.zuojianyou.zybdoctor.utils.FileUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 import com.zuojianyou.zybdoctor.views.ImageGlideDialog;
 
 import org.xutils.common.Callback;

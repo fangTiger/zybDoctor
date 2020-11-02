@@ -13,6 +13,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -28,11 +29,10 @@ import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.AskListInfo;
 import com.zuojianyou.zybdoctor.beans.AskNumInfo;
 import com.zuojianyou.zybdoctor.beans.treat.MbrInfo;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.http.HttpMethod;
@@ -168,6 +168,9 @@ public class MainFragmentAsk extends Fragment {
 
     private void setRadioState(Calendar mCalendar) {
         for (int i = 0; i < btnDate.length; i++) {
+            if (btnDate[i] == null || btnDate[i].getChildCount() <2) {
+                continue;
+            }
             TextView tvDate = (TextView) btnDate[i].getChildAt(0);
             TextView tvWeek = (TextView) btnDate[i].getChildAt(1);
 
@@ -185,7 +188,10 @@ public class MainFragmentAsk extends Fragment {
             mCalendar.add(Calendar.DATE, 1);
         }
         if(SpData.getAuthFlag().equals("9")||SpData.getAuthFlag().equals("8")){
-            btnDate[0].performClick();
+            if (btnDate[0] != null) {
+                btnDate[0].performClick();
+            }
+
         }
     }
 
@@ -236,23 +242,30 @@ public class MainFragmentAsk extends Fragment {
                     TextView tv2 = (TextView) ll.getChildAt(2);
                     tv2.setTextColor(0xffffffff);
                 } else {
-                    btnDate[i].setBackgroundColor(0x00000000);
-                    LinearLayout ll = btnDate[i];
-                    TextView tv0 = (TextView) ll.getChildAt(0);
-                    tv0.setTextColor(0xff515151);
-                    TextView tv1 = (TextView) ll.getChildAt(1);
-                    tv1.setTextColor(0xff515151);
-                    TextView tv2 = (TextView) ll.getChildAt(2);
-                    tv2.setTextColor(0xff515151);
+                    if (btnDate[i] != null) {
+                        btnDate[i].setBackgroundColor(0x00000000);
+                        LinearLayout ll = btnDate[i];
+                        TextView tv0 = (TextView) ll.getChildAt(0);
+                        tv0.setTextColor(0xff515151);
+                        TextView tv1 = (TextView) ll.getChildAt(1);
+                        tv1.setTextColor(0xff515151);
+                        TextView tv2 = (TextView) ll.getChildAt(2);
+                        tv2.setTextColor(0xff515151);
+                    }
+
                 }
             }
             for (int i = 0; i < dateDivider.length; i++) {
-                if (i == index || i == index - 1) {
-                    dateDivider[i].setVisibility(View.INVISIBLE);
-                } else {
-                    dateDivider[i].setVisibility(View.VISIBLE);
+                if (dateDivider[i] != null) {
+                    if (i == index || i == index - 1) {
+                        dateDivider[i].setVisibility(View.INVISIBLE);
+                    } else {
+                        dateDivider[i].setVisibility(View.VISIBLE);
+                    }
                 }
+
             }
+
             currentDate = (String) btnDate[index].getChildAt(0).getTag();
             getAskList(currentDate);
             String firstDate = (String) btnDate[0].getChildAt(0).getTag();
@@ -332,7 +345,10 @@ public class MainFragmentAsk extends Fragment {
                     MbrInfo mbrInfo = new MbrInfo();
                     mbrInfo.setName(info.getName());
                     mbrInfo.setSex(info.getSexObj().getKeyValue());
-                    mbrInfo.setAge(Integer.valueOf(info.getAge()));
+                    if (!TextUtils.isEmpty(info.getAge())) {
+                        mbrInfo.setAge(Integer.valueOf(info.getAge()));
+                    }
+
                     mbrInfo.setPhone(info.getPhone());
                     mbrInfo.setIdNumber(info.getIdNumber());
                     mbrInfo.setBirthCounty(info.getBirthCountyObj().getKeyName());

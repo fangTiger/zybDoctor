@@ -24,10 +24,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.AskNumInfo;
 import com.zuojianyou.zybdoctor.beans.ReviewListInfo;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
+import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -138,8 +138,11 @@ public class MainFragmentReview extends Fragment {
         }
 
         for (int i = 0; i < btnDate.length; i++) {
-            btnDate[i].setTag(i);
-            btnDate[i].setOnClickListener(btnDateClicked);
+            if (btnDate[i] != null) {
+                btnDate[i].setTag(i);
+                btnDate[i].setOnClickListener(btnDateClicked);
+            }
+
         }
         setRadioState(Calendar.getInstance());
         if (SpData.getAuthFlag().equals("9") || SpData.getAuthFlag().equals("8")) {
@@ -149,6 +152,9 @@ public class MainFragmentReview extends Fragment {
 
     private void setRadioState(Calendar mCalendar) {
         for (int i = 0; i < btnDate.length; i++) {
+            if (btnDate[i] == null) {
+                continue;
+            }
             TextView tvDate = (TextView) btnDate[i].getChildAt(0);
             TextView tvWeek = (TextView) btnDate[i].getChildAt(1);
 
@@ -216,17 +222,23 @@ public class MainFragmentReview extends Fragment {
                     TextView tv2 = (TextView) ll.getChildAt(2);
                     tv2.setTextColor(0xffffffff);
                 } else {
-                    btnDate[i].setBackgroundColor(0x00000000);
-                    LinearLayout ll = btnDate[i];
-                    TextView tv0 = (TextView) ll.getChildAt(0);
-                    tv0.setTextColor(0xff515151);
-                    TextView tv1 = (TextView) ll.getChildAt(1);
-                    tv1.setTextColor(0xff515151);
-                    TextView tv2 = (TextView) ll.getChildAt(2);
-                    tv2.setTextColor(0xff515151);
+                    if (btnDate[i] != null) {
+                        btnDate[i].setBackgroundColor(0x00000000);
+                        LinearLayout ll = btnDate[i];
+                        TextView tv0 = (TextView) ll.getChildAt(0);
+                        tv0.setTextColor(0xff515151);
+                        TextView tv1 = (TextView) ll.getChildAt(1);
+                        tv1.setTextColor(0xff515151);
+                        TextView tv2 = (TextView) ll.getChildAt(2);
+                        tv2.setTextColor(0xff515151);
+                    }
+
                 }
             }
             for (int i = 0; i < dateDivider.length; i++) {
+                if (dateDivider[i] == null) {
+                    continue;
+                }
                 if (i == index || i == index - 1) {
                     dateDivider[i].setVisibility(View.INVISIBLE);
                 } else {

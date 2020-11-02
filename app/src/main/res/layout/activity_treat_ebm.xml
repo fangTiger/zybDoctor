@@ -134,7 +134,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/ll_ebm_search_block"
+                android:id="@+id/ll_emb_search_block"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -142,7 +142,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="16dp"
                 android:orientation="horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <EditText
                     android:id="@+id/et_act_ebm_keyword"

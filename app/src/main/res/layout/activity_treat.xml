@@ -1537,6 +1537,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/treat_boil_type_ll"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/ask_item_height"
                     android:layout_marginBottom="@dimen/ask_divider_size"
@@ -1686,7 +1687,7 @@
                 android:background="#fff"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/ask_padding_left"
-                android:text="成品药与技术服务"
+                android:text="成品药"
                 android:textColor="@color/color_ask_title_red"
                 android:textSize="@dimen/ask_title_size"
                 android:textStyle="bold" />
@@ -1717,7 +1718,7 @@
                         android:layout_width="160dp"
                         android:layout_height="30dp"
                         android:background="@drawable/btn_border_bg"
-                        android:text="+添加成品药或技术服务"
+                        android:text="+添加成品药"
                         android:textColor="#7e352b" />
 
                 </LinearLayout>
@@ -1752,7 +1753,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/ask_padding_left"
-                    android:paddingRight="@dimen/ask_padding_right">
+                    android:paddingRight="@dimen/ask_padding_right"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1795,7 +1797,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/ask_padding_left"
-                    android:paddingRight="@dimen/ask_padding_right">
+                    android:paddingRight="@dimen/ask_padding_right"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1832,6 +1835,7 @@
                     android:paddingRight="@dimen/ask_padding_right">
 
                     <TextView
+                        android:id="@+id/yaofei_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -1885,7 +1889,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/ask_padding_left"
-                    android:paddingRight="@dimen/ask_padding_right">
+                    android:paddingRight="@dimen/ask_padding_right"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1913,7 +1918,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/ask_padding_left"
-                    android:paddingRight="@dimen/ask_padding_right">
+                    android:paddingRight="@dimen/ask_padding_right"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -1941,7 +1947,8 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/ask_padding_left"
-                    android:paddingRight="@dimen/ask_padding_right">
+                    android:paddingRight="@dimen/ask_padding_right"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -2019,6 +2026,7 @@
                     android:paddingBottom="@dimen/ask_divider_size">
 
                     <LinearLayout
+                        android:id="@+id/treat_content_peisong_ll"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/ask_item_height"
                         android:layout_marginBottom="@dimen/ask_divider_size"
@@ -2053,6 +2061,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/treat_content_receiver_ll"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/ask_item_height"
                         android:layout_marginBottom="@dimen/ask_divider_size"

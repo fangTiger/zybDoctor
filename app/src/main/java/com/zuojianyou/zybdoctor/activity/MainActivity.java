@@ -32,19 +32,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bjgjdsj.zyb.voip.core.consts.Urls;
-import com.bjgjdsj.zyb.voip.core.socket.IUserState;
-import com.bjgjdsj.zyb.voip.core.socket.SocketManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.constants.BroadcastAction;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.DocAuthStateUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.app.BroadcastAction;
+import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.DocAuthStateUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 import com.zuojianyou.zybdoctor.views.ScrollableViewPager;
 
 import org.xutils.common.Callback;
@@ -152,32 +149,34 @@ public class MainActivity extends BaseActivity {
 
         });
 
-        SocketManager.getInstance().addUserStateCallback(iUserState);
+//        SocketManager.getInstance().addUserStateCallback(iUserState);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        int userState = SocketManager.getInstance().getUserState();
-        if (userState != 1 && SpData.getMbrId() != null) {
-            String id = SpData.getPersonId();
-            SocketManager.getInstance().connect(Urls.WS, id, 0);
-        }
+//        int userState = SocketManager.getInstance().getUserState();
+//        if (userState != 1 ) {
+//            String id = SpData.getPersonId();
+//            if (!TextUtils.isEmpty(id)) {
+//                SocketManager.getInstance().connect(Urls.WS, id, 0);
+//            }
+//        }
     }
 
     private Handler handler = new Handler(Looper.getMainLooper());
 
-    IUserState iUserState = new IUserState() {
-        @Override
-        public void userLogin() {
-            handler.post(MainActivity.this::webrtcLogin);
-        }
-
-        @Override
-        public void userLogout() {
-            handler.post(MainActivity.this::webrtcOffline);
-        }
-    };
+//    private IUserState iUserState = new IUserState() {
+//        @Override
+//        public void userLogin() {
+//            handler.post(MainActivity.this::webrtcLogin);
+//        }
+//
+//        @Override
+//        public void userLogout() {
+//            handler.post(MainActivity.this::webrtcOffline);
+//        }
+//    };
 
     public void webrtcLogin() {
 //        ToastUtils.show(getContext(), "视频系统登录成功！");
@@ -260,7 +259,7 @@ public class MainActivity extends BaseActivity {
         unregisterReceiver(treatBackReceiver);
         unRegisterMyReceiver();
         unRegisterAuthReceiver();
-        SocketManager.getInstance().unConnect();
+//        SocketManager.getInstance().unConnect();
     }
 
     class TreatBackReceiver extends BroadcastReceiver {

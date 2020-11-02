@@ -6,43 +6,40 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.core.widget.NestedScrollView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.zuojianyou.zybdoctor.R;
+import com.zuojianyou.zybdoctor.base.data.SpData;
 import com.zuojianyou.zybdoctor.beans.ArticleListInfo;
 import com.zuojianyou.zybdoctor.beans.ArticleMenuInfo;
-import com.zuojianyou.zybdoctor.data.SpData;
-import com.zuojianyou.zybdoctor.units.DocAuthStateUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.TimeUtils;
+import com.zuojianyou.zybdoctor.utils.DocAuthStateUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.TimeUtils;
 import com.zuojianyou.zybdoctor.views.ImageGlideDialog;
 import com.zuojianyou.zybdoctor.views.ImageSelectDialog;
 
@@ -411,7 +408,7 @@ public class MainFragmentHome extends Fragment {
                 lineHolder.ivPic[index].setVisibility(View.GONE);
             }
             lineHolder.videoView.setVisibility(View.GONE);
-            if (article.getUploadTyp().equals("1")) {
+            if ("1".equals(article.getUploadTyp())) {
                 if (article.getPubPic() != null && article.getPubPic().length() > 0) {
                     String[] pubPic = article.getPubPic().split("\\;");
                     for (int index = 0; index < pubPic.length; index++) {
@@ -427,7 +424,7 @@ public class MainFragmentHome extends Fragment {
                                 .thumbnail(0.4f).into(lineHolder.ivPic[index]);
                     }
                 }
-            } else if (article.getPubPic().length() > 0) {
+            } else if (article.getPubPic() != null && article.getPubPic().length() > 0) {
                 lineHolder.videoView.setVisibility(View.VISIBLE);
                 lineHolder.videoView.setTag(article.getPubPic());
                 lineHolder.videoView.setVideoURI(Uri.parse(ServerAPI.FILL_DOMAIN + article.getPubPic()));

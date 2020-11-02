@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_centerInParent="true"
+        android:textColor="#140D0D"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:background="#ffffff"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/cancel_tv"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:background="#666666"
+        android:textSize="16dp"
+        android:text="取消"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/save_tv"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <TextView
+        android:id="@+id/save_tv"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:background="#a0272a"
+        android:textSize="16dp"
+        android:text="保存"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/cancel_tv"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <ImageView
+        android:id="@+id/picture_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
+        app:layout_constraintBottom_toTopOf="@id/cancel_tv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

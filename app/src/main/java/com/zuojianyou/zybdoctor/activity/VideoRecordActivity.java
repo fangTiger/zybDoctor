@@ -3,14 +3,14 @@ package com.zuojianyou.zybdoctor.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.zuojianyou.zybdoctor.R;
-import com.zuojianyou.zybdoctor.units.CameraUtils;
+import com.zuojianyou.zybdoctor.utils.CameraUtils;
 import com.zuojianyou.zybdoctor.views.RecordControlView;
 
 import java.io.File;

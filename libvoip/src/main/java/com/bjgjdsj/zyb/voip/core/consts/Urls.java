@@ -7,12 +7,12 @@ package com.bjgjdsj.zyb.voip.core.consts;
 public class Urls {
 
     //    private final static String IP = "192.168.2.111";
-    public final static String IP = "62.234.74.197:5000";
+    public final static String IP = "www.yimall1688.com/webrtc";
 
     private final static String HOST = "http://" + IP + "/";
 
-    // 信令地址
-    public final static String WS = "ws://" + IP + "/ws";
+    // 信令地址wss://www.yimall1688.com/webrtc/wss/
+    public final static String WS = "wss://" + IP + "/wss";
 
     // 获取用户列表
     public static String getUserList() {

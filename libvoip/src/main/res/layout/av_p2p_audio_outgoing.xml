@@ -52,7 +52,7 @@
             <ImageView
                 android:id="@+id/outgoingHangupImageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:src="@drawable/av_hangup_selector" />
 
             <TextView

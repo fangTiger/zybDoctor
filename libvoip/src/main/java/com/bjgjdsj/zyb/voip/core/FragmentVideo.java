@@ -1,11 +1,13 @@
 package com.bjgjdsj.zyb.voip.core;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +20,19 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bjgjdsj.zyb.voip.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dds.skywebrtc.CallSession;
 import com.dds.skywebrtc.EnumType;
 import com.dds.skywebrtc.SkyEngineKit;
 
 import org.webrtc.EglRenderer;
 import org.webrtc.SurfaceViewRenderer;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 /**
@@ -65,7 +74,13 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
     private View localSurfaceView;
     private View remoteSurfaceView;
 
+    private View screenshotMenu;
+    private LinearLayout menuLl;
+
     private Handler mHandler = new Handler();
+    private String mPicName = "";
+    private String nickname;
+    private String photoUrl;
 
     private EglRenderer.FrameListener mFrameListener = new EglRenderer.FrameListener() {
 
@@ -74,10 +89,12 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Log.e("zyb", "frame:" + frame);
                     if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
                         SurfaceViewRenderer surfaceView = (SurfaceViewRenderer) remoteSurfaceView;
                         surfaceView.removeFrameListener(mFrameListener);
+                    }
+                    if (frame != null) {
+                        showScreenshotDialog(frame);
                     }
                 }
             });
@@ -93,19 +110,22 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        nickname = getArguments().getString("nickname");
+        photoUrl = getArguments().getString("photoUrl");
         View view = inflater.inflate(R.layout.fragment_video, container, false);
         initView(view);
         init();
         return view;
     }
 
-
     private void initView(View view) {
         fullscreenRenderer = view.findViewById(R.id.fullscreen_video_view);
         pipRenderer = view.findViewById(R.id.pip_video_view);
         inviteeInfoContainer = view.findViewById(R.id.inviteeInfoContainer);
         portraitImageView = view.findViewById(R.id.portraitImageView);
+        Glide.with(getContext()).load(photoUrl).apply(new RequestOptions().placeholder(R.drawable.av_default_header)).into(portraitImageView);
         nameTextView = view.findViewById(R.id.nameTextView);
+        nameTextView.setText(nickname);
         descTextView = view.findViewById(R.id.descTextView);
         minimizeImageView = view.findViewById(R.id.minimizeImageView);
         outgoingAudioOnlyImageView = view.findViewById(R.id.outgoingAudioOnlyImageView);
@@ -137,6 +157,13 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
 
         minimizeImageView.setOnClickListener(this);
 
+        screenshotMenu = view.findViewById(R.id.screenshot_menu);
+        menuLl = view.findViewById(R.id.menu_ll);
+        view.findViewById(R.id.menu_iv).setOnClickListener(this);
+        view.findViewById(R.id.face_picture_tv).setOnClickListener(this);
+        view.findViewById(R.id.tongue_picture_tv).setOnClickListener(this);
+        view.findViewById(R.id.hand_picture_tv).setOnClickListener(this);
+        view.findViewById(R.id.sick_picture_tv).setOnClickListener(this);
     }
 
     private void init() {
@@ -262,7 +289,7 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
             fullscreenRenderer.addView(remoteSurfaceView);
         }
 
-
+        screenshotMenu.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -306,7 +333,7 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
             }
         }
         // 挂断电话
-        if (id == R.id.incomingHangupImageView || id == R.id.outgoingHangupImageView ||
+        else if (id == R.id.incomingHangupImageView || id == R.id.outgoingHangupImageView ||
                 id == R.id.connectedHangupImageView) {
             if (session != null) {
                 SkyEngineKit.Instance().endCall();
@@ -317,18 +344,14 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
         }
 
         // 切换摄像头
-        if (id == R.id.switchCameraImageView) {
+        else if (id == R.id.switchCameraImageView) {
             if (session != null) {
                 session.switchCamera();
             }
-//            if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
-//                SurfaceViewRenderer svr = (SurfaceViewRenderer) remoteSurfaceView;
-//                svr.addFrameListener(mFrameListener,1f);
-//            }
         }
 
         // 切换到语音拨打
-        if (id == R.id.outgoingAudioOnlyImageView || id == R.id.incomingAudioOnlyImageView ||
+        else if (id == R.id.outgoingAudioOnlyImageView || id == R.id.incomingAudioOnlyImageView ||
                 id == R.id.connectedAudioOnlyImageView) {
             if (session != null) {
                 session.switchToAudio();
@@ -337,8 +360,49 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
         }
 
         // 小窗
-        if (id == R.id.minimizeImageView) {
+        else if (id == R.id.minimizeImageView) {
             activity.showFloatingView();
+        }
+
+        else if(id == R.id.menu_iv){
+            if (menuLl.getVisibility() == View.VISIBLE) {
+                menuLl.setVisibility(View.INVISIBLE);
+            } else {
+                menuLl.setVisibility(View.VISIBLE);
+            }
+        }
+        else if(id == R.id.face_picture_tv) {
+            menuLl.setVisibility(View.INVISIBLE);
+            mPicName = "面部";
+            if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
+                SurfaceViewRenderer svr = (SurfaceViewRenderer) remoteSurfaceView;
+                svr.addFrameListener(mFrameListener, 1f);
+            }
+
+        }
+        else if(id == R.id.tongue_picture_tv){
+            menuLl.setVisibility(View.INVISIBLE);
+            mPicName = "舌质、舌苔";
+            if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
+                SurfaceViewRenderer svr = (SurfaceViewRenderer) remoteSurfaceView;
+                svr.addFrameListener(mFrameListener, 1f);
+            }
+        }
+        else if(id == R.id.hand_picture_tv){
+            menuLl.setVisibility(View.INVISIBLE);
+            mPicName = "手掌";
+            if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
+                SurfaceViewRenderer svr = (SurfaceViewRenderer) remoteSurfaceView;
+                svr.addFrameListener(mFrameListener, 1f);
+            }
+        }
+        else if(id == R.id.sick_picture_tv){
+            menuLl.setVisibility(View.INVISIBLE);
+            mPicName = "病灶处";
+            if (remoteSurfaceView != null && remoteSurfaceView instanceof SurfaceViewRenderer) {
+                SurfaceViewRenderer svr = (SurfaceViewRenderer) remoteSurfaceView;
+                svr.addFrameListener(mFrameListener, 1f);
+            }
         }
     }
 
@@ -359,6 +423,83 @@ public class FragmentVideo extends Fragment implements CallSession.CallSessionCa
         if (session != null) {
             session.toggleSpeaker(true);
         }
+    }
+
+    private void showScreenshotDialog(Bitmap bitmap){
+        View contentView = LayoutInflater.from(getContext()).inflate(R.layout.screenshot_dialog, null);
+        TextView titleTv = contentView.findViewById(R.id.title_tv);
+        titleTv.setText(mPicName);
+
+        ImageView pictureIv = contentView.findViewById(R.id.picture_iv);
+        pictureIv.setImageBitmap(bitmap);
+        final Dialog dialog = new Dialog(getActivity(), R.style.CustomDialog);
+        dialog.setCancelable(false);
+
+        dialog.setContentView(contentView);
+        ViewGroup.LayoutParams layoutParams = contentView.getLayoutParams();
+        layoutParams.width = getResources().getDisplayMetrics().widthPixels;
+        layoutParams.height = getResources().getDisplayMetrics().heightPixels;
+        contentView.setLayoutParams(layoutParams);
+        dialog.show();
+
+        contentView.findViewById(R.id.cancel_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                bitmap.recycle();
+            }
+        });
+
+        contentView.findViewById(R.id.save_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String path = saveBitmap(bitmap);
+                        bitmap.recycle();
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (isAdded()) {
+                                    Intent intent = new Intent("action_video_capture");
+                                    intent.putExtra("path", path);
+                                    intent.putExtra("name", mPicName);
+                                    getActivity().sendBroadcast(intent);
+                                }
+                            }
+                        });
+                    }
+                }).start();
+
+            }
+        });
+
+    }
+
+    private String saveBitmap(Bitmap bitmap) {
+        String path = Environment.getExternalStorageDirectory() + File.separator + "zybDocImages" + File.separator;
+
+        File file1 = new File(path);
+        if (!file1.exists()) {
+            file1.mkdirs();
+        }
+        File file = new File(path, System.currentTimeMillis() + ".jpg");
+        if (file.exists()) {
+            file.delete();
+        }
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file.getAbsolutePath();
     }
 
 }

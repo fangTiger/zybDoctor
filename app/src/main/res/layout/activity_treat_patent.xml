@@ -73,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:tag="3"
                     android:layout_weight="1"
-                    android:text="技术服务"/>
+                    android:text="技术服务"
+                    android:visibility="invisible"/>
 
             </RadioGroup>
 
@@ -149,14 +150,24 @@
                     android:text="单位"
                     android:textColor="@color/color_ask_text_content"
                     android:textSize="14dp" />
-
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/desc_tv"
+                android:layout_below="@+id/ll_patent_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/color_ask_text_content"
+                android:hint="描述"
+                android:padding="10dp"/>
+
 
             <Button
                 android:id="@+id/btn_patent_add"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@+id/ll_patent_num"
+                android:layout_below="@+id/desc_tv"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/btn_red_bg"
                 android:stateListAnimator="@null"

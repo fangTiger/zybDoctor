@@ -1,6 +1,8 @@
 package com.zuojianyou.zybdoctor.beans;
 
-public class DoctorInfo {
+import java.io.Serializable;
+
+public class DoctorInfo implements Serializable {
 
     private String name;
     private String hospName;

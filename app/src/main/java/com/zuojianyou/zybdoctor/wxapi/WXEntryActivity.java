@@ -9,7 +9,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.activity.BaseActivity;
-import com.zuojianyou.zybdoctor.constants.Constants;
+import com.zuojianyou.zybdoctor.app.Constants;
 
 /**
  * Created by jc.Ren on 2018/8/14

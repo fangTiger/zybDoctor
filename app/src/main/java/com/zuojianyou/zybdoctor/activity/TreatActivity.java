@@ -22,7 +22,9 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -48,13 +50,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.bjgjdsj.zyb.voip.core.CallSingleActivity;
+//import com.bjgjdsj.zyb.voip.core.CallSingleActivity;
+//import com.bjgjdsj.zyb.voip.core.consts.Urls;
+//import com.bjgjdsj.zyb.voip.core.socket.IUserState;
+//import com.bjgjdsj.zyb.voip.core.socket.SocketManager;
 import com.bumptech.glide.Glide;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.zuojianyou.zybdoctor.R;
+import com.zuojianyou.zybdoctor.base.data.SpData;
 import com.zuojianyou.zybdoctor.beans.AddListInfo;
 import com.zuojianyou.zybdoctor.beans.DispatchListInfo;
 import com.zuojianyou.zybdoctor.beans.GoodAtInfo;
@@ -78,13 +84,14 @@ import com.zuojianyou.zybdoctor.beans.treat.Report;
 import com.zuojianyou.zybdoctor.beans.treat.Revisit;
 import com.zuojianyou.zybdoctor.beans.treat.SickHis;
 import com.zuojianyou.zybdoctor.beans.treat.TreatParameter;
+import com.zuojianyou.zybdoctor.rtc.RoomActivity;
 import com.zuojianyou.zybdoctor.service.Mp3PlayerService;
 import com.zuojianyou.zybdoctor.service.Mp3RecordService;
-import com.zuojianyou.zybdoctor.units.FileUtils;
-import com.zuojianyou.zybdoctor.units.HttpCallback;
-import com.zuojianyou.zybdoctor.units.MyCallBack;
-import com.zuojianyou.zybdoctor.units.ServerAPI;
-import com.zuojianyou.zybdoctor.units.ToastUtils;
+import com.zuojianyou.zybdoctor.utils.FileUtils;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
+import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 import com.zuojianyou.zybdoctor.views.DicNameDialog;
 import com.zuojianyou.zybdoctor.views.DicRuleDialog;
 import com.zuojianyou.zybdoctor.views.DicSickDialog;
@@ -109,7 +116,7 @@ import java.util.List;
 /**
  * 问诊
  */
-public class TreatActivity extends BaseActivity {
+public class TreatActivity extends BaseActivity implements View.OnClickListener {
 
     public static final int EBM_REQUEST_CODE = 201;//中医循证
     public static final int PATENT_REQUEST_CODE = 202;//成品药
@@ -128,6 +135,7 @@ public class TreatActivity extends BaseActivity {
 
     String ebmSickInfo = null;
     String personid, mbrId, regId, diaId, sickId, repiceId;
+    private MbrInfo mMbrInfo;  //病人信息
     boolean isPay = false;
     int medRes = MED_RES_DATA;
     DiagnoseInfo diagnoseInfo;
@@ -177,7 +185,7 @@ public class TreatActivity extends BaseActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("TreatActivity", "onCreate");
+
         setContentView(R.layout.activity_treat);
         registerCaptureReceiver();
         tvTitle = findViewById(R.id.tv_act_treat_title);
@@ -260,7 +268,7 @@ public class TreatActivity extends BaseActivity {
         Spinner spRate = findViewById(R.id.sp_treat_content_xishu);
         SpinnerAdapter rateAdapter = new SpinnerAdapter();
         List<DicSick> rateList = new ArrayList<>();
-        for (float i = 1f; i <= 3f; i += 0.1f) {
+        for (float i = 1f; i <= 1.6f; i += 0.1f) {
             DicSick dicSick = new DicSick();
             dicSick.setDataName(String.format("%.1f", i));
             dicSick.setDataValue(String.format("%.1f", i));
@@ -473,6 +481,28 @@ public class TreatActivity extends BaseActivity {
             httpDiagnose(diaId);
         }
         httpGetAuthInfo();
+
+
+
+        GestureDetector gestureDetector = new GestureDetector(TreatActivity.this, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                if (mMbrInfo != null && "2".equals(mMbrInfo.getPriceType())) {
+                    findViewById(R.id.ll_act_treat_xishu).setVisibility(View.VISIBLE);
+                }
+
+                return super.onDoubleTap(e);
+            }
+
+        });
+
+        findViewById(R.id.yaofei_text).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                gestureDetector.onTouchEvent(event);
+                return true;
+            }
+        });
     }
 
     private String mTempPhotoPath;
@@ -817,7 +847,7 @@ public class TreatActivity extends BaseActivity {
 
     private void showMbrInfo(MbrInfo mbrInfo) {
         if (mbrInfo.getPriceType().equals("1")) {
-            findViewById(R.id.ll_act_treat_xishu).setVisibility(View.INVISIBLE);
+            findViewById(R.id.ll_act_treat_xishu).setVisibility(View.GONE);
         }
         TextView tvName = findViewById(R.id.tv_treat_mbr_name);
         addText(tvName, mbrInfo.getName());
@@ -845,9 +875,40 @@ public class TreatActivity extends BaseActivity {
         findViewById(R.id.btn_act_treat_chat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CallSingleActivity.openActivity(TreatActivity.this, personid, true, false);
+                calling();
             }
         });
+    }
+
+    /**
+     * 呼叫
+     */
+    private void calling(){
+        startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+//        int userState = SocketManager.getInstance().getUserState();
+//        if (userState == 1) {
+//            CallSingleActivity.openActivity(TreatActivity.this, personid, mMbrInfo != null?mMbrInfo.getName():"",mMbrInfo != null?(ServerAPI.FILL_DOMAIN +mMbrInfo.getPersonimg()):"",true, false);
+//        } else {
+//            String id = SpData.getPersonId();
+//            if (!TextUtils.isEmpty(id)) {
+//
+//                SocketManager.getInstance().addUserStateCallback(new IUserState() {
+//                    @Override
+//                    public void userLogin() {
+//                        CallSingleActivity.openActivity(TreatActivity.this, personid, mMbrInfo != null?mMbrInfo.getName():"",mMbrInfo != null?(ServerAPI.FILL_DOMAIN +mMbrInfo.getPersonimg()):"",true, false);
+//                    }
+//
+//                    @Override
+//                    public void userLogout() {
+//
+//                    }
+//                });
+//
+//
+//                SocketManager.getInstance().connect(Urls.WS, id, 0);
+//            }
+//        }
+
     }
 
     private void addText(TextView tv, String text) {
@@ -882,6 +943,13 @@ public class TreatActivity extends BaseActivity {
         AddListInfo emptyInfo = new AddListInfo();
         addList.add(0, emptyInfo);
         Spinner spReceiver = findViewById(R.id.sp_treat_content_receiver);
+        findViewById(R.id.treat_content_receiver_ll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spReceiver.performClick();
+            }
+        });
+
         ReceiverAdapter adapter = new ReceiverAdapter();
         spReceiver.setAdapter(adapter);
         adapter.setData(addList);
@@ -1242,6 +1310,7 @@ public class TreatActivity extends BaseActivity {
     }
 
     private void initDispatch() {
+        findViewById(R.id.treat_content_peisong_ll).setOnClickListener(this);
         dispatchList = new ArrayList<>();
         DispatchListInfo emptyInfo = new DispatchListInfo();
         dispatchList.add(emptyInfo);
@@ -1316,6 +1385,13 @@ public class TreatActivity extends BaseActivity {
         });
 
         Spinner spBoilType = findViewById(R.id.sp_treat_boil_type);
+        findViewById(R.id.treat_boil_type_ll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spBoilType.performClick();
+            }
+        });
+
         SpinnerAdapter rateAdapter = new SpinnerAdapter();
         DicSick dicSick = new DicSick();
         dicSick.setDataName("不煎药");
@@ -1485,6 +1561,15 @@ public class TreatActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.treat_content_peisong_ll:
+                spDispatch.performClick();
+                break;
+        }
+    }
+
     class GridHerbalAdapter extends RecyclerView.Adapter<HerbalHolder> {
 
         private List<MedicineInfo> mList = null;
@@ -1629,13 +1714,13 @@ public class TreatActivity extends BaseActivity {
                 JSONObject json = JSONObject.parseObject(result);
                 int code = json.getIntValue("code");
                 if (code == 0) {
-                    MbrInfo mbrInfo = json.getJSONObject("data").getJSONObject("mbrObj").toJavaObject(MbrInfo.class);
-                    showMbrInfo(mbrInfo);
+                    mMbrInfo = json.getJSONObject("data").getJSONObject("mbrObj").toJavaObject(MbrInfo.class);
+                    showMbrInfo(mMbrInfo);
                     MbrSickInfo mbrSickInfo = json.getJSONObject("data").getJSONObject("mbrSickObj").toJavaObject(MbrSickInfo.class);
                     showMbrSickInfo(mbrSickInfo);
                     List<AddListInfo> addList = json.getJSONObject("data").getJSONArray("addList").toJavaList(AddListInfo.class);
                     initAddAdapter(addList);
-                    httpDiagnoseSource(mbrInfo.getPriceType());
+                    httpDiagnoseSource(mMbrInfo.getPriceType());
                 } else {
                     String errMsg = json.getString("errMsg");
                     Toast.makeText(TreatActivity.this, errMsg, Toast.LENGTH_SHORT).show();
@@ -1892,9 +1977,9 @@ public class TreatActivity extends BaseActivity {
             String date = reviewDate.substring(0, 4) + "-" + reviewDate.substring(4, 6) + "-" + reviewDate.substring(6);
             setViewText(R.id.tv_treat_btn_review_time, date);
         }
-        setViewText(R.id.tv_treat_content_yaofei, basicInfo.getMedicineFee() + "元");
+        setViewText(R.id.tv_treat_content_yaofei, basicInfo.getNeedMedicine() + "元");
         setViewText(R.id.tv_treat_content_jianyaofei, basicInfo.getDealFee() + "元");
-        setViewText(R.id.tv_treat_content_chengpinyaofei, basicInfo.getBoxMedicineFee() + "元");
+        setViewText(R.id.tv_treat_content_chengpinyaofei, basicInfo.getNewBoxMedicineFee() + "元");
         setViewText(R.id.tv_treat_content_feiyongheji, "费用合计：" + basicInfo.getSumFee() + "元");
         Spinner spRate = findViewById(R.id.sp_treat_content_xishu);
         SpinnerAdapter rateAdapter = (SpinnerAdapter) spRate.getAdapter();
@@ -2020,10 +2105,57 @@ public class TreatActivity extends BaseActivity {
             return false;
         }
         List<MedicineInfo> medInfos = getHerbalAdapter().getList();
+
+
+        if (!(medInfos != null && medInfos.size() > 0) && !(patentInfos != null && patentInfos.size() > 0)) {
+            ToastUtils.show(getContext(), "您还没有开药！");
+            return false;
+        }
+
         if (medInfos != null && medInfos.size() > 0) {
             for (MedicineInfo med : medInfos) {
                 if (med.getUseNum().equals("0")) {
                     ToastUtils.show(getContext(), "您有药引剂量未填写！");
+                    return false;
+                }
+            }
+
+
+            EditText etNum = findViewById(R.id.et_treat_content_number);
+
+            if (TextUtils.isEmpty(etNum.getText())) {
+                ToastUtils.show(getContext(), "请输入用药副数！");
+                return false;
+            } else {
+                List list = getHerbalAdapter().getList();
+                if (list != null && list.size() > 0 && etNum.getText().toString().trim().equals("0")) {
+                    ToastUtils.show(getContext(), "请输入用药副数！");
+                    return false;
+                }
+            }
+            EditText etDays = findViewById(R.id.et_treat_content_days);
+            if (TextUtils.isEmpty(etDays.getText())) {
+                ToastUtils.show(getContext(), "请输入用药天数！");
+                return false;
+            }
+            Spinner spBoil = findViewById(R.id.sp_treat_boil_type);
+            if (spBoil.getAdapter() instanceof SpinnerAdapter) {
+                SpinnerAdapter boilAdapter = (SpinnerAdapter) spBoil.getAdapter();
+                DicSick type = (DicSick) boilAdapter.getItem(spBoil.getSelectedItemPosition());
+                if (type.getDataDesc().equals("-1")) {
+                    ToastUtils.show(getContext(), "请选择煎药类型！");
+                    return false;
+                }
+            }
+            if (etNum.getText().toString().trim().equals("0")) {
+                return true;
+            }
+            Spinner spPeisong = findViewById(R.id.sp_treat_content_peisong);
+            if (spPeisong.getAdapter() instanceof DispatchAdapter) {
+                DispatchAdapter boilAdapter = (DispatchAdapter) spPeisong.getAdapter();
+                DispatchListInfo info = (DispatchListInfo) boilAdapter.getItem(spPeisong.getSelectedItemPosition());
+                if (info.getCenterId() == null) {
+                    ToastUtils.show(getContext(), "请选择配送中心！");
                     return false;
                 }
             }
@@ -2036,43 +2168,7 @@ public class TreatActivity extends BaseActivity {
                 }
             }
         }
-        EditText etNum = findViewById(R.id.et_treat_content_number);
-        if (TextUtils.isEmpty(etNum.getText())) {
-            ToastUtils.show(getContext(), "请输入用药副数！");
-            return false;
-        } else {
-            List list = getHerbalAdapter().getList();
-            if (list != null && list.size() > 0 && etNum.getText().toString().trim().equals("0")) {
-                ToastUtils.show(getContext(), "请输入用药副数！");
-                return false;
-            }
-        }
-        EditText etDays = findViewById(R.id.et_treat_content_days);
-        if (TextUtils.isEmpty(etDays.getText())) {
-            ToastUtils.show(getContext(), "请输入用药天数！");
-            return false;
-        }
-        Spinner spBoil = findViewById(R.id.sp_treat_boil_type);
-        if (spBoil.getAdapter() instanceof SpinnerAdapter) {
-            SpinnerAdapter boilAdapter = (SpinnerAdapter) spBoil.getAdapter();
-            DicSick type = (DicSick) boilAdapter.getItem(spBoil.getSelectedItemPosition());
-            if (type.getDataDesc().equals("-1")) {
-                ToastUtils.show(getContext(), "请选择煎药类型！");
-                return false;
-            }
-        }
-        if (etNum.getText().toString().trim().equals("0")) {
-            return true;
-        }
-        Spinner spPeisong = findViewById(R.id.sp_treat_content_peisong);
-        if (spPeisong.getAdapter() instanceof DispatchAdapter) {
-            DispatchAdapter boilAdapter = (DispatchAdapter) spPeisong.getAdapter();
-            DispatchListInfo info = (DispatchListInfo) boilAdapter.getItem(spPeisong.getSelectedItemPosition());
-            if (info.getCenterId() == null) {
-                ToastUtils.show(getContext(), "请选择配送中心！");
-                return false;
-            }
-        }
+
         Spinner spReceiver = findViewById(R.id.sp_treat_content_receiver);
         if (spReceiver.getAdapter() instanceof ReceiverAdapter) {
             ReceiverAdapter boilAdapter = (ReceiverAdapter) spReceiver.getAdapter();
@@ -2335,6 +2431,12 @@ public class TreatActivity extends BaseActivity {
     //-----------------------------------------------------------------
     private void httpCost() {
         if (!isLoadOver) return;
+        Log.e("zyb", "regId:" + regId);
+        if (TextUtils.isEmpty(regId)) {
+
+            return;
+        }
+
         String url = ServerAPI.getTreatCostUrl();
         RequestParams entity = new RequestParams(url);
         ServerAPI.addHeader(entity);
@@ -2414,6 +2516,8 @@ public class TreatActivity extends BaseActivity {
             if (centerId != null)
                 jsonObject.put("centerId", centerId);
         }
+
+        jsonObject.put("registrationId",regId);
         //-------------------------------------------------------
         Log.d("TreatActivity_cost", jsonObject.toJSONString());
         entity.setBodyContent(jsonObject.toJSONString());
@@ -2429,9 +2533,13 @@ public class TreatActivity extends BaseActivity {
                 String expensFee = json.getString("expensFee");
                 String sumFee = json.getString("sumFee");
                 String sumFeeChUpper = json.getString("sumFeeChUpper");
-                setViewText(R.id.tv_treat_content_yaofei, medicineFee + "元");
+
+                String newMedicineFee = json.getString("newMedicineFee");
+                String newBoxMedicineFee = json.getString("newBoxMedicineFee");
+
+                setViewText(R.id.tv_treat_content_yaofei, newMedicineFee + "元");
                 setViewText(R.id.tv_treat_content_jianyaofei, dealFee + "元");
-                setViewText(R.id.tv_treat_content_chengpinyaofei, boxMedicineFee + "元");
+                setViewText(R.id.tv_treat_content_chengpinyaofei, newBoxMedicineFee + "元");
                 setViewText(R.id.tv_treat_content_jishufuwufei, tecFee + "元");
                 setViewText(R.id.tv_treat_content_yunfei, expensFee + "元");
                 setViewText(R.id.tv_treat_content_feiyongheji, "费用合计：" + sumFee + "元");

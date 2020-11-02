@@ -248,7 +248,8 @@
                 android:layout_marginTop="16dp"
                 android:text="挂号费"
                 android:textSize="@dimen/registration_title_text_size"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/et_reg_cost"
@@ -262,7 +263,8 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textColorHint="#bbb"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/iv_reg_photo"
