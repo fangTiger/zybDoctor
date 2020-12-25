@@ -89,6 +89,7 @@
         android:textSize="13dp" />
 
     <LinearLayout
+        android:id="@+id/state_ll"
         android:layout_width="@dimen/ask_item_state_width"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
@@ -133,5 +134,14 @@
 
     </LinearLayout>
 
-
+    <ImageView
+        android:id="@+id/assist_iv"
+        android:layout_toLeftOf="@id/state_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/ic_assist"
+        tools:visibility="visible"
+        android:visibility="gone"/>
 </RelativeLayout>

@@ -28,6 +28,7 @@ public class HttpCallback implements Callback.CommonCallback<String> {
             myCallBack.onSuccess(json.getString("data"));
         } else {
             String errMsg = json.getString("errMsg");
+            myCallBack.onError(new Throwable(errMsg), false);
             Toast.makeText(MyApplication.getAppContext(), errMsg, Toast.LENGTH_SHORT).show();
         }
     }

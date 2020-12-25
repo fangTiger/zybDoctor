@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ import com.zuojianyou.zybdoctor.base.data.SpData;
 import com.zuojianyou.zybdoctor.utils.HttpCallback;
 import com.zuojianyou.zybdoctor.utils.MyCallBack;
 import com.zuojianyou.zybdoctor.utils.ServerAPI;
+import com.zuojianyou.zybdoctor.utils.ToastUtils;
 
 import org.xutils.common.Callback;
 import org.xutils.http.HttpMethod;
@@ -296,6 +298,7 @@ public class MainFragmentAsk extends Fragment {
     class AskHolder extends RecyclerView.ViewHolder {
 
         TextView tvIndex, tvName, tvAge, tvSex, tvAdd, tvTime, tvCode, tvStateAsk, tvStatePay, tvStateTake;
+        private ImageView assistIv;
 
         public AskHolder(@NonNull View itemView) {
             super(itemView);
@@ -309,10 +312,20 @@ public class MainFragmentAsk extends Fragment {
             tvStateAsk = itemView.findViewById(R.id.state_ask);
             tvStatePay = itemView.findViewById(R.id.state_pay);
             tvStateTake = itemView.findViewById(R.id.state_take);
+            assistIv = itemView.findViewById(R.id.assist_iv);
         }
 
         public void setState(int position) {
             final AskListInfo info = askList.get(position);
+            assistIv.setVisibility(View.VISIBLE);
+            if ("2".equals(info.getRegTyp())) {
+                assistIv.setImageResource(R.mipmap.ic_assist);
+            } else if ("3".equals(info.getRegTyp())) {
+                assistIv.setImageResource(R.mipmap.ic_expert);
+            } else {
+                assistIv.setVisibility(View.GONE);
+            }
+
             tvIndex.setText(String.valueOf(position + 1));
             tvIndex.setBackgroundResource(getIndexColor(info.getSourceObj().getKeyValue()));
             tvName.setText(info.getName());
@@ -333,12 +346,22 @@ public class MainFragmentAsk extends Fragment {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //协助医生
+                    if ("2".equals(info.getRegTyp()) && TextUtils.isEmpty(info.getAccId())) {
+                        if (TextUtils.isEmpty(info.getDiagnoseId())) {
+                            ToastUtils.show(getContext(), "问诊未完成，不能查看");
+                            return;
+                        }
+                    }
+
                     Intent intent = new Intent(getActivity(), PatientInfoActivity.class);
                     intent.putExtra("personid", info.getPersonid());
                     intent.putExtra("mbrId", info.getMbrId());
                     intent.putExtra("regId", info.getRegistrationId());
                     intent.putExtra("fee", info.getFee());
                     intent.putExtra("payState", info.getPayObj().getKeyValue().equals("0") ? false : true);
+                    intent.putExtra("regType", info.getRegTyp());
+                    intent.putExtra("accId", info.getAccId());
 
                     if (info.getDiagnoseId() != null && info.getDiagnoseId().length() > 0)
                         intent.putExtra("diaId", info.getDiagnoseId());

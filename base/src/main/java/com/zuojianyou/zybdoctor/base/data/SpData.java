@@ -56,7 +56,7 @@ public class SpData {
     }
 
     public static String getToken() {
-        String token = get().getString("sp_token", "123456789");
+        String token = get().getString("sp_token", "");
         return token;
     }
 

@@ -1,6 +1,10 @@
 package com.zuojianyou.zybdoctor.rtc;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 
@@ -20,7 +24,10 @@ import com.qiniu.droid.rtc.QNTrackInfo;
 import com.qiniu.droid.rtc.QNTrackKind;
 import com.qiniu.droid.rtc.QNVideoFormat;
 import com.qiniu.droid.rtc.model.QNAudioDevice;
+import com.zuojianyou.zybdoctor.R;
+import com.zuojianyou.zybdoctor.base.BaseApplication;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,10 +55,20 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
 
     private Map<String, List<QNTrackInfo>> mRemoteTrackMap = new LinkedHashMap<>();
 
+    private MediaPlayer mMediaPlayer;
+
     private RTCEngineKit(Context context){
         this.context = context;
         initQNRTCEngine();
         initLocalTrackInfoList();
+        mMediaPlayer = new MediaPlayer();
+        mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                // 开始播放
+                mMediaPlayer.start();
+            }
+        });
     }
 
     public static RTCEngineKit getInstance(Context context) {
@@ -76,7 +93,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
 
         // 1. VideoPreviewFormat 和 VideoEncodeFormat 建议保持一致
         // 2. 如果远端连麦出现回声的现象，可以通过配置 setLowAudioSampleRateEnabled(true) 或者 setAEC3Enabled(true) 后再做进一步测试，并将设备信息反馈给七牛技术支持
-        QNVideoFormat format = new QNVideoFormat(1280, 720, 20);
+        QNVideoFormat format = new QNVideoFormat(1280, 720, 25);
         QNRTCSetting setting = new QNRTCSetting();
         setting.setCameraID(QNRTCSetting.CAMERA_FACING_ID.FRONT)
                 .setHWCodecEnabled(true)
@@ -194,12 +211,35 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
         }
     }
 
+    public void shouldStartRing() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.reset();
+            AssetFileDescriptor afd = context.getResources().openRawResourceFd( R.raw.incoming_call_ring);
+            try {
+                mMediaPlayer.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mMediaPlayer.setLooping(true);
+            mMediaPlayer.prepareAsync();
+        }
+    }
+
+    public void shouldStopRing() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.stop();
+        }
+    }
 
     public void destroy (){
         if (mEngine != null) {
             mEngine.destroy();
         }
         rtcEngineKit = null;
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 
     /**
@@ -209,7 +249,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onRoomStateChanged(QNRoomState state) {
-        Log.i("onRoomStateChanged", "onRoomStateChanged:" + state.name());
+        Log.e(TAG, "onRoomStateChanged:" + state.name());
         switch (state) {
             case IDLE:
 //                if (mIsAdmin) {
@@ -238,6 +278,10 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
 //                logAndToast(getString(R.string.connecting_to, mRoomId));
                 break;
         }
+
+        if (mEventListener != null) {
+            mEventListener.onRoomStateChanged(state);
+        }
     }
 
     /**
@@ -257,6 +301,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onRemoteUserJoined(String remoteUserId, String userData) {
+        Log.e(TAG, "onRemoteUserJoined:" + remoteUserId);
 //        updateRemoteLogText("onRemoteUserJoined:remoteUserId = " + remoteUserId + " ,userData = " + userData);
 //        if (mIsAdmin) {
 //            userJoinedForStreaming(remoteUserId, userData);
@@ -280,6 +325,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onRemoteUserLeft(final String remoteUserId) {
+        Log.e(TAG, "onRemoteUserLeft size:" + mEngine.getUserList().size());
         if (mEngine.getUserList().size() <= 1){
             onKickedOut("");
         }
@@ -297,12 +343,15 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onLocalPublished(List<QNTrackInfo> trackInfoList) {
+
 //        updateRemoteLogText("onLocalPublished");
         mEngine.enableStatistics();
 //        if (mIsAdmin) {
 //            mRoomUsersMergeOption.onTracksPublished(mUserId, mLocalTrackList);
 //            resetMergeStream();
 //        }
+         int size = mEngine.getUserList().size();
+        Log.e(TAG, "onLocalPublished ....size: " + size );
     }
 
     /**
@@ -405,6 +454,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onSubscribed(String remoteUserId, List<QNTrackInfo> trackInfoList) {
+        Log.e(TAG, "onSubscribed......" + remoteUserId);
         mRemoteTrackMap.put(remoteUserId, trackInfoList);
         if (mEventListener != null) {
             mEventListener.onSubscribed(remoteUserId, trackInfoList);
@@ -471,15 +521,15 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onRemoteStatisticsUpdated(List<QNStatisticsReport> reports) {
-        for (QNStatisticsReport report : reports) {
-            int lost = report.trackKind.equals(QNTrackKind.VIDEO) ? report.videoPacketLostRate : report.audioPacketLostRate;
-            Log.i("onRemoteStatisticsUpdated", "remote user " + report.userId
-                    + " rtt " + report.rtt
-                    + " grade " + report.networkGrade
-                    + " track " + report.trackId
-                    + " kind " + (report.trackKind.name())
-                    + " lostRate " + lost);
-        }
+//        for (QNStatisticsReport report : reports) {
+//            int lost = report.trackKind.equals(QNTrackKind.VIDEO) ? report.videoPacketLostRate : report.audioPacketLostRate;
+//            Log.i("remoteStatisticsUpdated", "remote user " + report.userId
+//                    + " rtt " + report.rtt
+//                    + " grade " + report.networkGrade
+//                    + " track " + report.trackId
+//                    + " kind " + (report.trackKind.name())
+//                    + " lostRate " + lost);
+//        }
     }
 
     /**
@@ -520,6 +570,7 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
      */
     @Override
     public void onError(int errorCode, String description) {
+        Log.e(TAG, "onError:" + errorCode + "--" + description);
         /**
          * 关于错误异常的相关处理，都应在该回调中完成; 需要处理的错误码及建议处理逻辑如下:
          *
@@ -633,6 +684,8 @@ public class RTCEngineKit implements QNRTCEngineEventListener {
         void onSubscribed(String remoteUserId, List<QNTrackInfo> trackInfoList);
 
         void onRemoteUnpublished(final String remoteUserId, List<QNTrackInfo> trackInfoList);
+
+        void onRoomStateChanged(QNRoomState state);
 
         void onKickedOut(String userId);
     }

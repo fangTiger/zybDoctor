@@ -113,4 +113,28 @@
         android:text="开始问诊"
         android:textColor="#fff"/>
 
+    <LinearLayout
+        android:id="@+id/expert_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_expert_assistance"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_red_bg"
+            android:text="专家协助"
+            android:textColor="#fff"/>
+        <Button
+            android:id="@+id/btn_expert_consultation"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_red_bg"
+            android:text="专家问诊"
+            android:textColor="#fff"/>
+    </LinearLayout>
+
 </LinearLayout>

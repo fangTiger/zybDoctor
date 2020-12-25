@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.AreaInfo;
 import com.zuojianyou.zybdoctor.beans.OldUserInfo;
+import com.zuojianyou.zybdoctor.rtc.RoomActivity;
 import com.zuojianyou.zybdoctor.utils.HttpCallback;
 import com.zuojianyou.zybdoctor.utils.MyCallBack;
 import com.zuojianyou.zybdoctor.utils.ServerAPI;
@@ -427,6 +428,7 @@ public class RegistrationActivity extends BaseActivity {
                     String mbrId = jsonData.getString("mbrId");
                     String personid = jsonData.getString("personid");
                     Intent intent = new Intent(RegistrationActivity.this, TreatActivity.class);
+                    intent.putExtra(RoomActivity.EXTRA_CALL_TYPE, "1");
                     intent.putExtra("mbrId", mbrId);
                     intent.putExtra("regId", registrationId);
                     intent.putExtra("fee", mUserInfo.getFee());

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/color_22"
+        android:textSize="16dp"
+        android:gravity="center_vertical"
+        android:singleLine="true"/>
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#FFEFF0F7"/>
+</LinearLayout>

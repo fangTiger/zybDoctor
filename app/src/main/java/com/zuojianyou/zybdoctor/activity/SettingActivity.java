@@ -2,6 +2,7 @@ package com.zuojianyou.zybdoctor.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,13 @@ import androidx.annotation.Nullable;
 
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.base.data.SpData;
+import com.zuojianyou.zybdoctor.utils.HttpCallback;
+import com.zuojianyou.zybdoctor.utils.MyCallBack;
 import com.zuojianyou.zybdoctor.utils.ServerAPI;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,6 +92,30 @@ public class SettingActivity extends BaseActivity {
                 view.findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        String url = ServerAPI.BASE_DOMAIN + "/appDoc/common/bindDevice/"+SpData.getPersonId()+"/2/0";
+                        RequestParams entity = new RequestParams(url);
+                        ServerAPI.addHeader(entity);
+                        x.http().get(entity, new HttpCallback(new MyCallBack() {
+                            @Override
+                            public void onSuccess(String data) {
+                            }
+
+                            @Override
+                            public void onError(Throwable ex, boolean isOnCallback) {
+                            }
+
+                            @Override
+                            public void onCancelled(Callback.CancelledException cex) {
+
+                            }
+
+                            @Override
+                            public void onFinished() {
+
+                            }
+                        }));
+
                         popupWindow.dismiss();
                         SpData.clearUser();
                         SpData.clearPwd();

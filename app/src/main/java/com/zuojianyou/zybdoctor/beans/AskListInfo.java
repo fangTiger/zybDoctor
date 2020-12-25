@@ -19,12 +19,30 @@ public class AskListInfo {
     private String diagnoseId;
     private String personimg;
     private double fee;
+    private String regTyp; // 1-主医生  2-协助医生 3-转诊 只有为2才不能修改数据
+    private String accId; // 返回上一次协助/专家 的用户ID
     private DictionaryBean sourceObj;
     private DictionaryBean sexObj;
     private DictionaryBean diagObj;
     private DictionaryBean payObj;
     private DictionaryBean takeMedObj;
     private DictionaryBean birthCountyObj;
+
+    public String getAccId() {
+        return accId;
+    }
+
+    public void setAccId(String accId) {
+        this.accId = accId;
+    }
+
+    public String getRegTyp() {
+        return regTyp;
+    }
+
+    public void setRegTyp(String regTyp) {
+        this.regTyp = regTyp;
+    }
 
     public String getPersonid() {
         return personid;

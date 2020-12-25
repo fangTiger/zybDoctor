@@ -27,4 +27,49 @@ public class TimeUtils {
         sb.append(time.substring(6));
         return sb.toString();
     }
+
+    /**
+     * 秒转时分秒
+     * @param second
+     * @return
+     */
+    public static String getFormatTime(Integer second) {
+
+        if (second != null) {
+            String num0 = NumFormat(0);
+            if(second < 60) {//秒
+                return num0 + ":" + NumFormat(second);
+            }
+
+            if(second < 3600) {//分
+
+                return NumFormat(second / 60) + ":" + NumFormat(second % 60);
+            }
+
+            if(second< 3600 * 24) {//时
+
+                return NumFormat(second/ 60 / 60) + ":" + NumFormat(second/ 60 % 60) + ":" + NumFormat(second% 60);
+            }
+
+            if(second>= 3600 * 24) {//天
+
+                return NumFormat(second/ 60 / 60 /24) + "天" +NumFormat(second/ 60 / 60 % 24) + ":" + NumFormat(second/ 60 % 60) + ":" + NumFormat(second% 60);
+            }
+        }
+
+        return "--";
+    }
+
+    /**
+     * 格式化时间
+     * @param sec
+     * @return
+     */
+    private static String NumFormat(int sec) {
+        if (String.valueOf(sec).length() < 2){
+            return "0"+sec;
+        }else {
+            return String.valueOf(sec);
+        }
+    }
 }

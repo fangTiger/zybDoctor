@@ -12,6 +12,7 @@ import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -22,6 +23,7 @@ import android.widget.FrameLayout;
 
 import androidx.core.app.NotificationCompat;
 
+import com.qiniu.droid.rtc.QNRoomState;
 import com.qiniu.droid.rtc.QNTextureView;
 import com.qiniu.droid.rtc.QNTrackInfo;
 import com.qiniu.droid.rtc.QNTrackKind;
@@ -30,6 +32,8 @@ import com.zuojianyou.zybdoctor.R;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -45,10 +49,35 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
 
     private  RTCEngineKit mEngineKit;
 
-    private Handler handler = new Handler();
     private WindowManager wm;
     private View floatView;
     private WindowManager.LayoutParams params;
+
+    private String mSupportPersonId;
+    private String mSupportMbrId;
+    private String mSupportRegId;
+    private float mSupportFee;
+
+    //呼叫被邀请人信息
+    private String mCallingUserId;
+    private String mCallingUserName;
+    private String mCallingUserImg;
+    private String mCallType;
+
+    //接听邀请人信息
+    private String mInviterUserId;
+    private String mInviterUserName;
+    private String mInviterUserImg;
+    private String mInviterType;
+    private int mDuration;
+    
+    private boolean isTargetAnswered;
+    private boolean isExpertAnswered;
+    private String mInviteExpertId;
+    private String mRegId;
+    
+
+    private Timer mTimer = new Timer();
 
     public FloatingVideoService() {
     }
@@ -65,6 +94,27 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
             return START_NOT_STICKY;
         }
         isStarted = true;
+        if (intent != null) {
+            mDuration = intent.getIntExtra(RoomActivity.EXTRA_CALL_DURATION, 0);
+            mCallingUserId = intent.getStringExtra(RoomActivity.EXTRA_CALLING_USER_ID);
+            mCallingUserName = intent.getStringExtra(RoomActivity.EXTRA_CALLING_USER_NAME);
+            mCallingUserImg = intent.getStringExtra(RoomActivity.EXTRA_CALLING_USER_IMG);
+            mCallType = intent.getStringExtra(RoomActivity.EXTRA_CALL_TYPE);
+            mInviterUserId = intent.getStringExtra(RoomActivity.EXTRA_INVITER_USER_ID);
+            mInviterUserName = intent.getStringExtra(RoomActivity.EXTRA_INVITER_USER_NAME);
+            mInviterUserImg = intent.getStringExtra(RoomActivity.EXTRA_INVITER_USER_IMG);
+            mInviterType = intent.getStringExtra(RoomActivity.EXTRA_INVITER_TYPE);
+
+            mSupportPersonId = intent.getStringExtra(RoomActivity.EXTRA_SUPPORT_PERSON_ID);
+            mSupportMbrId = intent.getStringExtra(RoomActivity.EXTRA_SUPPORT_MBR_ID);
+            mSupportRegId = intent.getStringExtra(RoomActivity.EXTRA_SUPPORT_REG_ID);
+            mSupportFee= intent.getFloatExtra(RoomActivity.EXTRA_SUPPORT_FEE, 0);
+
+            isTargetAnswered = intent.getBooleanExtra(RoomActivity.EXTRA_IS_TARGET_ANSWERED, false);
+            isExpertAnswered = intent.getBooleanExtra(RoomActivity.EXTRA_IS_EXPERT_ANSWERED, false);
+            mInviteExpertId = intent.getStringExtra(RoomActivity.EXTRA_INVITE_EXPERT_ID);
+            mRegId = intent.getStringExtra(RoomActivity.EXTRA_REG_ID);
+        }
 
         mEngineKit = RTCEngineKit.getInstance(getApplicationContext());
         mEngineKit.setEventListener(this);
@@ -73,7 +123,27 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
 //            stopSelf();
 //        }
         resumeActivityIntent = new Intent(this, RoomActivity.class);
-//        resumeActivityIntent.putExtra(CallSingleActivity.EXTRA_FROM_FLOATING_VIEW, true);
+
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_SUPPORT_PERSON_ID, mSupportPersonId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_SUPPORT_MBR_ID, mSupportMbrId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_SUPPORT_REG_ID, mSupportRegId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_SUPPORT_FEE, mSupportFee);
+
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_REG_ID, mRegId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_IS_TARGET_ANSWERED, isTargetAnswered);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_IS_EXPERT_ANSWERED, isExpertAnswered);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_INVITE_EXPERT_ID, mInviteExpertId);
+        
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALL_DURATION, mDuration);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_IS_FORM_FLOATING_WINDOW, true);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALLING_USER_ID, mCallingUserId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALLING_USER_NAME, mCallingUserName);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALLING_USER_IMG, mCallingUserImg);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALL_TYPE, mCallType);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_INVITER_USER_ID, mInviterUserId);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_INVITER_USER_NAME, mInviterUserName);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_INVITER_USER_IMG, mInviterUserImg);
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_INVITER_TYPE, mInviterType);
 //        resumeActivityIntent.putExtra(CallSingleActivity.EXTRA_MO, intent.getBooleanExtra(CallSingleActivity.EXTRA_MO, false));
 //        resumeActivityIntent.putExtra(CallSingleActivity.EXTRA_AUDIO_ONLY, intent.getBooleanExtra(CallSingleActivity.EXTRA_AUDIO_ONLY, false));
 //        resumeActivityIntent.putExtra(CallSingleActivity.EXTRA_TARGET, intent.getStringExtra(CallSingleActivity.EXTRA_TARGET));
@@ -104,18 +174,27 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                mDuration++;
+            }
+        }, 0, 1000);
+
         return START_NOT_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         try {
             wm.removeView(floatView);
         } catch (Exception e) {
             e.printStackTrace();
         }
         isStarted = false;
+        mTimer.cancel();
+        super.onDestroy();
     }
 
     private void showFloatingWindow() {
@@ -186,6 +265,7 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
     };
 
     private void clickToResume() {
+        resumeActivityIntent.putExtra(RoomActivity.EXTRA_CALL_DURATION, mDuration);
         startActivity(resumeActivityIntent);
         stopSelf();
     }
@@ -216,7 +296,7 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) textureView.getLayoutParams();
 
         params.width = width/4;
-        params.height = height/4;
+        params.height = params.width *16 /9;
         textureView.setLayoutParams(params);
 
         Map<String, List<QNTrackInfo>> map = mEngineKit.getRemoteTrackMap();
@@ -230,6 +310,39 @@ public class FloatingVideoService extends Service implements RTCEngineKit.EventL
 
         }
 
+    }
+
+    @Override
+    public void onRoomStateChanged(QNRoomState state) {
+        Log.i("onRoomStateChanged", "onRoomStateChanged:" + state.name());
+        switch (state) {
+            case IDLE:
+//                if (mIsAdmin) {
+//                    userLeftForStreaming(mUserId);
+//                }
+                break;
+            case RECONNECTING:
+//                logAndToast(getString(R.string.reconnecting_to_room));
+//                mControlFragment.stopTimer();
+                break;
+            case CONNECTED:
+//                if (mIsAdmin) {
+//                    userJoinedForStreaming(mUserId, "");
+//                }
+                // 加入房间后可以进行 tracks 的发布
+//                mEngine.publishTracks(mLocalTrackList);
+//                logAndToast(getString(R.string.connected_to_room));
+//                mIsJoinedRoom = true;
+//                mControlFragment.startTimer();
+                break;
+            case RECONNECTED:
+//                logAndToast(getString(R.string.connected_to_room));
+//                mControlFragment.startTimer();
+                break;
+            case CONNECTING:
+//                logAndToast(getString(R.string.connecting_to, mRoomId));
+                break;
+        }
     }
 
     @Override

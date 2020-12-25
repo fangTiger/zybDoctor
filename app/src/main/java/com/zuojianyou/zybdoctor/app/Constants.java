@@ -9,4 +9,7 @@ public class Constants {
 //    public static final String FILL_DOMAIN = "http://62.234.109.94:8189/img";
 
     public static final String BASE_DOMAIN = "https://www.yimall1688.com";
+
+
+    public static final int VIDEO_CALL_MESSAGE_ACTION = 0x901;
 }

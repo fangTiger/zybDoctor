@@ -1,6 +1,9 @@
 package com.zuojianyou.zybdoctor.beans.treat;
 
-public class Report {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Report implements Parcelable {
 
     private String typ;//* 1-实验室检测 2-影像检测 3-望诊
     private String isNorm;//* 1-指标 2-图片
@@ -8,6 +11,11 @@ public class Report {
     private String position;//仅用于图片 静态数据中dataValue值
     private String positionName;//仅用于图片 静态数据中dataName值
     private String url;//用户与实验室检测、影像检测、望诊的图片相对路径
+
+    public Report() {
+    }
+
+
 
     public String getTyp() {
         return typ;
@@ -56,4 +64,40 @@ public class Report {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    protected Report(Parcel in) {
+        typ = in.readString();
+        isNorm = in.readString();
+        normVal = in.readString();
+        position = in.readString();
+        positionName = in.readString();
+        url = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(typ);
+        dest.writeString(isNorm);
+        dest.writeString(normVal);
+        dest.writeString(position);
+        dest.writeString(positionName);
+        dest.writeString(url);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Report> CREATOR = new Creator<Report>() {
+        @Override
+        public Report createFromParcel(Parcel in) {
+            return new Report(in);
+        }
+
+        @Override
+        public Report[] newArray(int size) {
+            return new Report[size];
+        }
+    };
 }

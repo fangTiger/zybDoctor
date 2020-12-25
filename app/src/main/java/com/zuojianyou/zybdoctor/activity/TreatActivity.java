@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -132,6 +133,10 @@ public class TreatActivity extends BaseActivity implements View.OnClickListener 
     public static final int MED_RES_PER = 401;//个人
 
     public static final String ACTION_TREAT_BACK = "action_treat_back";//
+    private String mCallType;
+    private String mExpertId;
+    private String mExpertName;
+    private String mExpertImg;
 
     String ebmSickInfo = null;
     String personid, mbrId, regId, diaId, sickId, repiceId;
@@ -482,8 +487,6 @@ public class TreatActivity extends BaseActivity implements View.OnClickListener 
         }
         httpGetAuthInfo();
 
-
-
         GestureDetector gestureDetector = new GestureDetector(TreatActivity.this, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
@@ -503,6 +506,23 @@ public class TreatActivity extends BaseActivity implements View.OnClickListener 
                 return true;
             }
         });
+
+        mCallType = getIntent().getStringExtra(RoomActivity.EXTRA_CALL_TYPE);
+        mExpertId = getIntent().getStringExtra(RoomActivity.EXTRA_CALLING_USER_ID);
+        mExpertName = getIntent().getStringExtra(RoomActivity.EXTRA_CALLING_USER_NAME);
+        mExpertImg = getIntent().getStringExtra(RoomActivity.EXTRA_CALLING_USER_IMG);
+        if ("2".equals(mCallType) || "3".equals(mCallType)) {
+            calling();
+        }
+
+        List<Report> list = getIntent().getParcelableArrayListExtra("reportList");
+        if (list != null) {
+            if (reportList == null) reportList = new ArrayList<>();
+            reportList.addAll(list);
+            for (Report report : reportList) {
+                addImageToContent("3", report.getPositionName(), report.getUrl());
+            }
+        }
     }
 
     private String mTempPhotoPath;
@@ -871,20 +891,39 @@ public class TreatActivity extends BaseActivity implements View.OnClickListener 
         addText(tvAddDetail, addDetail);
         ImageView ivPhoto = findViewById(R.id.iv_treat_mbr_photo);
         Glide.with(getContext()).load(ServerAPI.FILL_DOMAIN + mbrInfo.getPersonimg()).into(ivPhoto);
-
-        findViewById(R.id.btn_act_treat_chat).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calling();
-            }
-        });
+        Button actTreatChat = findViewById(R.id.btn_act_treat_chat);
+        if (TextUtils.isEmpty(personid)) {
+            actTreatChat.setVisibility(View.GONE);
+        } else {
+             actTreatChat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mCallType = "1";
+                    calling();
+                }
+            });
+        }
     }
 
     /**
      * 呼叫
      */
     private void calling(){
-        startActivity(new Intent(getApplicationContext(), RoomActivity.class));
+        Intent intent = new Intent(getApplicationContext(), RoomActivity.class);
+        intent.putExtra(RoomActivity.EXTRA_CALL_TYPE,mCallType);
+        intent.putExtra(RoomActivity.EXTRA_REG_ID,regId);
+        if ("1".equals(mCallType)) {
+            intent.putExtra(RoomActivity.EXTRA_CALLING_USER_ID,personid);
+            if (mMbrInfo != null) {
+                intent.putExtra(RoomActivity.EXTRA_CALLING_USER_NAME,mMbrInfo.getName());
+                intent.putExtra(RoomActivity.EXTRA_CALLING_USER_IMG,mMbrInfo.getPersonimg());
+            }
+        } else {
+            intent.putExtra(RoomActivity.EXTRA_CALLING_USER_ID,mExpertId);
+            intent.putExtra(RoomActivity.EXTRA_CALLING_USER_NAME,mExpertName);
+            intent.putExtra(RoomActivity.EXTRA_CALLING_USER_IMG,mExpertImg);
+        }
+        startActivity(intent);
 //        int userState = SocketManager.getInstance().getUserState();
 //        if (userState == 1) {
 //            CallSingleActivity.openActivity(TreatActivity.this, personid, mMbrInfo != null?mMbrInfo.getName():"",mMbrInfo != null?(ServerAPI.FILL_DOMAIN +mMbrInfo.getPersonimg()):"",true, false);

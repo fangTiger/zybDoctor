@@ -20,7 +20,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.alibaba.fastjson.JSONObject;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 import com.zuojianyou.zybdoctor.R;
+import com.zuojianyou.zybdoctor.application.MyApplication;
 import com.zuojianyou.zybdoctor.base.data.SpData;
 import com.zuojianyou.zybdoctor.utils.HttpCallback;
 import com.zuojianyou.zybdoctor.utils.MyCallBack;
@@ -236,6 +239,8 @@ public class UserLoginActivity extends BaseActivity {
                     SpData.setMbrId(jsonData.getString("doctorId"));
                     SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
+                    pushBindDevice();
+
                     httpGetMineInfo();
                 } else {
                     String errMsg = json.getString("errMsg");
@@ -295,6 +300,7 @@ public class UserLoginActivity extends BaseActivity {
                     SpData.setMbrId(jsonData.getString("doctorId"));
                     SpData.setPersonId(jsonData.getString("personid"));
                     SpData.setAuthFlag(jsonData.getString("authFlag"));
+                    pushBindDevice();
                     httpGetMineInfo();
                 } else {
                     String errMsg = json.getString("errMsg");
@@ -319,6 +325,35 @@ public class UserLoginActivity extends BaseActivity {
                 btnConfirm.setEnabled(true);
             }
         });
+    }
+
+    private void pushBindDevice() {
+        String deviceToken = MyApplication.getInstance().getDeviceToken();
+        if (!TextUtils.isEmpty(deviceToken)) {
+            String url = ServerAPI.BASE_DOMAIN + "/appDoc/common/bindDevice/"+SpData.getPersonId()+"/1/" + deviceToken;
+            RequestParams entity = new RequestParams(url);
+            ServerAPI.addHeader(entity);
+            x.http().get(entity, new HttpCallback(new MyCallBack() {
+                @Override
+                public void onSuccess(String data) {
+                    Log.e("zyb", "bindDevice" + data);
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                }
+
+                @Override
+                public void onCancelled(Callback.CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            }));
+        }
     }
 
     public void httpGetMineInfo() {

@@ -10,7 +10,16 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
+import java.io.File;
+
 public class FileUtils {
+
+    public static boolean deleteFile(File f) {
+        if (f != null && f.exists() && !f.isDirectory()) {
+            return f.delete();
+        }
+        return false;
+    }
 
     /**
      * 根据URI获取文件真实路径（兼容多张机型）

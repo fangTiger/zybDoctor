@@ -39,4 +39,8 @@
 
     <color name="color_btn_white_normal">#FFFFFF</color>
     <color name="color_btn_white_pressed">#EFEFEF</color>
+
+    <color name="color_e5">#E5E5E5</color>
+
+    <color name="color_22">#222222</color>
 </resources>

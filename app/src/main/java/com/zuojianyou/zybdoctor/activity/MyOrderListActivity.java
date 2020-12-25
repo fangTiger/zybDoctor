@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.zuojianyou.zybdoctor.R;
 import com.zuojianyou.zybdoctor.beans.OrderListInfo;
+import com.zuojianyou.zybdoctor.rtc.RoomActivity;
 import com.zuojianyou.zybdoctor.utils.ServerAPI;
 import com.zuojianyou.zybdoctor.views.TextInput;
 
@@ -326,6 +327,7 @@ public class MyOrderListActivity extends BaseListActivity {
         public void onClick(View v) {
             int position = (Integer) v.getTag();
             Intent intent = new Intent(getContext(), TreatActivity.class);
+            intent.putExtra(RoomActivity.EXTRA_CALL_TYPE, "1");
             OrderListInfo order = (OrderListInfo) baseListObject.list.get(position);
             intent.putExtra("diaId", order.getDiagnoseId());
             boolean payState = !order.getDiagFlagObj().getKeyValue().equals("2");
